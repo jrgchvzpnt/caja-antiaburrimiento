@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Página no encontrada · Caja Antiaburrimiento</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/caja-antiaburrimiento/favicon.ico" sizes="48x48">
+<link rel="icon" href="/caja-antiaburrimiento/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#13294b">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Nunito:wght@700;900&display=swap">
+<style>
+:root{--bg:#13294b;--ink:#fff7ea;--muted:#b9c6e4;--coral:#ff5f7e;--butter:#ffd84d;--dark:#1a1530;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;display:grid;place-items:center;text-align:center;padding:24px max(16px,env(safe-area-inset-left,0px))}
+main{display:flex;flex-direction:column;align-items:center;gap:18px;max-width:34rem}
+.num{font-family:"Bagel Fat One","Arial Rounded MT Bold",sans-serif;font-size:clamp(5rem,22vw,9rem);line-height:1;display:flex;gap:6px}
+.num span{display:inline-block;animation:bob 2.4s ease-in-out infinite}
+.num span:nth-child(1){color:var(--coral)}.num span:nth-child(2){color:var(--butter);animation-delay:.2s}.num span:nth-child(3){color:#48e0b0;animation-delay:.4s}
+h1{font-family:"Bagel Fat One","Arial Rounded MT Bold",sans-serif;font-weight:400;font-size:clamp(1.6rem,6vw,2.4rem);margin:0;text-wrap:balance}
+p{color:var(--muted);margin:0;font-size:1.05rem}
+.row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+a.btn{display:inline-block;border-radius:999px;padding:13px 24px;font-weight:900;text-decoration:none;box-shadow:0 6px 0 rgba(0,0,0,.3)}
+a.btn:focus-visible{outline:3px solid var(--butter);outline-offset:3px}
+.a{background:var(--coral);color:#fff}.b{background:var(--ink);color:var(--dark)}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(-4deg)}}
+@media (prefers-reduced-motion:reduce){.num span{animation:none}}
+</style>
+</head>
+<body>
+<main>
+  <div class="num" aria-hidden="true"><span>4</span><span>0</span><span>4</span></div>
+  <h1>Esta página se escapó de la caja.</h1>
+  <p>No existe o la movimos. Mejor vuelve al inicio, o ve directo a los juegos.</p>
+  <div class="row">
+    <a class="btn a" href="/caja-antiaburrimiento/jugar/">Ir a los juegos</a>
+    <a class="btn b" href="/caja-antiaburrimiento/">Volver al inicio</a>
+  </div>
+</main>
+</body>
+</html>
