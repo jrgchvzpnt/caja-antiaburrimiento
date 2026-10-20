@@ -1,6 +1,6 @@
 # Caja Antiaburrimiento
 
-Landing page y versión web de **Caja Antiaburrimiento**, una app para Android con 21 juguetes animados para cuando estás aburrido. Cada uno muestra su objetivo y cómo se juega: pop-it, pintar con fuegos, torre de bloques, reto real, la bola que decide, Simón dice, parejas, reflejos de rayo, piano de colores, golpea al topo, serpiente, tres en raya, salva los globos, vuelo del pájaro, rompe ladrillos, 2048, ojo de lince, cálculo veloz, piedra papel o tijera, colores locos y esquiva meteoritos.
+Landing page y versión web de **Caja Antiaburrimiento**, una app para Android con 21 juguetes animados para cuando estás aburrido. Cada uno muestra su objetivo y cómo se juega, y tiene tres niveles (Novato, Medio y Experto): pop-it, pintar con fuegos, torre de bloques, reto real, la bola que decide, Simón dice, parejas, reflejos de rayo, piano de colores, golpea al topo, serpiente, tres en raya, salva los globos, vuelo del pájaro, rompe ladrillos, 2048, ojo de lince, cálculo veloz, piedra papel o tijera, colores locos y esquiva meteoritos.
 
 - Sitio: https://jrgchvzpnt.github.io/caja-antiaburrimiento/
 - Jugar en el navegador: https://jrgchvzpnt.github.io/caja-antiaburrimiento/jugar/
