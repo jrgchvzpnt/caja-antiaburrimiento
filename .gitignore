@@ -1,0 +1,23 @@
+# Claves de firma y secretos: nunca deben subirse a este repositorio público
+*.keystore
+*.jks
+*.p12
+*.pem
+*.key
+.env
+.env.*
+keystore.properties
+local.properties
+
+# Archivos compilados (el APK se publica en Releases, no en el código)
+*.apk
+*.aab
+build/
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
