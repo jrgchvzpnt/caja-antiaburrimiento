@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <!-- seguridad:inicio -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-/gX2jVR9dUnZWfrbbVURJSAxRi5zFGxN/WNBwraoiQg='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-yiqeZ0NFDcjCHFmGkMTk9C3lZboC3Nd/TV7BI6mNWtA='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <script src="js/guard.js"></script>
 <link rel="stylesheet" href="fonts/fonts.css">
 <!-- seguridad:fin -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Caja Antiaburrimiento: 55 juegos animados para Android, incluidos 5 retro, con objetivo, reglas claras y 3 niveles de dificultad. Pop-it, vuelo del pájaro, rompe ladrillos, 2048, serpiente, Simón, piano y más.">
+<meta name="description" content="Caja Antiaburrimiento: 63 juegos animados para teléfonos y tablets Android: Arena contra la caja, retro de neón y más, con 3 niveles de dificultad. Pop-it, vuelo del pájaro, rompe ladrillos, 2048, serpiente, Simón, piano y más.">
 <title>Caja Antiaburrimiento para Android</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="canonical" href="https://jrgchvzpnt.github.io/caja-antiaburrimiento/">
@@ -21,8 +21,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Caja Antiaburrimiento">
-<meta property="og:title" content="Caja Antiaburrimiento: 55 juegos contra el aburrimiento">
-<meta property="og:description" content="Pop-it, sudoku, buscaminas, blackjack, corta frutas, serpiente, Simón y más: 55 juegos gratis para Android y el navegador, con una pestaña retro.">
+<meta property="og:title" content="Caja Antiaburrimiento: 63 juegos contra el aburrimiento">
+<meta property="og:description" content="Pop-it, sudoku, buscaminas, blackjack, corta frutas, serpiente, Simón y más: 63 juegos gratis para Android (teléfono y tablet) y el navegador.">
 <meta property="og:url" content="https://jrgchvzpnt.github.io/caja-antiaburrimiento/">
 <meta property="og:image" content="https://jrgchvzpnt.github.io/caja-antiaburrimiento/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -30,7 +30,7 @@
 <meta property="og:image:alt" content="Caja Antiaburrimiento con el gran botón rojo de ¡Sorpresa!">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-/* Layout: héroe con móvil jugable a la derecha → franja de 55 juegos → tres razones → pasos de instalación → pie. Tema único: patio de noche, igual que la app. */
+/* Layout: héroe con móvil jugable a la derecha → franja de 63 juegos → tres razones → pasos de instalación → pie. Tema único: patio de noche, igual que la app. */
 :root{
   --bg:#13294b; --bg-2:#1b3866; --line:#2c4d85;
   --ink:#fff7ea; --muted:#b9c6e4; --dark:#1a1530;
@@ -92,6 +92,17 @@ nav .links a:hover{color:var(--ink)}
 .toy strong{font-family:var(--display);font-weight:400;font-size:1.2rem;line-height:1.1}
 .toy span{font-size:.88rem;font-weight:700;opacity:.82}
 .toy small{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;font-weight:900;opacity:.6}
+.toy[hidden]{display:none}
+.lfilters{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 14px;scrollbar-width:none}
+.lfilters::-webkit-scrollbar{display:none}
+.lfilters button{flex:none;border:2px solid var(--line);background:var(--bg);color:var(--muted);border-radius:999px;padding:8px 14px;font:900 .9rem var(--body);cursor:pointer;white-space:nowrap}
+.lfilters button small{opacity:.7;font-weight:700}
+.lfilters button[aria-pressed="true"]{background:var(--ink);color:var(--dark);border-color:var(--ink)}
+.lfilters button[data-c="Arena"][aria-pressed="true"]{background:linear-gradient(90deg,#2de2ff,#ff3ea5);border-color:transparent}
+.lfilters button:focus-visible{outline:3px solid var(--butter);outline-offset:2px}
+.lmore{display:flex;justify-content:center;margin-top:22px}
+.lmore [hidden]{display:none}
+@media (max-width:520px){.toys{grid-template-columns:1fr 1fr;gap:10px}.toy{padding:12px;border-radius:16px}.toy strong{font-size:1rem}.toy span{display:none}.toy .goal{font-size:.74rem;padding:5px 7px}}
 .toy .goal{font-size:.82rem;font-weight:900;background:rgba(26,21,48,.12);border-radius:10px;padding:6px 9px;margin-top:6px;line-height:1.3}
 .toy em{font-style:normal;margin-top:6px;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;font-weight:900;opacity:.65}
 
@@ -140,12 +151,12 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:.9rem;border-top:2px
     <div>
       <div class="eyebrow">App gratis para Android</div>
       <h1><span class="w">Aburrirse</span> <span class="w c1">ya</span> <span class="w">no</span> <span class="w c2">existe.</span></h1>
-      <p class="lead">Cincuenta y cinco juegos animados en el bolsillo. Juega a clásicos retro con look neón: plataformas, carreras en 3D, corta fruta, resuelve sudokus, gana a la caja al blackjack o relájate respirando. Y si no sabes qué elegir, el botón rojo decide.</p>
+      <p class="lead">Sesenta y tres juegos animados en el bolsillo. Compite en la Arena contra rivales de la caja, juega a clásicos retro de neón, corta fruta, resuelve sudokus, gana a la caja al blackjack o relájate respirando. Y si no sabes qué elegir, el botón rojo decide.</p>
       <div class="cta">
         <a class="btn primary" href="#instalar">Instalar en Android</a>
         <a class="btn ghost" href="https://jrgchvzpnt.github.io/caja-antiaburrimiento/jugar/">Probar en el navegador</a>
       </div>
-      <div class="meta"><span><b>55</b> juegos</span><span><b>5</b> retro</span><span><b>3</b> niveles</span><span><b>0</b> anuncios</span><span><b>0</b> registros</span><span>Android <b>8.0</b> o superior</span></div>
+      <div class="meta"><span><b>63</b> juegos</span><span><b>8</b> de arena</span><span><b>3</b> niveles</span><span><b>0</b> anuncios</span><span><b>0</b> registros</span><span>Teléfono y tablet · Android <b>8.0</b>+</span></div>
     </div>
     <div class="phone" aria-label="Vista de la app: prueba el pop-it">
       <div class="screen">
@@ -165,10 +176,12 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:.9rem;border-top:2px
 
 <section class="band toys-band" id="juguetes"><div class="in">
   <div class="sec-head">
-    <div><div class="eyebrow">Lo que hay en la caja</div><h2>Cincuenta y cinco juegos, reglas en diez segundos.</h2></div>
+    <div><div class="eyebrow">Lo que hay en la caja</div><h2>Sesenta y tres juegos, reglas en diez segundos.</h2></div>
     <p>Cada juego te dice su objetivo y cómo se juega, y tiene tres niveles: Novato, Medio y Experto. Dura lo que tú quieras: desde diez segundos hasta toda la tarde.</p>
   </div>
+  <div class="lfilters" id="lfilters" role="toolbar" aria-label="Filtrar juegos"></div>
   <div class="toys" id="toys"></div>
+  <div class="lmore"><button class="btn ghost" id="lmore" type="button">Ver los 63 juegos</button></div>
 </div></section>
 
 <section class="band"><div class="in why">
@@ -181,13 +194,13 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:.9rem;border-top:2px
   <div>
     <div class="eyebrow" style="color:var(--coral)">Instalar en Android</div>
     <h2>Lista en cuatro pasos.</h2>
-    <p>La app se instala desde el archivo <code>CajaAntiaburrimiento.apk</code> (<span id="apk-size">233 KB</span>). No está en Google Play, por eso Android te pedirá permiso la primera vez.</p>
-    <p style="margin-top:22px"><a class="btn primary" href="https://github.com/jrgchvzpnt/caja-antiaburrimiento/releases/latest/download/CajaAntiaburrimiento.apk">Descargar APK · v1.6</a></p>
-    <p style="font-size:.82rem;margin-top:10px">Huella SHA-256 para comprobar que el archivo no fue alterado:<br><code id="apk-sha" style="font-size:.74rem;word-break:break-all">d6ecadd0048c8571aaaab15f695d62276e4aa0e16b3facadec39fe1cb90d56f0</code></p>
+    <p>La app se instala desde el archivo <code>CajaAntiaburrimiento.apk</code> (<span id="apk-size">261 KB</span>). No está en Google Play, por eso Android te pedirá permiso la primera vez.</p>
+    <p style="margin-top:22px"><a class="btn primary" href="https://github.com/jrgchvzpnt/caja-antiaburrimiento/releases/latest/download/CajaAntiaburrimiento.apk">Descargar APK · v1.7</a></p>
+    <p style="font-size:.82rem;margin-top:10px">Huella SHA-256 para comprobar que el archivo no fue alterado:<br><code id="apk-sha" style="font-size:.74rem;word-break:break-all">fc0afac03d0e822070630f87680e8229e3d6eb8e89cf2d9f24f4542199ea0dc8</code></p>
     <p style="font-size:.9rem">Android 8.0 o superior. ¿Sin Android? <a href="https://jrgchvzpnt.github.io/caja-antiaburrimiento/jugar/">Juega en el navegador</a>.</p>
   </div>
   <ol class="steps">
-    <li><div><b>Descarga el APK en el teléfono</b><span>Abre esta página en tu Android y toca «Descargar APK». También puedes pasarlo por cable USB.</span></div></li>
+    <li><div><b>Descarga el APK en el teléfono o la tablet</b><span>Abre esta página en tu Android y toca «Descargar APK». También puedes pasarlo por cable USB.</span></div></li>
     <li><div><b>Ábrelo desde Archivos</b><span>Busca el archivo en Descargas y tócalo.</span></div></li>
     <li><div><b>Permite «fuentes desconocidas»</b><span>Android te lo pedirá solo para esta app. Acepta y vuelve atrás.</span></div></li>
     <li><div><b>Toca «Instalar» y a jugar</b><span>Aparecerá el icono del botón rojo en tu pantalla de inicio.</span></div></li>
@@ -195,13 +208,21 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:.9rem;border-top:2px
 </div></div></section>
 
 <footer class="band"><div class="in" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;width:100%">
-  <span>Caja Antiaburrimiento · versión 1.6 · <a href="https://github.com/jrgchvzpnt/caja-antiaburrimiento">Código en GitHub</a></span><span>Hecha para los días largos y las tardes lentas.</span>
+  <span>Caja Antiaburrimiento · versión 1.7 · <a href="https://github.com/jrgchvzpnt/caja-antiaburrimiento">Código en GitHub</a></span><span>Hecha para los días largos y las tardes lentas.</span>
 </div></footer>
 
 <script>
 (() => {
 const COLORS=['#ff8a3d','#ffd84d','#ff5f7e','#48e0b0','#a98bff'];
 const TOYS=[
+  ['Célula glotona','Come células más pequeñas y huye de las grandes.','Sé la más grande cuando se cierre la zona.','2 min · arena','var(--mint)','Arena'],
+  ['Serpiente de luz','Serpiente de neón contra serpientes de la caja.','Consigue la serpiente más larga.','3 min · arena','var(--coral)','Arena'],
+  ['¿Qué estoy dibujando?','La caja dibuja trazo a trazo.','Adivina el dibujo antes que nadie.','2 min · arena','var(--butter)','Arena'],
+  ['Cartas locas','Cartas de colores contra 3 rivales.','Quédate sin cartas primero.','5 min · arena','var(--lime)','Arena'],
+  ['Dados de la suerte','Cinco dados, tres tiradas, trece jugadas.','Suma más puntos que la caja.','8 min · arena','var(--tangerine)','Arena'],
+  ['Torres del reino','Defensa de torres con oleadas y jefes.','Que ningún enemigo llegue al reino.','8 min · arena','var(--lilac)','Arena'],
+  ['Minero estelar','Asteroides, cristales, piratas y mejoras.','Supera todas las oleadas posibles.','5 min · arena','var(--mint)','Arena'],
+  ['Mini duelos','Seis minijuegos de un solo botón.','Gana 3 rondas antes que la caja.','3 min · arena','var(--coral)','Arena'],
   ['Saltarín','Plataformas de neón con monedas, bichos y pinchos.','Llega al portal de cada nivel.','3 min · retro','var(--lime)','Retro'],
   ['Carrera neón','Carretera en 3D con curvas y turbo.','Recorre la mayor distancia sin chocar.','2 min · retro','var(--coral)','Retro'],
   ['Invasores','Arrastra la nave: dispara sola mientras tocas.','Derriba todas las oleadas.','3 min · retro','var(--lilac)','Retro'],
@@ -258,7 +279,17 @@ const TOYS=[
   ['Jardín zen','Flores que crecen al tocar.','Ten 15 flores vivas a la vez.','libre · calma','var(--butter)','Relajarse'],
   ['Caleidoscopio','Dibujos que se repiten en espejo.','Crea figuras simétricas.','libre · crea','var(--lilac)','Relajarse'],
 ];
-document.getElementById('toys').innerHTML=TOYS.map(([n,d,g,t,c,k])=>`<div class="toy" style="background:${c}"><small>${k}</small><strong>${n}</strong><span>${d}</span><b class="goal">Objetivo: ${g}</b><em>${t}</em></div>`).join('');
+document.getElementById('toys').innerHTML=TOYS.map(([n,d,g,t,c,k])=>`<div class="toy" data-cat="${k}" style="background:${c}"><small>${k}</small><strong>${n}</strong><span>${d}</span><b class="goal">Objetivo: ${g}</b><em>${t}</em></div>`).join('');
+const LCATS=['Todos','Arena','Retro','Reflejos','Mente','Saber','Relajarse','Para reír'];
+const lf=document.getElementById('lfilters'), more=document.getElementById('lmore'), cards=[...document.querySelectorAll('#toys .toy')];
+let lcat='Todos', expanded=false;
+function lrender(){ const list=cards.filter(c=>lcat==='Todos'||c.dataset.cat===lcat); const limit=lcat==='Todos'&&!expanded?12:Infinity;
+  cards.forEach(c=>c.hidden=true); list.forEach((c,i)=>c.hidden=i>=limit); more.hidden=list.length<=limit; more.textContent=`Ver los ${list.length} juegos`;
+  lf.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===lcat)); }
+lf.innerHTML=LCATS.map(c=>`<button type="button" data-c="${c}">${c} <small>${c==='Todos'?cards.length:cards.filter(x=>x.dataset.cat===c).length}</small></button>`).join('');
+lf.addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b) return; lcat=b.dataset.c; expanded=false; lrender(); });
+more.addEventListener('click',()=>{ expanded=true; lrender(); });
+lrender();
 
 /* pop-it de muestra */
 let ac=null, popped=0;
