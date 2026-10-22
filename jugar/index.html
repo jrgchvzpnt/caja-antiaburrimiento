@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- seguridad:inicio -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-3jultu1rmpL+wj7BktKN+26HSdcjLSborZUW1mxzG3c='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MJUSK8PqBJp+4cJ9+gbT2sPHjpt9MbaHhERf+nA6j3o='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <script src="../js/guard.js"></script>
 <link rel="stylesheet" href="../fonts/fonts.css">
@@ -369,7 +369,7 @@ html[data-device="tablet"] .rbtn.a{width:92px;height:92px}
     <h1 class="logo" id="logo" aria-label="Caja Antiaburrimiento"></h1>
     <div class="hud">
       <div class="chip">Aburrimientos vencidos: <b id="wins">0</b></div>
-      <button class="iconbtn" id="mute" aria-pressed="false">Sonido: sí</button>
+      <button class="iconbtn" id="mute" aria-pressed="false">Volumen: alto</button>
     </div>
   </header>
 
@@ -435,21 +435,49 @@ $('#logo').innerHTML = [...logoText].map((ch,i)=>
   ch===' ' ? '<span style="width:.35em"></span>' :
   `<span aria-hidden="true" style="color:${COLORS[i%5]};animation-delay:${i*0.08}s">${ch}</span>`).join('');
 
-/* ---------- sonido ---------- */
-let ac = null, muted = store.get('muted', false);
+/* ---------- sonido: una salida común para toda la app, más fuerte, con cuerpo y sin distorsión ---------- */
+let ac = null, BUS = null;
+const VOLS = [['alto',1],['medio',.55],['bajo',.25],['no',0]];
+let volName = store.get('vol', store.get('muted', false) ? 'no' : 'alto');
+if (!VOLS.some(v=>v[0]===volName)) volName = 'alto';
+let muted = volName === 'no';
 const muteBtn = $('#mute');
-function syncMute(){ muteBtn.textContent = 'Sonido: ' + (muted?'no':'sí'); muteBtn.setAttribute('aria-pressed', muted); }
+const volOf = () => VOLS.find(v=>v[0]===volName)[1];
+function impulse(a, sec, decay){ const n=Math.floor(a.sampleRate*sec), b=a.createBuffer(2,n,a.sampleRate);
+  for(let c=0;c<2;c++){ const d=b.getChannelData(c); for(let i=0;i<n;i++) d[i]=(Math.random()*2-1)*Math.pow(1-i/n,decay); } return b; }
+function bus(a){
+  if (BUS && BUS.ctx === a) return BUS.input;
+  const input = a.createGain(); input.gain.value = 3.5;                         // +11 dB: todo suena unas 3,5 veces más fuerte
+  const warm = a.createBiquadFilter(); warm.type='lowshelf'; warm.frequency.value=200; warm.gain.value=5;    // más cuerpo
+  const soft = a.createBiquadFilter(); soft.type='highshelf'; soft.frequency.value=6500; soft.gain.value=-4; // menos chillón
+  const rev = a.createConvolver(); rev.buffer = impulse(a, 1.3, 2.8); const wet = a.createGain(); wet.gain.value = .14;  // sala pequeña
+  // saturador suave (tanh): sube el volumen sin pasar nunca del máximo, así no hay distorsión dura
+  const curve = new Float32Array(2048); for (let i=0;i<2048;i++){ const x=i/2047*2-1; curve[i]=Math.tanh(x*1.4)/Math.tanh(1.4); }
+  const sat = a.createWaveShaper(); sat.curve = curve; sat.oversample = '2x';
+  const mix = a.createGain(), out = a.createGain(); out.gain.value = volOf();
+  input.connect(warm).connect(soft); soft.connect(mix); soft.connect(rev).connect(wet).connect(mix);
+  mix.connect(out).connect(sat).connect(a.destination);
+  BUS = {ctx:a, input, out}; return input; }
+function syncMute(){ muteBtn.textContent = 'Volumen: ' + volName; muteBtn.setAttribute('aria-pressed', muted); muteBtn.setAttribute('aria-label', 'Volumen ' + volName + '. Toca para cambiarlo'); }
 syncMute();
-muteBtn.onclick = () => { muted = !muted; store.set('muted', muted); syncMute(); };
+muteBtn.onclick = () => { const i=VOLS.findIndex(v=>v[0]===volName); volName=VOLS[(i+1)%VOLS.length][0]; muted = volName==='no';
+  store.set('vol', volName); store.set('muted', muted); if (BUS) BUS.out.gain.setTargetAtTime(volOf(), BUS.ctx.currentTime, .03); syncMute();
+  if (!muted) tone(660, .15, 'triangle', .25); };
 function tone(freq=440, dur=.12, type='sine', vol=.18, slide=0){
   if (muted) return;
+  vol = Math.min(.42, vol*1.5);   // los efectos cortos eran los más flojos
   try{
-    ac = ac || new (window.AudioContext||window.webkitAudioContext)();
+    ac = ac || new (window.AudioContext||window.webkitAudioContext)(); if (ac.state==='suspended') ac.resume();
     const o = ac.createOscillator(), g = ac.createGain(), t = ac.currentTime;
     o.type = type; o.frequency.setValueAtTime(freq, t);
     if (slide) o.frequency.exponentialRampToValueAtTime(Math.max(40,freq*slide), t+dur);
-    g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(.001, t+dur);
-    o.connect(g).connect(ac.destination); o.start(t); o.stop(t+dur+.02);
+    g.gain.setValueAtTime(.0001, t); g.gain.linearRampToValueAtTime(vol, t+.004); g.gain.exponentialRampToValueAtTime(.001, t+dur);  // sin chasquido al empezar
+    o.connect(g);
+    if (type==='square' || type==='sawtooth'){ const lp=ac.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=4200; g.connect(lp).connect(bus(ac)); }
+    else g.connect(bus(ac));
+    if (type==='sine' || type==='triangle'){ const o2=ac.createOscillator(), g2=ac.createGain(); o2.type='sine'; o2.frequency.setValueAtTime(freq*2,t); if(slide) o2.frequency.exponentialRampToValueAtTime(Math.max(80,freq*2*slide),t+dur);
+      g2.gain.setValueAtTime(.0001,t); g2.gain.linearRampToValueAtTime(vol*.18,t+.004); g2.gain.exponentialRampToValueAtTime(.001,t+dur*.7); o2.connect(g2).connect(bus(ac)); o2.start(t); o2.stop(t+dur+.02); }  // un armónico suave da más presencia
+    o.start(t); o.stop(t+dur+.02);
   }catch(e){}
 }
 const popSound = () => tone(rand(500,900), .09, 'triangle', .22, .4);
@@ -3360,7 +3388,7 @@ const mfreq=m=>440*Math.pow(2,(m-69)/12), noteFreq=n=>mfreq(midiOf(n));
 const isBlack=m=>[1,3,6,8,10].includes(m%12);
 let MASTER=null, NOISE=null;
 function audioCtx(){ if(muted) return null; try{ ac=ac||new (window.AudioContext||window.webkitAudioContext)(); if(ac.state==='suspended') ac.resume(); return ac; }catch(e){ return null; } }
-function mout(a){ if(MASTER&&MASTER.context===a) return MASTER; const c=a.createDynamicsCompressor(); c.threshold.value=-14; c.ratio.value=4; c.connect(a.destination); return MASTER=c; }
+function mout(a){ return bus(a); }
 function noise(a){ if(NOISE&&NOISE.sampleRate===a.sampleRate) return NOISE; const b=a.createBuffer(1,a.sampleRate*1.2,a.sampleRate), d=b.getChannelData(0); for(let i=0;i<d.length;i++) d[i]=Math.random()*2-1; return NOISE=b; }
 function osc(a,type,f,t){ const o=a.createOscillator(); o.type=type; o.frequency.setValueAtTime(f,t); return o; }
 function env(a,t,peak,att,dec,sus,rel,dur){ const g=a.createGain(); g.gain.setValueAtTime(.0001,t); g.gain.exponentialRampToValueAtTime(peak,t+att); g.gain.exponentialRampToValueAtTime(Math.max(.0002,peak*sus),t+att+dec); g.gain.setValueAtTime(Math.max(.0002,peak*sus),t+Math.max(att+dec,dur)); g.gain.exponentialRampToValueAtTime(.0001,t+Math.max(att+dec,dur)+rel); return g; }
