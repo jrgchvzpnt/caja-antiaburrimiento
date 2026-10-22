@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <!-- seguridad:inicio -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-yiqeZ0NFDcjCHFmGkMTk9C3lZboC3Nd/TV7BI6mNWtA='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-wMvmZJaHhq4X410D3jJiBGVDjg3pddRc71hqpQjh0vg='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <script src="js/guard.js"></script>
 <link rel="stylesheet" href="fonts/fonts.css">
 <!-- seguridad:fin -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Caja Antiaburrimiento: 63 juegos animados para teléfonos y tablets Android: Arena contra la caja, retro de neón y más, con 3 niveles de dificultad. Pop-it, vuelo del pájaro, rompe ladrillos, 2048, serpiente, Simón, piano y más.">
+<meta name="description" content="Caja Antiaburrimiento: 68 juegos animados para teléfonos y tablets Android: instrumentos musicales, Arena contra la caja, retro de neón y más, con 3 niveles de dificultad. Pop-it, vuelo del pájaro, rompe ladrillos, 2048, serpiente, Simón, piano y más.">
 <title>Caja Antiaburrimiento para Android</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="canonical" href="https://jrgchvzpnt.github.io/caja-antiaburrimiento/">
@@ -21,8 +21,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Caja Antiaburrimiento">
-<meta property="og:title" content="Caja Antiaburrimiento: 63 juegos contra el aburrimiento">
-<meta property="og:description" content="Pop-it, sudoku, buscaminas, blackjack, corta frutas, serpiente, Simón y más: 63 juegos gratis para Android (teléfono y tablet) y el navegador.">
+<meta property="og:title" content="Caja Antiaburrimiento: 68 juegos contra el aburrimiento">
+<meta property="og:description" content="Pop-it, sudoku, buscaminas, blackjack, corta frutas, serpiente, Simón, piano, batería y más: 68 juegos gratis para Android (teléfono y tablet) y el navegador.">
 <meta property="og:url" content="https://jrgchvzpnt.github.io/caja-antiaburrimiento/">
 <meta property="og:image" content="https://jrgchvzpnt.github.io/caja-antiaburrimiento/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -30,7 +30,7 @@
 <meta property="og:image:alt" content="Caja Antiaburrimiento con el gran botón rojo de ¡Sorpresa!">
 <meta name="twitter:card" content="summary_large_image">
 <style>
-/* Layout: héroe con móvil jugable a la derecha → franja de 63 juegos → tres razones → pasos de instalación → pie. Tema único: patio de noche, igual que la app. */
+/* Layout: héroe con móvil jugable a la derecha → franja de 68 juegos → tres razones → pasos de instalación → pie. Tema único: patio de noche, igual que la app. */
 :root{
   --bg:#13294b; --bg-2:#1b3866; --line:#2c4d85;
   --ink:#fff7ea; --muted:#b9c6e4; --dark:#1a1530;
@@ -98,6 +98,7 @@ nav .links a:hover{color:var(--ink)}
 .lfilters button{flex:none;border:2px solid var(--line);background:var(--bg);color:var(--muted);border-radius:999px;padding:8px 14px;font:900 .9rem var(--body);cursor:pointer;white-space:nowrap}
 .lfilters button small{opacity:.7;font-weight:700}
 .lfilters button[aria-pressed="true"]{background:var(--ink);color:var(--dark);border-color:var(--ink)}
+.lfilters button[data-c="Música"][aria-pressed="true"]{background:linear-gradient(90deg,#ffe45e,#ff9f43);border-color:transparent}
 .lfilters button[data-c="Arena"][aria-pressed="true"]{background:linear-gradient(90deg,#2de2ff,#ff3ea5);border-color:transparent}
 .lfilters button:focus-visible{outline:3px solid var(--butter);outline-offset:2px}
 .lmore{display:flex;justify-content:center;margin-top:22px}
@@ -151,12 +152,12 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:.9rem;border-top:2px
     <div>
       <div class="eyebrow">App gratis para Android</div>
       <h1><span class="w">Aburrirse</span> <span class="w c1">ya</span> <span class="w">no</span> <span class="w c2">existe.</span></h1>
-      <p class="lead">Sesenta y tres juegos animados en el bolsillo. Compite en la Arena contra rivales de la caja, juega a clásicos retro de neón, corta fruta, resuelve sudokus, gana a la caja al blackjack o relájate respirando. Y si no sabes qué elegir, el botón rojo decide.</p>
+      <p class="lead">Sesenta y ocho juegos animados en el bolsillo. Toca piano, batería o guitarra, compite en la Arena contra rivales de la caja, juega a clásicos retro de neón, corta fruta, resuelve sudokus, gana a la caja al blackjack o relájate respirando. Y si no sabes qué elegir, el botón rojo decide.</p>
       <div class="cta">
         <a class="btn primary" href="#instalar">Instalar en Android</a>
         <a class="btn ghost" href="https://jrgchvzpnt.github.io/caja-antiaburrimiento/jugar/">Probar en el navegador</a>
       </div>
-      <div class="meta"><span><b>63</b> juegos</span><span><b>8</b> de arena</span><span><b>3</b> niveles</span><span><b>0</b> anuncios</span><span><b>0</b> registros</span><span>Teléfono y tablet · Android <b>8.0</b>+</span></div>
+      <div class="meta"><span><b>68</b> juegos</span><span><b>6</b> instrumentos</span><span><b>3</b> niveles</span><span><b>0</b> anuncios</span><span><b>0</b> registros</span><span>Teléfono y tablet · Android <b>8.0</b>+</span></div>
     </div>
     <div class="phone" aria-label="Vista de la app: prueba el pop-it">
       <div class="screen">
@@ -176,27 +177,27 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:.9rem;border-top:2px
 
 <section class="band toys-band" id="juguetes"><div class="in">
   <div class="sec-head">
-    <div><div class="eyebrow">Lo que hay en la caja</div><h2>Sesenta y tres juegos, reglas en diez segundos.</h2></div>
+    <div><div class="eyebrow">Lo que hay en la caja</div><h2>Sesenta y ocho juegos, reglas en diez segundos.</h2></div>
     <p>Cada juego te dice su objetivo y cómo se juega, y tiene tres niveles: Novato, Medio y Experto. Dura lo que tú quieras: desde diez segundos hasta toda la tarde.</p>
   </div>
   <div class="lfilters" id="lfilters" role="toolbar" aria-label="Filtrar juegos"></div>
   <div class="toys" id="toys"></div>
-  <div class="lmore"><button class="btn ghost" id="lmore" type="button">Ver los 63 juegos</button></div>
+  <div class="lmore"><button class="btn ghost" id="lmore" type="button">Ver los 68 juegos</button></div>
 </div></section>
 
 <section class="band"><div class="in why">
   <div><span class="n" style="color:var(--coral)">1 toque</span><h3>El botón de la sorpresa</h3><p>¿No sabes qué hacer? Aprieta el botón rojo gigante y la caja elige un juguete por ti.</p></div>
   <div><span class="n" style="color:var(--mint)">3 niveles</span><h3>De novato a experto</h3><p>Cada juego cambia sus reglas según el nivel: más velocidad, menos tiempo, menos vidas o una caja más lista. Y guarda un récord para cada nivel.</p></div>
-  <div><span class="n" style="color:var(--butter)">6 canciones</span><h3>Y fuera de la pantalla</h3><p>El piano toca Estrellita o Cumpleaños feliz, y las cartas de reto te mandan a moverte, dibujar o reír.</p></div>
+  <div><span class="n" style="color:var(--butter)">16 canciones</span><h3>Y fuera de la pantalla</h3><p>El piano y el teclado tocan 16 canciones, de Estrellita a Para Elisa, y las cartas de reto te mandan a moverte, dibujar o reír.</p></div>
 </div></section>
 
 <section class="band" id="instalar"><div class="in install">
   <div>
     <div class="eyebrow" style="color:var(--coral)">Instalar en Android</div>
     <h2>Lista en cuatro pasos.</h2>
-    <p>La app se instala desde el archivo <code>CajaAntiaburrimiento.apk</code> (<span id="apk-size">261 KB</span>). No está en Google Play, por eso Android te pedirá permiso la primera vez.</p>
-    <p style="margin-top:22px"><a class="btn primary" href="https://github.com/jrgchvzpnt/caja-antiaburrimiento/releases/latest/download/CajaAntiaburrimiento.apk">Descargar APK · v1.7</a></p>
-    <p style="font-size:.82rem;margin-top:10px">Huella SHA-256 para comprobar que el archivo no fue alterado:<br><code id="apk-sha" style="font-size:.74rem;word-break:break-all">fc0afac03d0e822070630f87680e8229e3d6eb8e89cf2d9f24f4542199ea0dc8</code></p>
+    <p>La app se instala desde el archivo <code>CajaAntiaburrimiento.apk</code> (<span id="apk-size">273 KB</span>). No está en Google Play, por eso Android te pedirá permiso la primera vez.</p>
+    <p style="margin-top:22px"><a class="btn primary" href="https://github.com/jrgchvzpnt/caja-antiaburrimiento/releases/latest/download/CajaAntiaburrimiento.apk">Descargar APK · v1.8</a></p>
+    <p style="font-size:.82rem;margin-top:10px">Huella SHA-256 para comprobar que el archivo no fue alterado:<br><code id="apk-sha" style="font-size:.74rem;word-break:break-all">2094b5634bb581409515651a64848555e061681076d84c86e6fb4ee3c900d008</code></p>
     <p style="font-size:.9rem">Android 8.0 o superior. ¿Sin Android? <a href="https://jrgchvzpnt.github.io/caja-antiaburrimiento/jugar/">Juega en el navegador</a>.</p>
   </div>
   <ol class="steps">
@@ -208,13 +209,18 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:.9rem;border-top:2px
 </div></div></section>
 
 <footer class="band"><div class="in" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;width:100%">
-  <span>Caja Antiaburrimiento · versión 1.7 · <a href="https://github.com/jrgchvzpnt/caja-antiaburrimiento">Código en GitHub</a></span><span>Hecha para los días largos y las tardes lentas.</span>
+  <span>Caja Antiaburrimiento · versión 1.8 · <a href="https://github.com/jrgchvzpnt/caja-antiaburrimiento">Código en GitHub</a></span><span>Hecha para los días largos y las tardes lentas.</span>
 </div></footer>
 
 <script>
 (() => {
 const COLORS=['#ff8a3d','#ffd84d','#ff5f7e','#48e0b0','#a98bff'];
 const TOYS=[
+  ['Teclado musical','Teclas blancas y negras, piano, órgano, sintetizador y flauta.','Aprende las 16 canciones nota a nota.','libre · música','var(--lilac)','Música'],
+  ['Batería','Ocho pads, base rítmica y reto de ritmo.','Toca a tiempo con la mayor precisión.','libre · música','var(--coral)','Música'],
+  ['Xilófono','Láminas de colores que suenan al tocarlas.','Repite la melodía más larga.','libre · música','var(--butter)','Música'],
+  ['Guitarra','Seis cuerdas que rasgueas con el dedo.','Acompaña progresiones de acordes.','libre · música','var(--tangerine)','Música'],
+  ['Sintetizador táctil','El sonido cambia según dónde pongas el dedo.','Afina las notas que propone la caja.','libre · música','var(--mint)','Música'],
   ['Célula glotona','Come células más pequeñas y huye de las grandes.','Sé la más grande cuando se cierre la zona.','2 min · arena','var(--mint)','Arena'],
   ['Serpiente de luz','Serpiente de neón contra serpientes de la caja.','Consigue la serpiente más larga.','3 min · arena','var(--coral)','Arena'],
   ['¿Qué estoy dibujando?','La caja dibuja trazo a trazo.','Adivina el dibujo antes que nadie.','2 min · arena','var(--butter)','Arena'],
@@ -236,7 +242,7 @@ const TOYS=[
   ['Simón dice','Luces y sonidos que hay que repetir.','Repite la secuencia más larga.','2 min · memoria','var(--mint)','Mente'],
   ['Parejas','16 cartas boca abajo con figuras de colores.','Encuentra las 8 parejas en pocos intentos.','2 min · memoria','var(--coral)','Mente'],
   ['Reflejos de rayo','Toca en cuanto la caja se ponga verde.','Consigue la media más baja en ms.','30 s · compite','var(--butter)','Reflejos'],
-  ['Piano de colores','Ocho teclas y seis canciones para escuchar.','Toca música o aprende una canción.','libre · música','var(--lilac)','Relajarse'],
+  ['Piano de colores','Ocho teclas de colores y 16 canciones.','Toca música o escucha una canción.','libre · música','var(--lilac)','Música'],
   ['Golpea al topo','Topos, cascos dorados y alguna bomba.','Golpea todos los topos en 30 s.','30 s · compite','var(--tangerine)','Reflejos'],
   ['Serpiente','El clásico, con flechas, cruceta o deslizando.','Come frutas sin chocar.','3 min · clásico','var(--mint)','Reflejos'],
   ['Tres en raya','Tú eres la X contra la caja.','Pon tres en línea antes que la caja.','1 min · piensa','var(--coral)','Mente'],
@@ -248,7 +254,7 @@ const TOYS=[
   ['Cálculo veloz','Sumas, restas, multiplicaciones y divisiones.','Resuelve todas las cuentas en 30 s.','30 s · mente','var(--coral)','Mente'],
   ['Piedra, papel o tijera','El duelo clásico contra la caja.','Gana 3 rondas antes que la caja.','1 min · suerte','var(--butter)','Para reír'],
   ['Colores locos','La palabra dice un color y la tinta otro.','Toca el color de la tinta.','30 s · mente','var(--lilac)','Mente'],
-  ['Esquiva meteoritos','Mueve la nave entre una lluvia de rocas.','Sobrevive y recoge estrellas.','2 min · reflejos','var(--tangerine)','Reflejos'],
+  ['Esquiva meteoritos','Vuela en cualquier dirección y dispara a las rocas.','Sobrevive y mejora el arma con estrellas.','2 min · reflejos','var(--tangerine)','Reflejos'],
   ['Atrapa frutas','Mueve la cesta bajo la fruta que cae.','Atrapa mucha fruta sin tocar bombas.','2 min · reflejos','var(--coral)','Reflejos'],
   ['Pong contra la caja','El tenis de mesa de siempre.','Llega a 5 puntos antes que la caja.','2 min · reflejos','var(--mint)','Reflejos'],
   ['Ritmo de colores','Notas que bajan por carriles de colores.','Toca cada nota justo a tiempo.','2 min · música','var(--lilac)','Reflejos'],
@@ -280,7 +286,7 @@ const TOYS=[
   ['Caleidoscopio','Dibujos que se repiten en espejo.','Crea figuras simétricas.','libre · crea','var(--lilac)','Relajarse'],
 ];
 document.getElementById('toys').innerHTML=TOYS.map(([n,d,g,t,c,k])=>`<div class="toy" data-cat="${k}" style="background:${c}"><small>${k}</small><strong>${n}</strong><span>${d}</span><b class="goal">Objetivo: ${g}</b><em>${t}</em></div>`).join('');
-const LCATS=['Todos','Arena','Retro','Reflejos','Mente','Saber','Relajarse','Para reír'];
+const LCATS=['Todos','Música','Arena','Retro','Reflejos','Mente','Saber','Relajarse','Para reír'];
 const lf=document.getElementById('lfilters'), more=document.getElementById('lmore'), cards=[...document.querySelectorAll('#toys .toy')];
 let lcat='Todos', expanded=false;
 function lrender(){ const list=cards.filter(c=>lcat==='Todos'||c.dataset.cat===lcat); const limit=lcat==='Todos'&&!expanded?12:Infinity;
