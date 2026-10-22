@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- seguridad:inicio -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-RTFu02spRsYjrDlkJpiHi9L1ytvDScaBugnnysOw5aU='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-/gX2jVR9dUnZWfrbbVURJSAxRi5zFGxN/WNBwraoiQg='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <script src="js/guard.js"></script>
 <link rel="stylesheet" href="fonts/fonts.css">
@@ -140,7 +140,7 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:.9rem;border-top:2px
     <div>
       <div class="eyebrow">App gratis para Android</div>
       <h1><span class="w">Aburrirse</span> <span class="w c1">ya</span> <span class="w">no</span> <span class="w c2">existe.</span></h1>
-      <p class="lead">Cincuenta y cinco juegos animados en el bolsillo. Juega a clásicos retro de plataformas y carreras, corta fruta, resuelve sudokus, gana a la caja al blackjack o relájate respirando. Y si no sabes qué elegir, el botón rojo decide.</p>
+      <p class="lead">Cincuenta y cinco juegos animados en el bolsillo. Juega a clásicos retro con look neón: plataformas, carreras en 3D, corta fruta, resuelve sudokus, gana a la caja al blackjack o relájate respirando. Y si no sabes qué elegir, el botón rojo decide.</p>
       <div class="cta">
         <a class="btn primary" href="#instalar">Instalar en Android</a>
         <a class="btn ghost" href="https://jrgchvzpnt.github.io/caja-antiaburrimiento/jugar/">Probar en el navegador</a>
@@ -181,9 +181,9 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:.9rem;border-top:2px
   <div>
     <div class="eyebrow" style="color:var(--coral)">Instalar en Android</div>
     <h2>Lista en cuatro pasos.</h2>
-    <p>La app se instala desde el archivo <code>CajaAntiaburrimiento.apk</code> (<span id="apk-size">225 KB</span>). No está en Google Play, por eso Android te pedirá permiso la primera vez.</p>
-    <p style="margin-top:22px"><a class="btn primary" href="https://github.com/jrgchvzpnt/caja-antiaburrimiento/releases/latest/download/CajaAntiaburrimiento.apk">Descargar APK · v1.5</a></p>
-    <p style="font-size:.82rem;margin-top:10px">Huella SHA-256 para comprobar que el archivo no fue alterado:<br><code id="apk-sha" style="font-size:.74rem;word-break:break-all">464db0f11f4743ba844ff763a29f1b419573c097242e43eafd391da8a70b1c51</code></p>
+    <p>La app se instala desde el archivo <code>CajaAntiaburrimiento.apk</code> (<span id="apk-size">233 KB</span>). No está en Google Play, por eso Android te pedirá permiso la primera vez.</p>
+    <p style="margin-top:22px"><a class="btn primary" href="https://github.com/jrgchvzpnt/caja-antiaburrimiento/releases/latest/download/CajaAntiaburrimiento.apk">Descargar APK · v1.6</a></p>
+    <p style="font-size:.82rem;margin-top:10px">Huella SHA-256 para comprobar que el archivo no fue alterado:<br><code id="apk-sha" style="font-size:.74rem;word-break:break-all">d6ecadd0048c8571aaaab15f695d62276e4aa0e16b3facadec39fe1cb90d56f0</code></p>
     <p style="font-size:.9rem">Android 8.0 o superior. ¿Sin Android? <a href="https://jrgchvzpnt.github.io/caja-antiaburrimiento/jugar/">Juega en el navegador</a>.</p>
   </div>
   <ol class="steps">
@@ -195,18 +195,18 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:.9rem;border-top:2px
 </div></div></section>
 
 <footer class="band"><div class="in" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;width:100%">
-  <span>Caja Antiaburrimiento · versión 1.5 · <a href="https://github.com/jrgchvzpnt/caja-antiaburrimiento">Código en GitHub</a></span><span>Hecha para los días largos y las tardes lentas.</span>
+  <span>Caja Antiaburrimiento · versión 1.6 · <a href="https://github.com/jrgchvzpnt/caja-antiaburrimiento">Código en GitHub</a></span><span>Hecha para los días largos y las tardes lentas.</span>
 </div></footer>
 
 <script>
 (() => {
 const COLORS=['#ff8a3d','#ffd84d','#ff5f7e','#48e0b0','#a98bff'];
 const TOYS=[
-  ['Saltarín','Plataformas pixeladas con monedas y bichos.','Llega a la bandera de cada nivel.','3 min · retro','var(--lime)','Retro'],
-  ['Carrera retro','Carretera, tráfico y monedas.','Recorre la mayor distancia sin chocar.','2 min · retro','var(--coral)','Retro'],
-  ['Invasores','Una flota alienígena que baja sin parar.','Derriba todas las oleadas.','3 min · retro','var(--lilac)','Retro'],
-  ['Cruza la calle','Coches, troncos y un río.','Lleva a la rana a sus 5 casas.','3 min · retro','var(--mint)','Retro'],
-  ['Bloques','Piezas que caen y hay que encajar.','Completa líneas para sumar puntos.','5 min · retro','var(--butter)','Retro'],
+  ['Saltarín','Plataformas de neón con monedas, bichos y pinchos.','Llega al portal de cada nivel.','3 min · retro','var(--lime)','Retro'],
+  ['Carrera neón','Carretera en 3D con curvas y turbo.','Recorre la mayor distancia sin chocar.','2 min · retro','var(--coral)','Retro'],
+  ['Invasores','Arrastra la nave: dispara sola mientras tocas.','Derriba todas las oleadas.','3 min · retro','var(--lilac)','Retro'],
+  ['Cruza la calle','Desliza para saltar entre coches y troncos.','Lleva a la rana a sus 5 casas.','3 min · retro','var(--mint)','Retro'],
+  ['Bloques','Gira, arrastra y suelta piezas que caen.','Completa líneas para sumar puntos.','5 min · retro','var(--butter)','Retro'],
   ['Pop-it infinito','36 burbujas que hacen pop sin parar.','Revienta toda la plancha.','1 min · relaja','var(--coral)','Relajarse'],
   ['Pintar con fuegos','Dibuja estelas de luz y lanza cohetes.','Crea tu propio espectáculo.','2 min · crea','var(--butter)','Relajarse'],
   ['Torre de bloques','Suelta cada bloque justo encima del anterior.','Construye la torre más alta.','2 min · precisión','var(--mint)','Reflejos'],
