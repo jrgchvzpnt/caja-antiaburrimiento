@@ -16,5 +16,8 @@ Landing page y versión web de **Caja Antiaburrimiento**, una app para Android c
 | `favicon.*`, `icon-*.png`, `apple-touch-icon.png` | Iconos del navegador, móvil y app web |
 | `site.webmanifest` | Permite "Añadir a pantalla de inicio" y abrir los juegos como app |
 | `og-image.png` | Imagen que aparece al compartir el enlace en WhatsApp, redes, etc. |
+| `fonts/` | Fuentes Bagel Fat One y Nunito servidas desde aquí (licencia OFL) |
+| `js/guard.js` | Evita que otra web meta estas páginas en un marco |
+| `SECURITY.md` | Cómo avisar de un fallo y medidas de seguridad |
 
-GitHub Pages sirve los archivos directamente desde la rama `main`; no hay paso de compilación.
+GitHub Pages sirve los archivos directamente desde la rama `main`. Las páginas se generan con `tools/build_site.py` del proyecto principal, que añade la política de seguridad (CSP) con la huella de los scripts.

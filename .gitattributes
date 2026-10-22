@@ -1,0 +1,5 @@
+# Finales de línea LF siempre: la CSP usa la huella exacta de los scripts en línea
+* text=auto eol=lf
+*.png binary
+*.ico binary
+*.woff2 binary

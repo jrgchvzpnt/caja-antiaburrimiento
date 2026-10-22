@@ -2,8 +2,14 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<!-- seguridad:inicio -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-OgYBfwxxfDwS/ytwTNv2i7y5y7vj4kQHs1hGEO0z4fA='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<script src="../js/guard.js"></script>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<!-- seguridad:fin -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Juega gratis en el navegador: pop-it, sudoku, buscaminas, blackjack, serpiente, Simón, piano y más. 50 juegos contra el aburrimiento.">
+<meta name="description" content="Juega gratis en el navegador a todos los juegos de la Caja Antiaburrimiento: reflejos, mente, saber, retro y relax, con 3 niveles de dificultad.">
 <link rel="canonical" href="https://jrgchvzpnt.github.io/caja-antiaburrimiento/jugar/">
 <link rel="icon" href="../favicon.ico" sizes="48x48">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
@@ -16,7 +22,7 @@
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Caja Antiaburrimiento">
 <meta property="og:title" content="Juega a la Caja Antiaburrimiento">
-<meta property="og:description" content="50 juegos animados para jugar ahora mismo en el navegador.">
+<meta property="og:description" content="Juegos animados para jugar ahora mismo en el navegador, sin instalar nada.">
 <meta property="og:url" content="https://jrgchvzpnt.github.io/caja-antiaburrimiento/jugar/">
 <meta property="og:image" content="https://jrgchvzpnt.github.io/caja-antiaburrimiento/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -27,8 +33,6 @@
 <body>
 <title>Caja Antiaburrimiento</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Nunito:wght@500;700;900&display=swap">
 <style>
 /* Layout: una "caja de juguetes" — cabecera, estante de 5 juguetes en rejilla, y un escenario que se abre al elegir uno. Tema único: patio nocturno. */
 :root{
