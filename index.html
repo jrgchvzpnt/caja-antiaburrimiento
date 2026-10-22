@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- seguridad:inicio -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-wMvmZJaHhq4X410D3jJiBGVDjg3pddRc71hqpQjh0vg='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-f0QnE5Khc9beoRoVtnQaU6tHzRGQJQ4AbFzB7+VKHtA='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <script src="js/guard.js"></script>
 <link rel="stylesheet" href="fonts/fonts.css">
@@ -74,6 +74,19 @@ nav .links a:hover{color:var(--ink)}
 .screen{height:100%;border-radius:32px;background:var(--bg);overflow:hidden;display:flex;flex-direction:column;gap:12px;padding:22px 14px 14px;position:relative}
 .screen .t{font-family:var(--display);font-size:1rem;text-align:center}
 .screen .t span{color:var(--butter)}
+.scbar{display:flex;justify-content:space-between;align-items:center;font-family:var(--display);font-size:1rem}
+.sccat{font-family:var(--body);font-weight:900;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--dark);padding:3px 10px;border-radius:999px;transition:background .3s}
+.scv{width:100%;aspect-ratio:1;max-width:100%;border-radius:22px;display:block;cursor:pointer;box-shadow:0 0 0 2px rgba(45,226,255,.35),0 0 24px rgba(155,92,255,.35)}
+.sccap{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1px;min-height:2.6em}
+.sccap strong{font-family:var(--display);font-weight:400;font-size:1.05rem;line-height:1.1}
+.sccap small{color:var(--muted);font-weight:700;font-size:.72rem}
+.scdots{display:flex;gap:5px;justify-content:center}
+.scdots button{width:7px;height:7px;border-radius:50%;border:none;padding:0;background:rgba(247,241,255,.3);cursor:pointer}
+.scdots button[aria-current="true"]{background:var(--ink);width:18px;border-radius:4px}
+.sccats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:auto}
+.sccats button{border:none;border-radius:12px;padding:6px 4px;background:color-mix(in srgb,var(--c) 22%,transparent);color:var(--ink);font:800 .66rem var(--body);display:flex;flex-direction:column;align-items:center;cursor:pointer;box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--c) 70%,transparent)}
+.sccats button b{font-family:var(--display);font-weight:400;font-size:.95rem;color:var(--c);line-height:1.1}
+.sccats button:focus-visible,.scdots button:focus-visible{outline:2px solid var(--butter);outline-offset:2px}
 .popit{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:12px;border-radius:22px;background:linear-gradient(135deg,var(--coral),var(--tangerine),var(--butter),var(--mint),var(--lilac))}
 .bub{aspect-ratio:1;max-width:100%;border-radius:50%;border:none;padding:0;cursor:pointer;background:rgba(255,255,255,.18);box-shadow:inset 0 -5px 0 rgba(0,0,0,.18),inset 0 5px 7px rgba(255,255,255,.55),0 3px 0 rgba(0,0,0,.15);transition:transform .12s}
 .bub.p{box-shadow:inset 0 5px 7px rgba(0,0,0,.3);transform:scale(.88);background:rgba(0,0,0,.08)}
@@ -159,17 +172,13 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:.9rem;border-top:2px
       </div>
       <div class="meta"><span><b>68</b> juegos</span><span><b>6</b> instrumentos</span><span><b>3</b> niveles</span><span><b>0</b> anuncios</span><span><b>0</b> registros</span><span>Teléfono y tablet · Android <b>8.0</b>+</span></div>
     </div>
-    <div class="phone" aria-label="Vista de la app: prueba el pop-it">
+    <div class="phone" aria-label="Vista de la app">
       <div class="screen">
-        <div class="t">Prueba el <span>pop-it</span></div>
-        <div class="popit" id="demo"></div>
-        <small id="dcount">Toca las burbujas · 0 / 16</small>
-        <div class="mini">
-          <div style="background:var(--butter)">Vuelo del pájaro</div>
-          <div style="background:var(--mint)">Serpiente</div>
-          <div style="background:var(--lilac)">Invasores retro</div>
-          <div style="background:var(--tangerine)">2048</div>
-        </div>
+        <div class="scbar"><b>Caja</b><span id="sccat" class="sccat">Arena</span></div>
+        <canvas id="scv" class="scv" aria-hidden="true"></canvas>
+        <div class="sccap"><strong id="scname">Serpiente de luz</strong><small id="sctag">Crece y haz chocar a las demás</small></div>
+        <div class="scdots" id="scdots"></div>
+        <div class="sccats" id="sccats"><button type="button" data-c="Música" style="--c:#ffe45e"><b>6</b>Música</button><button type="button" data-c="Arena" style="--c:#2de2ff"><b>8</b>Arena</button><button type="button" data-c="Retro" style="--c:#ff3ea5"><b>5</b>Retro</button><button type="button" data-c="Mente" style="--c:#ff9f43"><b>19</b>Mente</button><button type="button" data-c="Reflejos" style="--c:#7dff6a"><b>14</b>Reflejos</button><button type="button" data-c="Saber" style="--c:#9b5cff"><b>4</b>Saber</button></div>
       </div>
     </div>
   </section>
@@ -297,16 +306,67 @@ lf.addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b) retu
 more.addEventListener('click',()=>{ expanded=true; lrender(); });
 lrender();
 
-/* pop-it de muestra */
-let ac=null, popped=0;
-const demo=document.getElementById('demo'), cnt=document.getElementById('dcount');
-demo.innerHTML=Array.from({length:16},(_,i)=>`<button class="bub" aria-label="Burbuja ${i+1}"></button>`).join('');
-function snd(){ try{ ac=ac||new (window.AudioContext||window.webkitAudioContext)(); const o=ac.createOscillator(),g=ac.createGain(),t=ac.currentTime;
-  o.type='triangle'; o.frequency.setValueAtTime(500+Math.random()*400,t); o.frequency.exponentialRampToValueAtTime(220,t+.09);
-  g.gain.setValueAtTime(.2,t); g.gain.exponentialRampToValueAtTime(.001,t+.09); o.connect(g).connect(ac.destination); o.start(t); o.stop(t+.1);}catch(e){} }
-demo.addEventListener('click',e=>{ const b=e.target.closest('.bub'); if(!b||b.classList.contains('p')) return; b.classList.add('p'); popped++; snd();
-  cnt.textContent=`Toca las burbujas · ${popped} / 16`;
-  if(popped===16){ cnt.textContent='¡Todas! En la app hay 36 y se reinician solas.'; setTimeout(()=>{ demo.querySelectorAll('.bub').forEach(x=>x.classList.remove('p')); popped=0; },1400); } });
+/* vitrina animada: una escena de cada tipo de juego */
+const SC=[
+  {cat:'Arena',name:'Serpiente de luz',tag:'Crece y haz chocar a las demás',c:'#2de2ff'},
+  {cat:'Retro',name:'Carrera neón',tag:'Carretera 3D con turbo',c:'#ff3ea5'},
+  {cat:'Música',name:'Teclado musical',tag:'16 canciones para aprender',c:'#ffe45e'},
+  {cat:'Arena',name:'Torres del reino',tag:'Defiende el reino por oleadas',c:'#9b5cff'},
+  {cat:'Retro',name:'Bloques',tag:'Gira, encaja y completa líneas',c:'#7dff6a'},
+  {cat:'Mente',name:'2048',tag:'Junta números hasta 2048',c:'#ff9f43'},
+  {cat:'Música',name:'Batería',tag:'Ocho pads y retos de ritmo',c:'#ff6b6b'},
+  {cat:'Relajarse',name:'Pop-it infinito',tag:'Revienta burbujas sin parar',c:'#48e0b0'}];
+const scv=document.getElementById('scv'), sg=scv.getContext('2d'), S0=300, reduceM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let si=0, st0=performance.now(), sfade=1;
+const sname=document.getElementById('scname'), scat=document.getElementById('sccat'), stag=document.getElementById('sctag'), sdots=document.getElementById('scdots');
+sdots.innerHTML=SC.map((s,i)=>`<button type="button" aria-label="${s.name}" data-i="${i}"></button>`).join('');
+function ssize(){ const r=scv.getBoundingClientRect(), d=Math.min(2,devicePixelRatio||1); scv.width=Math.max(1,r.width*d); scv.height=Math.max(1,r.height*d); }
+ssize(); new ResizeObserver(ssize).observe(scv);
+function show(i){ si=(i+SC.length)%SC.length; st0=performance.now(); sfade=0; const s=SC[si]; sname.textContent=s.name; scat.textContent=s.cat; scat.style.background=s.c; stag.textContent=s.tag;
+  sdots.querySelectorAll('button').forEach((b,k)=>b.setAttribute('aria-current',k===si)); document.querySelector('.phone').setAttribute('aria-label',`Vista de la app: ${s.cat} · ${s.name}`); }
+sdots.addEventListener('click',e=>{ const b=e.target.closest('button'); if(b) show(+b.dataset.i); });
+scv.addEventListener('click',()=>show(si+1));
+const glow=(c,b)=>{ sg.shadowColor=c; sg.shadowBlur=b; }, ng=()=>{ sg.shadowBlur=0; };
+const rrect=(x,y,w,h,r)=>{ sg.beginPath(); sg.roundRect(x,y,w,h,r); sg.fill(); };
+const scenes=[
+  t=>{ sg.fillStyle='#070418'; sg.fillRect(0,0,S0,S0); sg.strokeStyle='rgba(45,226,255,.08)'; for(let i=0;i<S0;i+=25){ sg.beginPath(); sg.moveTo(i,0); sg.lineTo(i,S0); sg.moveTo(0,i); sg.lineTo(S0,i); sg.stroke(); }
+    for(let i=0;i<40;i++){ sg.fillStyle=['#ff3ea5','#ffe45e','#7dff6a','#9b5cff'][i%4]; sg.beginPath(); sg.arc((i*73)%S0,(i*131)%S0,2.5,0,6.3); sg.fill(); }
+    [[ '#2de2ff',0],['#ff3ea5',2.1],['#7dff6a',4.2]].forEach(([c,o],k)=>{ glow(c,12); for(let j=26;j>=0;j--){ const a=t*1.2+o-j*.12, r=70+k*28; sg.fillStyle=j%4<2?c:'#fff'; sg.globalAlpha=j%4<2?1:.5; sg.beginPath(); sg.arc(150+Math.cos(a)*r,150+Math.sin(a*1.3)*r*.7,j===0?9:7,0,6.3); sg.fill(); } sg.globalAlpha=1; ng(); }); },
+  t=>{ const hor=120, g=sg.createLinearGradient(0,0,0,hor); g.addColorStop(0,'#0d0630'); g.addColorStop(1,'#5a1a6a'); sg.fillStyle=g; sg.fillRect(0,0,S0,hor);
+    const sun=sg.createLinearGradient(0,hor-60,0,hor); sun.addColorStop(0,'#ffe45e'); sun.addColorStop(1,'#ff3ea5'); glow('#ff3ea5',24); sg.fillStyle=sun; sg.beginPath(); sg.arc(150,hor,48,Math.PI,0); sg.fill(); ng();
+    sg.fillStyle='#0d0630'; for(let i=0;i<4;i++) sg.fillRect(100,hor-20+i*5,100,1.5+i*.5);
+    for(let y=S0;y>hor;y-=3){ const z=(S0-hor)/(y-hor), w=180/z, band=Math.floor(z*2+t*8)%2, cx=150+Math.sin(t*.8)*40/z;
+      sg.fillStyle=band?'#170733':'#1d0a40'; sg.fillRect(0,y-3,S0,3.4); sg.fillStyle=band?'#ff3ea5':'#f7f1ff'; sg.fillRect(cx-w*1.1,y-3,w*.1,3.4); sg.fillRect(cx+w,y-3,w*.1,3.4);
+      sg.fillStyle=band?'#2c2457':'#272050'; sg.fillRect(cx-w,y-3,w*2,3.4); if(band){ sg.fillStyle='#2de2ff'; sg.fillRect(cx-1,y-3,2,3.4); } }
+    const cz=(t*3)%6+1.2, cy=hor+(S0-hor)/cz, cw=60/cz; glow('#2de2ff',10); sg.fillStyle='#2de2ff'; rrect(150+Math.sin(t*.8)*40/cz-cw/2+cw*.7,cy-cw*.5,cw,cw*.5,4); ng();
+    glow('#ff3ea5',16); sg.fillStyle='#ff3ea5'; rrect(118+Math.sin(t*2)*8,252,64,30,8); ng(); sg.fillStyle='#120b2e'; rrect(130+Math.sin(t*2)*8,246,40,12,4); },
+  t=>{ sg.fillStyle='#160a3a'; sg.fillRect(0,0,S0,S0); const n=10, w=S0/n, down=Math.floor(t*4)%n;
+    for(let i=0;i<n;i++){ sg.fillStyle=i===down?'#ffc9e2':'#f7f1ff'; rrect(i*w+1,140,w-2,150,6); }
+    [0,1,3,4,5,7,8].forEach(i=>{ sg.fillStyle=(i===Math.floor(t*3)%n)?'#9b5cff':'#1a1530'; rrect((i+1)*w-w*.3,140,w*.6,90,4); });
+    for(let k=0;k<6;k++){ const p=((t*.6+k/6)%1); glow('#ffe45e',12); sg.fillStyle=`hsl(${k*50},90%,65%)`; sg.font=`${20-p*6}px serif`; sg.globalAlpha=1-p; sg.fillText(['♪','♫','♩','♬'][k%4],30+k*45,130-p*110); sg.globalAlpha=1; ng(); } },
+  t=>{ sg.fillStyle='#0b1a24'; sg.fillRect(0,0,S0,S0); sg.strokeStyle='#3b2a6b'; sg.lineWidth=26; sg.lineJoin='round'; const P=[[-10,60],[240,60],[240,150],[60,150],[60,240],[310,240]]; sg.beginPath(); P.forEach(([x,y],i)=>i?sg.lineTo(x,y):sg.moveTo(x,y)); sg.stroke();
+    const tw=[[120,105,'#2de2ff'],[200,195,'#ff9f43'],[130,200,'#9fd8ff']]; tw.forEach(([x,y,c])=>{ glow(c,14); sg.fillStyle='#1d1340'; sg.beginPath(); sg.arc(x,y,15,0,6.3); sg.fill(); sg.strokeStyle=c; sg.lineWidth=3; sg.stroke(); ng(); });
+    let L=0; const seg=[]; for(let i=1;i<P.length;i++){ const l=Math.hypot(P[i][0]-P[i-1][0],P[i][1]-P[i-1][1]); seg.push([P[i-1],P[i],L,l]); L+=l; }
+    const at=d=>{ for(const [a,b,s,l] of seg) if(d<=s+l){ const k=(d-s)/l; return [a[0]+(b[0]-a[0])*k,a[1]+(b[1]-a[1])*k]; } return P[P.length-1]; };
+    for(let e=0;e<6;e++){ const d=(t*40+e*60)%L, [x,y]=at(d); glow('#7dff6a',8); sg.fillStyle=e%3?'#7dff6a':'#9b5cff'; sg.beginPath(); sg.arc(x,y,7,0,6.3); sg.fill(); ng();
+      if(e===Math.floor(t*2)%6){ sg.strokeStyle='#ffe45e'; sg.lineWidth=2; sg.beginPath(); sg.moveTo(120,105); sg.lineTo(x,y); sg.stroke(); } } },
+  t=>{ sg.fillStyle='#0b0624'; sg.fillRect(0,0,S0,S0); const C=22, ox=40; sg.fillStyle='rgba(155,92,255,.15)'; sg.fillRect(ox,10,C*10,C*13);
+    const cols=['#2de2ff','#ffe45e','#9b5cff','#7dff6a','#ff4d6d','#ff9f43'];
+    for(let y=9;y<13;y++) for(let x=0;x<10;x++) if((x*7+y*3)%5!==0||y===12){ sg.fillStyle=cols[(x+y)%6]; rrect(ox+x*C+1,10+y*C+1,C-2,C-2,4); }
+    const py=10+((t*90)%(C*8)); glow('#ff3ea5',14); sg.fillStyle='#ff3ea5'; [[4,0],[5,0],[6,0],[5,1]].forEach(([x,y])=>rrect(ox+x*C+1,py+y*C+1,C-2,C-2,4)); ng(); },
+  t=>{ sg.fillStyle='#0c1a33'; sg.fillRect(0,0,S0,S0); const vals=[2,4,8,16,32,64,128,256,512,1024,2048], TC=['#fff7ea','#ffe9b0','#ffb36b','#ff8a3d','#ff6f5e','#ff5f7e','#ffd84d','#c5e85a','#48e0b0','#5aa9ff','#a98bff'];
+    const step=Math.floor(t*1.5); for(let i=0;i<16;i++){ const v=(i*5+step)%13; const x=20+(i%4)*68, y=20+Math.floor(i/4)*68; if(v>10){ sg.fillStyle='rgba(255,255,255,.06)'; rrect(x,y,62,62,10); continue; }
+      const pulse=(i===step%16)?1.08:1; sg.save(); sg.translate(x+31,y+31); sg.scale(pulse,pulse); sg.fillStyle=TC[v]; rrect(-31,-31,62,62,10); sg.fillStyle=v>1?'#1a1530':'#4a4560'; sg.font=`900 ${vals[v]>=1000?16:vals[v]>=100?20:26}px Nunito, sans-serif`; sg.textAlign='center'; sg.textBaseline='middle'; sg.fillText(vals[v],0,1); sg.restore(); } },
+  t=>{ sg.fillStyle='#160a3a'; sg.fillRect(0,0,S0,S0); const c=['#ff3ea5','#2de2ff','#ffe45e','#ff9f43','#7dff6a','#9b5cff','#ff6b6b','#c9b8ff'], hit=Math.floor(t*6)%8;
+    for(let i=0;i<8;i++){ const x=18+(i%4)*68, y=50+Math.floor(i/4)*110, on=i===hit||(i===0&&Math.floor(t*6)%2===0); glow(c[i],on?30:10); sg.fillStyle=c[i]; rrect(x,y+(on?4:0),60,92,14); ng(); } },
+  t=>{ sg.fillStyle='#13294b'; sg.fillRect(0,0,S0,S0); const g=sg.createLinearGradient(0,0,S0,S0); ['#ff5f7e','#ff8a3d','#ffd84d','#48e0b0','#a98bff'].forEach((c,i)=>g.addColorStop(i/4,c)); sg.fillStyle=g; rrect(20,20,260,260,30);
+    for(let i=0;i<25;i++){ const x=50+(i%5)*50, y=50+Math.floor(i/5)*50, p=((i*7)%25)<Math.floor(t*6)%26; sg.fillStyle=p?'rgba(0,0,0,.12)':'rgba(255,255,255,.22)'; sg.beginPath(); sg.arc(x,y,p?17:20,0,6.3); sg.fill();
+      if(!p){ sg.fillStyle='rgba(255,255,255,.55)'; sg.beginPath(); sg.arc(x-6,y-7,6,0,6.3); sg.fill(); } } }];
+function sframe(now){ const t=(now-st0)/1000; if(!reduceM&&t>3.4) show(si+1); sfade=Math.min(1,sfade+.06);
+  sg.setTransform(scv.width/S0,0,0,scv.height/S0,0,0); sg.globalAlpha=1; scenes[si](reduceM?1:t); if(sfade<1){ sg.fillStyle=`rgba(19,41,75,${1-sfade})`; sg.fillRect(0,0,S0,S0); }
+  requestAnimationFrame(sframe); }
+show(0); requestAnimationFrame(sframe);
+document.getElementById('sccats').addEventListener('click',e=>{ const b=e.target.closest('[data-c]'); if(!b) return; const chip=document.querySelector(`#lfilters [data-c="${b.dataset.c}"]`); if(chip) chip.click(); document.getElementById('juguetes').scrollIntoView({behavior:reduceM?'auto':'smooth'}); });
 
 /* fondo de formas flotando */
 const cv=document.getElementById('bg'), ctx=cv.getContext('2d'); let shapes=[];
