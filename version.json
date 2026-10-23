@@ -1,10 +1,10 @@
 {
-  "version": "1.10.0",
+  "version": "1.11.0",
   "notes": [
-    "La app gira sola: juega en horizontal para tener más espacio.",
-    "Logros: gana medallas por jugar, explorar y ganar.",
-    "Modo fiesta: torneo por turnos en un solo teléfono.",
-    "Ajustes de tema claro u oscuro y tamaño de letra.",
-    "Botón para comprobar si hay versión nueva."
+    "Nuevo: Ajedrez para dos en el mismo teléfono, con todas las reglas.",
+    "Nuevo: Karts de neón, con 5 pistas que se desbloquean.",
+    "Sopa de letras por temas: animales, países, comida y deportes.",
+    "8 canciones más para el piano y el teclado (ya son 24).",
+    "Ideas nuevas para votar en la página."
   ]
 }

@@ -67,5 +67,7 @@ export default {
   drums: "Batería",
   xylo: "Xilófono",
   guitar: "Guitarra",
+  chess: "Ajedrez para dos",
+  kart: "Karts de neón",
   synth: "Sintetizador táctil",
 };
