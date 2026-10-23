@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<!-- seguridad:inicio -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://caja-antiaburrimiento.netlify.app; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action https://caja-antiaburrimiento.netlify.app; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<script src="../js/guard.js"></script>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<!-- seguridad:fin -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Hay versión nueva? · Caja Antiaburrimiento</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#13294b">
+<style>
+:root{--bg:#13294b;--bg-2:#1b3866;--line:#2c4d85;--ink:#fff7ea;--muted:#b9c6e4;--coral:#ff5f7e;--butter:#ffd84d;--mint:#48e0b0;--dark:#1a1530;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;display:grid;place-items:center;padding:28px 16px}
+main{max-width:34rem;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+.big{font-size:4.5rem;line-height:1}
+h1{font-family:"Bagel Fat One","Arial Rounded MT Bold",sans-serif;font-weight:400;font-size:clamp(1.8rem,7vw,2.6rem);margin:0;text-wrap:balance}
+p{color:var(--muted);margin:0}
+.notes{align-self:stretch;text-align:left;background:var(--bg-2);border:2px solid var(--line);border-radius:20px;padding:14px 18px}
+.notes b{color:var(--butter)}
+.notes ul{margin:8px 0 0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+.row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+a.btn{display:inline-block;border-radius:999px;padding:13px 24px;font-weight:900;text-decoration:none;box-shadow:0 6px 0 rgba(0,0,0,.3)}
+.a{background:var(--coral);color:#fff}.b{background:var(--ink);color:var(--dark)}
+</style>
+<script src="version.js" defer></script>
+</head>
+<body>
+<main>
+  <div class="big" id="icon" aria-hidden="true">📦</div>
+  <h1 id="title">Comprobando la versión…</h1>
+  <p id="msg"></p>
+  <div class="notes" id="notes" hidden></div>
+  <div class="row">
+    <a class="btn a" id="get" href="../apk" hidden>Descargar la versión nueva</a>
+    <a class="btn b" href="../">Ir a la página de la caja</a>
+  </div>
+</main>
+</body>
+</html>

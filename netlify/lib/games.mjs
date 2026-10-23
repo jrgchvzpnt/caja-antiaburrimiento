@@ -8,7 +8,7 @@ export const RANKED = new Set(["bird", "brick", "catchf", "garden", "juggle", "p
 export const MAX = { g2048: 4000000, tapfast: 600, simon: 300, numem: 60, odd: 400, capitals: 50, riddles: 50, seq: 50, tf: 50 };
 export const DEFAULT_MAX = 1000000;
 
-const DAILY = ["bird", "brick", "catchf", "juggle", "pong", "slice", "target", "rhythm", "blocks", "dodge", "frog", "invaders", "lsnake", "plat", "race", "cell", "capitals", "riddles", "seq", "tf"];
+export const DAILY = ["bird", "brick", "catchf", "juggle", "pong", "slice", "target", "rhythm", "blocks", "dodge", "frog", "invaders", "lsnake", "plat", "race", "cell", "capitals", "riddles", "seq", "tf"];
 
 // Mismo cálculo que en la app: el juego y el nivel del reto salen de la fecha.
 export function dailyFor(d) {

@@ -25,7 +25,7 @@
     $('axis').innerHTML = days.length ? '<span>' + days[0].d + '</span><span>' + days[days.length - 1].d + '</span>' : '<span>Todavía no hay datos</span>';
 
     var top = Object.keys(per).sort(function (a, b) { return per[b] - per[a]; }).slice(0, 12);
-    $('top').innerHTML = top.length ? top.map(function (g) { return '<li>' + esc(g) + ' <span>· ' + fmt(per[g]) + '</span></li>'; }).join('') : '<li>Todavía no hay partidas</li>';
+    $('top').innerHTML = top.length ? top.map(function (g) { return '<li>' + esc((data.names || {})[g] || g) + ' <span>· ' + fmt(per[g]) + '</span></li>'; }).join('') : '<li>Todavía no hay partidas</li>';
 
     $('tbl').innerHTML = '<tr><th>Día</th><th>Web</th><th>Juegos</th><th>Partidas</th><th>APK</th></tr>' +
       days.slice().reverse().map(function (d) { return '<tr><td>' + d.d + '</td><td>' + fmt(d.landing) + '</td><td>' + fmt(d.visit) + '</td><td>' + fmt(d.played) + '</td><td>' + fmt(d.apk) + '</td></tr>'; }).join('');

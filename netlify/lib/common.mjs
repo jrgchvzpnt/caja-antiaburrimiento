@@ -28,6 +28,9 @@ export function json(req, data, status = 200, extra = {}) {
   });
 }
 
+// Respuestas públicas que el CDN de Netlify puede guardar un momento (por origen, por el CORS).
+export const cdn = (secs) => ({ "netlify-cdn-cache-control": `public, max-age=${secs}, stale-while-revalidate=${secs * 4}`, "netlify-vary": "header=Origin" });
+
 export const preflight = (req) => new Response(null, { status: 204, headers: cors(req) });
 
 // Un POST de otra web (o sin cabecera Origin, como un script) se rechaza.
@@ -35,7 +38,12 @@ export const fromSite = (req) => allowed(req.headers.get("origin"));
 
 export const store = (name) => getStore({ name, consistency: "strong" });
 
-export const utcDay = () => new Date().toISOString().slice(0, 10);
+export const utcDay = (d = new Date()) => d.toISOString().slice(0, 10);
+
+// Los últimos n días (UTC), del más antiguo al de hoy.
+export function lastDays(n, from = new Date()) {
+  return Array.from({ length: n }, (_, i) => utcDay(new Date(from.getTime() - (n - 1 - i) * 864e5)));
+}
 
 // La IP nunca se guarda: solo una huella que cambia cada día, para limitar envíos seguidos.
 export async function ipKey(ip, kind) {

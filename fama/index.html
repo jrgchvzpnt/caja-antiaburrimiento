@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<!-- seguridad:inicio -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://caja-antiaburrimiento.netlify.app; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action https://caja-antiaburrimiento.netlify.app; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<script src="../js/guard.js"></script>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<!-- seguridad:fin -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salón de la fama · Caja Antiaburrimiento</title>
+<meta name="description" content="Los récords mundiales de cada juego de la Caja Antiaburrimiento, en Novato, Medio y Experto.">
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#13294b">
+<style>
+:root{--bg:#13294b;--bg-2:#1b3866;--line:#2c4d85;--ink:#fff7ea;--muted:#b9c6e4;--coral:#ff5f7e;--butter:#ffd84d;--mint:#48e0b0;--lilac:#a98bff;--tangerine:#ff8a3d;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;padding:28px 16px 56px}
+main{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1{font-family:"Bagel Fat One","Arial Rounded MT Bold",sans-serif;font-weight:400;font-size:clamp(2rem,7vw,3.2rem);line-height:1.05;margin:0}
+h1 span{color:var(--butter)}
+p{color:var(--muted);margin:0}
+a{color:var(--mint);font-weight:900}
+.podium{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.podium div{background:var(--bg-2);border:2px solid var(--line);border-radius:22px;padding:16px;text-align:center}
+.podium b{display:block;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.podium span{font-family:"Bagel Fat One",sans-serif;font-size:2.2rem;line-height:1.1;color:var(--butter)}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{border:2px solid var(--line);background:var(--bg-2);color:var(--ink);border-radius:999px;padding:7px 14px;font:900 .9rem "Nunito",system-ui,sans-serif;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--butter);border-color:var(--butter);color:#1a1530}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.game{background:var(--bg-2);border:2px solid var(--line);border-radius:20px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.game h2{font-size:1.1rem;margin:0;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.game h2 a{font-size:.85rem;flex:none}
+.game ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.game li{display:grid;grid-template-columns:5.5em 1fr auto;gap:8px;align-items:center;background:rgba(0,0,0,.2);border-radius:10px;padding:5px 10px}
+.game li i{font-style:normal;font-size:.72rem;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.game li span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.game li b{color:var(--butter);font-variant-numeric:tabular-nums}
+.game li.empty span{color:var(--muted);font-style:italic}
+.l0{color:var(--mint)}.l1{color:var(--tangerine)}.l2{color:var(--coral)}
+@media (max-width:560px){.podium span{font-size:1.6rem}}
+</style>
+<script src="fama.js" defer></script>
+</head>
+<body>
+<main>
+  <div>
+    <h1>Salón de la <span>fama</span></h1>
+    <p>El récord mundial de cada juego en sus tres niveles. ¿Te ves aquí? <a href="../jugar/">Ve a jugar</a> · <a href="../">Inicio</a></p>
+  </div>
+  <div class="podium" id="podium"></div>
+  <div class="filters" id="filters" role="toolbar" aria-label="Mostrar">
+    <button aria-pressed="true" data-f="todos">Todos</button><button aria-pressed="false" data-f="con">Con récord</button><button aria-pressed="false" data-f="sin">Sin récord todavía</button>
+  </div>
+  <div class="list" id="list"><p>Cargando récords…</p></div>
+</main>
+</body>
+</html>

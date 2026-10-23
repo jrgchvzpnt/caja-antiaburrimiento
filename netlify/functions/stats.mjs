@@ -1,5 +1,6 @@
 // Estadísticas públicas (solo totales por día): GET /api/stats?days=30
 import { json, preflight, store } from "../lib/common.mjs";
+import NAMES from "../lib/names.mjs";
 
 export const config = { path: "/api/stats" };
 
@@ -11,5 +12,5 @@ export default async (req) => {
   const { blobs } = await s.list({ prefix: "d/" });
   const keys = blobs.map((b) => b.key).sort().slice(-days);
   const out = await Promise.all(keys.map(async (k) => ({ d: k.slice(2), ...((await s.get(k, { type: "json" })) || {}) })));
-  return json(req, { days: out }, 200, { "cache-control": "public, max-age=60" });
+  return json(req, { days: out, names: NAMES }, 200, { "cache-control": "public, max-age=60" });
 };

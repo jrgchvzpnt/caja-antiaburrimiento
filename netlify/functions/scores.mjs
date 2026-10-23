@@ -63,5 +63,12 @@ export default async (req, context) => {
   top.sort((a, b2) => b2.s - a.s || a.t - b2.t);
   const out = top.slice(0, 10);
   await records.setJSON(key, out);
-  return json(req, { top: pub(out), rank: out.findIndex((r) => r.n === n) + 1 });
+  const rank = out.findIndex((r) => r.n === n) + 1;
+  // Los récords mundiales nuevos (puesto 1) salen en «Récords recientes» de la landing.
+  if (rank === 1 && d === undefined) {
+    const feed = (await records.get("feed", { type: "json" })) || [];
+    feed.unshift({ g, lv, n, s, t: Date.now() });
+    await records.setJSON("feed", feed.slice(0, 20));
+  }
+  return json(req, { top: pub(out), rank });
 };
