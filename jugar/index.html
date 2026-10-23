@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- seguridad:inicio -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-MJUSK8PqBJp+4cJ9+gbT2sPHjpt9MbaHhERf+nA6j3o='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-avlGfSLOWSe/barq5Gvy6PtWaMLbkpiAVcbviy6tI8c='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <script src="../js/guard.js"></script>
 <link rel="stylesheet" href="../fonts/fonts.css">
@@ -330,6 +330,15 @@ body.in-music #stageBody,body.in-music #stageBody > div{width:100%}
 .synpad{width:100%;height:clamp(320px,58vh,560px);border-radius:18px;overflow:hidden;touch-action:none;background:#0d0630;box-shadow:0 0 0 2px rgba(45,226,255,.4),0 0 26px rgba(155,92,255,.35)}
 @media (max-width:420px){.dlab{font-size:12px}.seqrow{grid-template-columns:52px repeat(16,minmax(12px,1fr))}}
 
+.rps-arena{position:relative;width:min(100%,460px);min-height:clamp(150px,30vh,230px);display:flex;align-items:center;justify-content:center;gap:clamp(16px,6vw,48px);border-radius:22px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.rps-hand{font-size:clamp(4.2rem,20vw,7.5rem);line-height:1;display:inline-block}
+.rps-hand.flip{transform:scaleX(-1)}
+.rps-vs{font-family:var(--display);font-size:1.4rem;color:var(--muted)}
+.rps-cover{position:absolute;inset:0;border-radius:22px;background:linear-gradient(150deg,#2a0f52,#13294b);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:16px;z-index:2}
+.rps-cover b{font-family:var(--display);font-size:clamp(1.3rem,5vw,1.8rem);font-weight:400;color:var(--butter)}
+.rps-cover p{margin:0;max-width:30ch}
+.rps-pick{font-size:clamp(1rem,3.6vw,1.25rem);padding:14px 20px}
+.rps-pick:disabled{opacity:.4}
 /* ===== Estilo 2026 para todos los juegos ===== */
 .panel:not(.neo-panel){background:linear-gradient(160deg,rgba(43,70,130,.62),rgba(20,34,72,.62));-webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 40px rgba(5,10,30,.35),inset 0 1px 0 rgba(255,255,255,.08)}
 .pill{background:linear-gradient(180deg,#ffe680,#ffcf3a);transition:transform .12s,box-shadow .12s,filter .2s}
@@ -619,7 +628,7 @@ const TOYS = [
   {id:'g2048', name:'2048', desc:'Desliza y junta números iguales hasta llegar a 2048.', time:'5 min · piensa', c:'var(--tangerine)', run:run2048},
   {id:'odd', name:'Ojo de lince', desc:'Encuentra el cuadro de color distinto. Cada vez cuesta más.', time:'30 s · vista', c:'var(--mint)', run:runOdd},
   {id:'math', name:'Cálculo veloz', desc:'Resuelve todas las cuentas que puedas antes de que acabe el tiempo.', time:'30 s · mente', c:'var(--coral)', run:runMath},
-  {id:'rps', name:'Piedra, papel o tijera', desc:'Juega contra la caja a ver quién gana más rondas.', time:'1 min · suerte', c:'var(--butter)', run:runRPS},
+  {id:'rps', name:'Piedra, papel o tijera', desc:'Juega contra otra persona por turnos, o contra la caja.', time:'1 min · suerte', c:'var(--butter)', run:runRPS},
   {id:'stroop', name:'Colores locos', desc:'Toca el color de la tinta, no lo que dice la palabra.', time:'30 s · mente', c:'var(--lilac)', run:runStroop},
   {id:'dodge', name:'Esquiva meteoritos', desc:'Vuela en cualquier dirección, dispara a las rocas y mejora tu arma con estrellas.', time:'2 min · reflejos', c:'var(--tangerine)', run:runDodge},
   {id:'hang', name:'Salva los globos', desc:'Adivina la palabra letra a letra. Cada fallo revienta un globo.', time:'2 min · palabras', c:'var(--butter)', run:runHang},
@@ -742,9 +751,9 @@ const GUIDE = {
   math:{goal:'Resuelve el mayor número de cuentas antes de que acabe el tiempo.',
     how:['Mira la cuenta y toca el resultado correcto.','Primero hay sumas y restas; luego multiplicaciones y divisiones.','Cada error te quita 2 segundos.'],
     lv:['45 segundos, solo sumas y restas, y cada acierto suma 1 segundo.','30 segundos; luego llegan × y ÷.','25 segundos y cuentas difíciles desde el principio.']},
-  rps:{goal:'Gana las rondas necesarias antes que la caja.',
-    how:['Elige piedra, papel o tijera.','Piedra gana a tijera, tijera gana a papel y papel gana a piedra.','Si los dos elegís lo mismo, es empate y no cuenta.'],
-    lv:['Gana quien llegue a 2. La caja elige al azar.','Gana quien llegue a 3.','Gana quien llegue a 5 y la caja estudia tu mano favorita.']},
+  rps:{goal:'Gana la partida: contra otra persona por turnos o contra la caja.',
+    how:['Modo 2 jugadores: elige tu mano en secreto, pasa el teléfono y la otra persona elige la suya. Después se muestran las dos a la vez.','Piedra gana a tijera, tijera gana a papel y papel gana a piedra. Si sale lo mismo, es empate y no cuenta.','Podéis escribir vuestros nombres. Cada ronda empieza un jugador distinto.','Modo Contra la caja: eliges tu mano y la caja elige la suya.'],
+    lv:['La partida es a 2 rondas ganadas. La caja elige al azar.','La partida es a 3 rondas ganadas.','La partida es a 5 rondas ganadas y la caja estudia tu mano favorita.']},
   stroop:{goal:'Acierta el color de la tinta tantas veces como puedas.',
     how:['Aparece el nombre de un color pintado con otro color.','Toca el botón del color de la TINTA, no el de la palabra.','Acierto: +1. Fallo: -1.','Cuando acaba el tiempo, se cuentan los aciertos.'],
     lv:['40 segundos y la mitad de las veces la palabra coincide con la tinta.','30 segundos.','25 segundos, casi nunca coincide y los botones cambian de sitio.']},
@@ -1605,36 +1614,61 @@ function runMath(el){
   return ()=>clearInterval(tick);
 }
 
-/* ======== 19. PIEDRA, PAPEL O TIJERA ======== */
+/* ======== 19. PIEDRA, PAPEL O TIJERA (contra la caja o 2 jugadores por turnos) ======== */
 function runRPS(el){
-  const H={piedra:'✊',papel:'✋',tijera:'✌️'}, BEATS={piedra:'tijera',papel:'piedra',tijera:'papel'}, KEYS=Object.keys(H);
+  const H={piedra:'✊',papel:'✋',tijera:'✌️'}, BEATS={piedra:'tijera',papel:'piedra',tijera:'papel'}, KEYS=Object.keys(H), NAME=k=>k[0].toUpperCase()+k.slice(1);
   const T=L(2,3,5), hist=[];
-  let me=0, cpu=0, busy=false, tally=store.get(rk('rps'),{w:0,l:0});
-  el.innerHTML=`<div class="panel" style="display:flex;flex-direction:column;gap:18px;align-items:center;text-align:center">
-    <div class="row" style="justify-content:center;gap:24px"><span class="score" style="color:var(--mint)">Tú <span id="rm">0</span></span><span class="score" style="color:var(--muted)">–</span><span class="score" style="color:var(--coral)">Caja <span id="rc">0</span></span></div>
-    <div style="display:flex;gap:clamp(20px,8vw,60px);align-items:center;justify-content:center;font-size:clamp(4rem,18vw,6.5rem);line-height:1;min-height:1.2em">
-      <span id="ry" style="display:inline-block">✊</span><span style="font-family:var(--display);font-size:1.4rem;color:var(--muted)">vs</span><span id="rx" style="display:inline-block;transform:scaleX(-1)">✊</span></div>
-    <p class="hint" id="rmsg">Gana el primero que llegue a ${T}. Elige tu mano:</p>
-    <div class="row" style="justify-content:center">${KEYS.map(k=>`<button class="pill" data-k="${k}" style="font-size:1.1rem;padding:12px 18px">${H[k]} ${k[0].toUpperCase()+k.slice(1)}</button>`).join('')}</div>
-    <span class="hint">Partidas ganadas: <b id="rw" style="color:var(--mint)">${tally.w}</b> · perdidas: <b id="rl2" style="color:var(--coral)">${tally.l}</b></span></div>`;
-  const ry=el.querySelector('#ry'), rx=el.querySelector('#rx'), msg=el.querySelector('#rmsg');
-  let timers=[];
-  el.querySelector('.panel').addEventListener('click',e=>{ const b=e.target.closest('[data-k]'); if(!b||busy) return; busy=true; const mine=b.dataset.k; let his=pick(KEYS);
-    if(LV===2 && hist.length>=2 && Math.random()<.6){ // en Experto la caja estudia tu mano favorita
-      const fav=KEYS.map(k=>[k,hist.filter(h=>h===k).length]).sort((x,y)=>y[1]-x[1])[0][0]; his=KEYS.find(k=>BEATS[k]===fav); }
-    hist.push(mine);
-    if(me>=T||cpu>=T){ me=0; cpu=0; el.querySelector('#rm').textContent=0; el.querySelector('#rc').textContent=0; }
-    let n=0; msg.textContent='Piedra… papel… ¡tijera!';
-    const iv=setInterval(()=>{ ry.textContent=rx.textContent='✊'; ry.animate([{transform:'translateY(0)'},{transform:'translateY(-18px)'},{transform:'translateY(0)'}],{duration:220}); rx.animate([{transform:'scaleX(-1) translateY(0)'},{transform:'scaleX(-1) translateY(-18px)'},{transform:'scaleX(-1) translateY(0)'}],{duration:220}); tone(300+n*80,.06,'square',.06);
-      if(++n>=3){ clearInterval(iv); timers.push(setTimeout(()=>{ ry.textContent=H[mine]; rx.textContent=H[his];
-        if(mine===his){ msg.textContent='Empate. Otra vez.'; tone(440,.15,'triangle',.1); }
-        else if(BEATS[mine]===his){ me++; msg.textContent=`¡Ganas! ${H[mine]} vence a ${H[his]}.`; tone(880,.15,'triangle',.14,1.3); }
-        else { cpu++; msg.textContent=`La caja gana: ${H[his]} vence a ${H[mine]}.`; tone(180,.2,'sawtooth',.1,.6); }
-        el.querySelector('#rm').textContent=me; el.querySelector('#rc').textContent=cpu;
-        if(me===T){ tally.w++; addWin(); confetti(); cheer(); msg.textContent='¡Ganaste la partida! Elige otra mano para jugar de nuevo.'; }
-        if(cpu===T){ tally.l++; msg.textContent='La caja ganó la partida. Elige una mano para la revancha.'; }
-        store.set(rk('rps'),tally); el.querySelector('#rw').textContent=tally.w; el.querySelector('#rl2').textContent=tally.l; busy=false; },230)); } },260);
-    timers.push(iv); });
+  let mode=store.get('rps-mode','dos'), names=store.get('rps-names',['Jugador 1','Jugador 2']);
+  let sc=[0,0], busy=false, phase='', first=0, turn=0, pick1=null, timers=[], tally=store.get(rk('rps'),{w:0,l:0}), tally2=store.get(rk('rps2'),[0,0]);
+  el.innerHTML=`<div class="panel rps" style="display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center">
+    <div class="mchips" data-g="rpsmode"><button class="fchip" data-v="dos">2 jugadores</button><button class="fchip" data-v="caja">Contra la caja</button></div>
+    <div class="row rps-names" data-names style="justify-content:center;gap:8px">
+      <input class="msel" data-n="0" maxlength="14" aria-label="Nombre del jugador 1" style="width:9.5rem;text-align:center">
+      <span class="hint">vs</span>
+      <input class="msel" data-n="1" maxlength="14" aria-label="Nombre del jugador 2" style="width:9.5rem;text-align:center"></div>
+    <div class="row" style="justify-content:center;gap:22px"><span class="score" style="color:var(--mint)"><span data-l0></span> <span data-s0>0</span></span><span class="score" style="color:var(--muted)">–</span><span class="score" style="color:var(--coral)"><span data-l1></span> <span data-s1>0</span></span></div>
+    <div class="rps-arena"><div class="rps-hand" data-h0>✊</div><span class="rps-vs">vs</span><div class="rps-hand flip" data-h1>✊</div>
+      <div class="rps-cover" data-cover hidden><b data-ct></b><p data-cp class="hint"></p><button class="pill" data-ready>¡Listo, soy yo!</button></div></div>
+    <p class="mstatus" data-msg></p>
+    <div class="row" data-picks style="justify-content:center">${KEYS.map(k=>`<button class="pill rps-pick" data-k="${k}">${H[k]} ${NAME(k)}</button>`).join('')}</div>
+    <button class="pill alt" data-next hidden>Siguiente ronda</button>
+    <span class="hint" data-tally></span></div>`;
+  const q=s=>el.querySelector(s), msg=t=>q('[data-msg]').innerHTML=t, later=(f,ms)=>timers.push(setTimeout(f,ms));
+  const who=i=>mode==='caja'?(i===0?'Tú':'Caja'):names[i];
+  function labels(){ q('[data-l0]').textContent=who(0); q('[data-l1]').textContent=who(1); q('[data-s0]').textContent=sc[0]; q('[data-s1]').textContent=sc[1];
+    q('[data-names]').hidden=mode!=='dos'; q('[data-n="0"]').value=names[0]; q('[data-n="1"]').value=names[1];
+    el.querySelectorAll('[data-g="rpsmode"] button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===mode));
+    q('[data-tally]').innerHTML=mode==='caja'?`Partidas contra la caja · ganadas <b style="color:var(--mint)">${tally.w}</b> · perdidas <b style="color:var(--coral)">${tally.l}</b>`:`Partidas ganadas · ${names[0]} <b style="color:var(--mint)">${tally2[0]}</b> · ${names[1]} <b style="color:var(--coral)">${tally2[1]}</b>`; }
+  function picks(on){ el.querySelectorAll('.rps-pick').forEach(b=>b.disabled=!on); q('[data-picks]').hidden=!on; }
+  function cover(title,text,btn){ const c=q('[data-cover]'); c.hidden=false; q('[data-ct]').textContent=title; q('[data-cp]').textContent=text; q('[data-ready]').textContent=btn; }
+  function newMatch(){ timers.forEach(clearTimeout); sc=[0,0]; first=0; busy=false; q('[data-h0]').textContent=q('[data-h1]').textContent='✊'; q('[data-next]').hidden=true; labels(); startRound(); }
+  function startRound(){ pick1=null; q('[data-next]').hidden=true; q('[data-h0]').textContent=q('[data-h1]').textContent='✊';
+    if(mode==='caja'){ q('[data-cover]').hidden=true; picks(true); msg(`Gana quien llegue a ${T}. Elige tu mano:`); return; }
+    turn=first; phase='cover1'; picks(false); cover(`Turno de ${names[turn]}`,`${names[1-turn]}, no mires. Cuando ${names[turn]} tenga el teléfono, pulsa el botón.`,`¡Listo, soy ${names[turn]}!`); msg(`Ronda: gana la partida quien llegue a ${T}.`); }
+  q('[data-ready]').onclick=()=>{ q('[data-cover]').hidden=true; phase=phase==='cover1'?'pick1':'pick2'; picks(true); msg(`<b>${names[turn]}</b>, elige tu mano en secreto.`); tone(660,.08,'triangle',.12); };
+  function reveal(a,b){ // a = mano del jugador 0, b = mano del jugador 1
+    busy=true; picks(false); let n=0; msg('Piedra… papel… ¡tijera!'); const h0=q('[data-h0]'), h1=q('[data-h1]');
+    const iv=setInterval(()=>{ h0.textContent=h1.textContent='✊'; h0.animate([{transform:'translateY(0)'},{transform:'translateY(-20px)'},{transform:'translateY(0)'}],{duration:220}); h1.animate([{transform:'scaleX(-1) translateY(0)'},{transform:'scaleX(-1) translateY(-20px)'},{transform:'scaleX(-1) translateY(0)'}],{duration:220}); tone(300+n*90,.08,'square',.08);
+      if(++n>=3){ clearInterval(iv); later(()=>{ h0.textContent=H[a]; h1.textContent=H[b]; h0.animate([{transform:'scale(1.3)'},{transform:'scale(1)'}],{duration:260}); h1.animate([{transform:'scaleX(-1) scale(1.3)'},{transform:'scaleX(-1) scale(1)'}],{duration:260}); result(a,b); },240); } },270);
+    timers.push(iv); }
+  function result(a,b){ let w=-1; if(a!==b) w=BEATS[a]===b?0:1;
+    if(w<0){ msg(`¡Empate! Los dos sacaron ${H[a]} ${NAME(a)}.`); tone(440,.18,'triangle',.12); }
+    else { sc[w]++; const win=w===0?a:b, lose=w===0?b:a; msg(`<b>${who(w)}</b> ${who(w)==='Tú'?'ganas':'gana'} la ronda: ${H[win]} ${NAME(win)} vence a ${H[lose]} ${NAME(lose)}.`); tone(w===0||mode==='dos'?880:180,.2,w===0||mode==='dos'?'triangle':'sawtooth',.14,w===0||mode==='dos'?1.3:.6); }
+    labels();
+    if(sc[0]>=T||sc[1]>=T){ const champ=sc[0]>=T?0:1;
+      if(mode==='caja'){ if(champ===0){ tally.w++; addWin(); confetti(); cheer(); } else tally.l++; store.set(rk('rps'),tally); }
+      else { tally2[champ]++; store.set(rk('rps2'),tally2); addWin(); confetti(); cheer(); }
+      labels(); msg(`🏆 <b>${who(champ)}</b> ${who(champ)==='Tú'?'ganas':'gana'} la partida ${sc[champ]} a ${sc[1-champ]}.`); const nb=q('[data-next]'); nb.textContent='Nueva partida'; nb.hidden=false; nb.onclick=newMatch; busy=false; return; }
+    first=1-first; const nb=q('[data-next]'); nb.textContent='Siguiente ronda'; nb.hidden=false; nb.onclick=()=>{ busy=false; startRound(); }; }
+  q('[data-picks]').addEventListener('click',e=>{ const b=e.target.closest('[data-k]'); if(!b||busy||b.disabled) return; const k=b.dataset.k; tone(520,.05,'triangle',.08);
+    if(mode==='caja'){ let his=pick(KEYS);
+      if(LV===2&&hist.length>=2&&Math.random()<.6){ const fav=KEYS.map(x=>[x,hist.filter(h=>h===x).length]).sort((x,y)=>y[1]-x[1])[0][0]; his=KEYS.find(x=>BEATS[x]===fav); }
+      hist.push(k); reveal(k,his); return; }
+    if(phase==='pick1'){ pick1=k; picks(false); turn=1-turn; phase='cover2'; cover(`¡${names[1-turn]} ya eligió!`,`Pasa el teléfono a ${names[turn]} sin enseñar la mano elegida.`,`¡Listo, soy ${names[turn]}!`); msg(''); return; }
+    if(phase==='pick2'){ const p={}; p[1-turn]=pick1; p[turn]=k; phase='reveal'; reveal(p[0],p[1]); } });
+  el.querySelector('[data-g="rpsmode"]').addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b||b.dataset.v===mode) return; mode=b.dataset.v; store.set('rps-mode',mode); newMatch(); });
+  el.querySelectorAll('[data-n]').forEach(inp=>inp.addEventListener('change',()=>{ const i=+inp.dataset.n; names[i]=inp.value.trim().slice(0,14)||`Jugador ${i+1}`; store.set('rps-names',names); labels(); if(!q('[data-cover]').hidden&&phase.startsWith('cover')) cover(phase==='cover1'?`Turno de ${names[turn]}`:`¡${names[1-turn]} ya eligió!`,phase==='cover1'?`${names[1-turn]}, no mires. Cuando ${names[turn]} tenga el teléfono, pulsa el botón.`:`Pasa el teléfono a ${names[turn]} sin enseñar la mano elegida.`,`¡Listo, soy ${names[turn]}!`); }));
+  newMatch();
   return ()=>timers.forEach(t=>{ clearTimeout(t); clearInterval(t); });
 }
 
