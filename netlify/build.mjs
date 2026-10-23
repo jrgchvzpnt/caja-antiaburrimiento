@@ -28,9 +28,16 @@ let headers = `/*
   Cache-Control: no-cache
   Service-Worker-Allowed: /jugar/
 `;
+// En la cabecera, 'self' se cambia por la lista exacta de scripts del sitio: así no corre el sello
+// que Netlify inyecta en las páginas (/.netlify/scripts/hud), que además pondría un marco encima de los juegos.
+// (el comodín cubre las vistas previas; la CSP del <meta> sigue exigiendo que el script sea del propio sitio)
+const HOSTS = ["https://*.netlify.app"];
+const OWN_JS = walk(OUT).filter((f) => f.endsWith(".js") && !f.endsWith("sw.js")).map((f) => "/" + relative(OUT, f).split(sep).join("/"));
+const scriptSrc = HOSTS.flatMap((h) => OWN_JS.map((p) => h + p)).join(" ");
 for (const file of walk(OUT).filter((f) => f.endsWith(".html"))) {
   const m = readFileSync(file, "utf8").match(/<meta http-equiv="Content-Security-Policy" content="([^"]+)">/);
   if (!m) continue;
+  m[1] = m[1].replace("script-src 'self'", "script-src " + scriptSrc);
   const rel = "/" + relative(OUT, file).split(sep).join("/");
   const routes = rel.endsWith("/index.html") ? [rel.slice(0, -"index.html".length), rel] : [rel];
   for (const r of routes) headers += `${r}\n  Content-Security-Policy: ${m[1]}; frame-ancestors 'none'\n`;
