@@ -237,8 +237,7 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:.9rem;border-top:2px
     <h2>¿Qué juego agregamos?</h2>
     <p>Cuéntanos qué juego te gustaría tener, qué mejorarías o si algo no te funciona. Leemos todas las ideas.</p>
   </div>
-  <form name="sugerencias" method="POST" action="https://caja-antiaburrimiento.netlify.app/gracias/" data-netlify="true" netlify-honeypot="sitio-web">
-    <input type="hidden" name="form-name" value="sugerencias">
+  <form name="sugerencias" method="POST" action="https://caja-antiaburrimiento.netlify.app/api/idea">
     <p class="hp" aria-hidden="true"><label>No llenes este campo <input name="sitio-web" tabindex="-1" autocomplete="off"></label></p>
     <label>Tu idea<textarea name="idea" required minlength="5" maxlength="600" placeholder="Ejemplo: un juego de ajedrez para jugar entre dos"></textarea></label>
     <label>Tu nombre o apodo (opcional)<input name="apodo" maxlength="30" autocomplete="nickname"></label>
