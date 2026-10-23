@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- seguridad:inicio -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-jJ/oBNbNCygzCu8t/Yyd9pc+YThlTnM7jmy4nYHcjzk='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Wp/z2t1FhP4pwX6vSg8A7W9l3psU8nhOVAmcH9mUg0g='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://caja-antiaburrimiento.netlify.app; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action https://caja-antiaburrimiento.netlify.app; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <script src="js/guard.js"></script>
 <link rel="stylesheet" href="fonts/fonts.css">
@@ -12,7 +12,7 @@
 <meta name="description" content="Caja Antiaburrimiento: 68 juegos animados para teléfonos y tablets Android: instrumentos musicales, Arena contra la caja, retro de neón y más, con 3 niveles de dificultad. Pop-it, vuelo del pájaro, rompe ladrillos, 2048, serpiente, Simón, piano y más.">
 <title>Caja Antiaburrimiento para Android</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="canonical" href="https://jrgchvzpnt.github.io/caja-antiaburrimiento/">
+<link rel="canonical" href="https://caja-antiaburrimiento.netlify.app/">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -23,8 +23,8 @@
 <meta property="og:site_name" content="Caja Antiaburrimiento">
 <meta property="og:title" content="Caja Antiaburrimiento: 68 juegos contra el aburrimiento">
 <meta property="og:description" content="Pop-it, sudoku, buscaminas, blackjack, corta frutas, serpiente, Simón, piano, batería y más: 68 juegos gratis para Android (teléfono y tablet) y el navegador.">
-<meta property="og:url" content="https://jrgchvzpnt.github.io/caja-antiaburrimiento/">
-<meta property="og:image" content="https://jrgchvzpnt.github.io/caja-antiaburrimiento/og-image.png">
+<meta property="og:url" content="https://caja-antiaburrimiento.netlify.app/">
+<meta property="og:image" content="https://caja-antiaburrimiento.netlify.app/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Caja Antiaburrimiento con el gran botón rojo de ¡Sorpresa!">
@@ -141,6 +141,20 @@ ol.steps li:nth-child(4)::before{background:var(--lilac)}
 ol.steps b{display:block;font-size:1.05rem}
 ol.steps span{color:#4a4560;font-size:.95rem}
 
+/* buzón de ideas */
+.idea{padding-block:0 72px;display:grid;grid-template-columns:1fr 1.2fr;gap:36px;align-items:start}
+.idea h2{font-size:clamp(2rem,5vw,2.8rem)}
+.idea p{color:var(--muted);margin:12px 0 0}
+.idea form{display:flex;flex-direction:column;gap:14px;background:var(--bg-2);border:2px solid var(--line);border-radius:26px;padding:clamp(18px,4vw,28px)}
+.idea label{display:flex;flex-direction:column;gap:6px;font-weight:900}
+.idea textarea,.idea input{font:500 1rem var(--body);color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:12px 14px;width:100%}
+.idea textarea{resize:vertical;min-height:110px}
+.idea textarea:focus,.idea input:focus{outline:3px solid var(--butter);outline-offset:1px}
+.idea small{color:var(--muted)}
+.idea .btn{align-self:flex-start}
+.idea .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media (max-width:820px){.idea{grid-template-columns:1fr}}
+
 footer{padding-block:28px 40px;color:var(--muted);font-size:.9rem;border-top:2px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 #bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
@@ -204,9 +218,9 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:.9rem;border-top:2px
   <div>
     <div class="eyebrow" style="color:var(--coral)">Instalar en Android</div>
     <h2>Lista en cuatro pasos.</h2>
-    <p>La app se instala desde el archivo <code>CajaAntiaburrimiento.apk</code> (<span id="apk-size">281 KB</span>). No está en Google Play, por eso Android te pedirá permiso la primera vez.</p>
-    <p style="margin-top:22px"><a class="btn primary" href="https://github.com/jrgchvzpnt/caja-antiaburrimiento/releases/latest/download/CajaAntiaburrimiento.apk">Descargar APK · v1.8.3</a></p>
-    <p style="font-size:.82rem;margin-top:10px">Huella SHA-256 para comprobar que el archivo no fue alterado:<br><code id="apk-sha" style="font-size:.74rem;word-break:break-all">6b51d741a514c791ee3f7ca5f31e8578b98c315bbdb9cc445179a44ab7526649</code></p>
+    <p>La app se instala desde el archivo <code>CajaAntiaburrimiento.apk</code> (<span id="apk-size">285 KB</span>). No está en Google Play, por eso Android te pedirá permiso la primera vez.</p>
+    <p style="margin-top:22px"><a class="btn primary" id="apk-btn" href="https://github.com/jrgchvzpnt/caja-antiaburrimiento/releases/latest/download/CajaAntiaburrimiento.apk">Descargar APK</a></p>
+    <p style="font-size:.82rem;margin-top:10px">Huella SHA-256 para comprobar que el archivo no fue alterado:<br><code id="apk-sha" style="font-size:.74rem;word-break:break-all">73c0443ee00d3c98c3653db7e2c2b59b6e390e822babd955a2ee499b7bbe92f2</code></p>
     <p style="font-size:.9rem">Android 8.0 o superior. ¿Sin Android? <a href="jugar/">Juega en el navegador</a>.</p>
   </div>
   <ol class="steps">
@@ -217,12 +231,33 @@ footer{padding-block:28px 40px;color:var(--muted);font-size:.9rem;border-top:2px
   </ol>
 </div></div></section>
 
+<section class="band" id="sugerencias"><div class="in idea">
+  <div>
+    <div class="eyebrow" style="color:var(--mint)">Buzón de ideas</div>
+    <h2>¿Qué juego agregamos?</h2>
+    <p>Cuéntanos qué juego te gustaría tener, qué mejorarías o si algo no te funciona. Leemos todas las ideas.</p>
+  </div>
+  <form name="sugerencias" method="POST" action="https://caja-antiaburrimiento.netlify.app/gracias/" data-netlify="true" netlify-honeypot="sitio-web">
+    <input type="hidden" name="form-name" value="sugerencias">
+    <p class="hp" aria-hidden="true"><label>No llenes este campo <input name="sitio-web" tabindex="-1" autocomplete="off"></label></p>
+    <label>Tu idea<textarea name="idea" required minlength="5" maxlength="600" placeholder="Ejemplo: un juego de ajedrez para jugar entre dos"></textarea></label>
+    <label>Tu nombre o apodo (opcional)<input name="apodo" maxlength="30" autocomplete="nickname"></label>
+    <button class="btn primary" type="submit">Enviar idea</button>
+    <small>No pedimos correo ni ningún dato personal.</small>
+  </form>
+</div></section>
+
 <footer class="band"><div class="in" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;width:100%">
-  <span>Caja Antiaburrimiento · versión 1.8.3 · <a href="https://github.com/jrgchvzpnt/caja-antiaburrimiento">Código en GitHub</a></span><span>Hecha para los días largos y las tardes lentas.</span>
+  <span>Caja Antiaburrimiento · versión 1.9.0 · <a href="https://github.com/jrgchvzpnt/caja-antiaburrimiento">Código en GitHub</a></span><span>Hecha para los días largos y las tardes lentas.</span>
 </div></footer>
 
 <script>
 (() => {
+// Contador anónimo (sin cookies ni datos personales): visitas a esta página y descargas del APK.
+const API=location.protocol!=='https:'?null:/\.netlify\.app$/.test(location.hostname)?'/api':location.hostname==='jrgchvzpnt.github.io'?'https://caja-antiaburrimiento.netlify.app/api':null;
+const hit=e=>{ if(API) try{ fetch(API+'/hit',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({e}),keepalive:true}).catch(()=>{}); }catch(_){} };
+try{ if(!sessionStorage.getItem('caja-landing')){ sessionStorage.setItem('caja-landing','1'); hit('landing'); } }catch(_){}
+document.getElementById('apk-btn').addEventListener('click',()=>hit('apk'));
 const COLORS=['#ff8a3d','#ffd84d','#ff5f7e','#48e0b0','#a98bff'];
 const TOYS=[
   ['Teclado musical','Teclas blancas y negras, piano, órgano, sintetizador y flauta.','Aprende las 16 canciones nota a nota.','libre · música','var(--lilac)','Música'],

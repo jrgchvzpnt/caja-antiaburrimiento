@@ -1,0 +1,9 @@
+{
+  "name": "caja-antiaburrimiento-web",
+  "private": true,
+  "type": "module",
+  "description": "Funciones del espejo de Netlify: récord mundial, reto del día y contador anónimo.",
+  "dependencies": {
+    "@netlify/blobs": "8.2.0"
+  }
+}

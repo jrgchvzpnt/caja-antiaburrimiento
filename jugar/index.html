@@ -3,18 +3,19 @@
 <head>
 <meta charset="utf-8">
 <!-- seguridad:inicio -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-avlGfSLOWSe/barq5Gvy6PtWaMLbkpiAVcbviy6tI8c='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-bsf68fj5fZkSAA0qEogZq++mGeiaXoC5y4ummwo1qjM='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://caja-antiaburrimiento.netlify.app; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action https://caja-antiaburrimiento.netlify.app; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <script src="../js/guard.js"></script>
 <link rel="stylesheet" href="../fonts/fonts.css">
 <!-- seguridad:fin -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Juega gratis en el navegador a todos los juegos de la Caja Antiaburrimiento: reflejos, mente, saber, retro y relax, con 3 niveles de dificultad.">
-<link rel="canonical" href="https://jrgchvzpnt.github.io/caja-antiaburrimiento/jugar/">
+<link rel="canonical" href="https://caja-antiaburrimiento.netlify.app/jugar/">
 <link rel="icon" href="../favicon.ico" sizes="48x48">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-<link rel="manifest" href="../site.webmanifest">
+<link rel="manifest" href="manifest.webmanifest">
+<script src="pwa.js" defer></script>
 <meta name="theme-color" content="#13294b">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Caja">
@@ -23,8 +24,8 @@
 <meta property="og:site_name" content="Caja Antiaburrimiento">
 <meta property="og:title" content="Juega a la Caja Antiaburrimiento">
 <meta property="og:description" content="Juegos animados para jugar ahora mismo en el navegador, sin instalar nada.">
-<meta property="og:url" content="https://jrgchvzpnt.github.io/caja-antiaburrimiento/jugar/">
-<meta property="og:image" content="https://jrgchvzpnt.github.io/caja-antiaburrimiento/og-image.png">
+<meta property="og:url" content="https://caja-antiaburrimiento.netlify.app/jugar/">
+<meta property="og:image" content="https://caja-antiaburrimiento.netlify.app/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -92,6 +93,22 @@ button:focus-visible,.toy:focus-visible{outline:3px solid var(--butter);outline-
 .bigbtn-wrap small{color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.75rem}
 
 .shelf{display:flex;flex-direction:column;gap:14px;margin-top:32px}
+/* reto del día y récord mundial */
+.daily{margin-top:26px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px 22px;align-items:center;background:linear-gradient(135deg,#2a1b5e,#13294b);border:2px solid var(--lilac);border-radius:26px;padding:18px 20px}
+.daily h3{font-family:var(--display);font-weight:400;font-size:1.5rem;line-height:1.15;margin:4px 0 6px}
+.daily p{margin:0 0 12px;color:var(--muted)}
+.olk{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:900;color:var(--butter)}
+.olrow{display:flex;gap:10px 14px;align-items:center;flex-wrap:wrap}
+.lb{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px;counter-reset:r}
+.lb li{display:flex;gap:8px;background:rgba(0,0,0,.22);border-radius:12px;padding:6px 12px;font-weight:700;counter-increment:r}
+.lb li::before{content:counter(r) '.';color:var(--muted);min-width:1.6em}
+.lb li span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lb li.me{outline:2px solid var(--mint)}
+.lb li.empty{color:var(--muted);font-weight:500}.lb li.empty::before{content:none}
+.world{background:var(--bg-2);border:2px solid #2c4d85;border-radius:20px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.world p{margin:0;font-size:.9rem;color:var(--muted)}
+.linkbtn{background:none;border:none;padding:0;color:var(--mint);font-weight:900;text-decoration:underline;font:inherit;cursor:pointer}
+@media (max-width:640px){.daily{grid-template-columns:1fr;padding:16px}}
 .shelf h3{font-family:var(--display);font-weight:400;font-size:1.4rem;margin:0}
 .filters{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;margin-inline:-4px;padding-inline:4px}
 .filters::-webkit-scrollbar{display:none}
@@ -378,6 +395,7 @@ html[data-device="tablet"] .rbtn.a{width:92px;height:92px}
     <h1 class="logo" id="logo" aria-label="Caja Antiaburrimiento"></h1>
     <div class="hud">
       <div class="chip">Aburrimientos vencidos: <b id="wins">0</b></div>
+      <button class="iconbtn" id="install" hidden>Instalar app</button>
       <button class="iconbtn" id="mute" aria-pressed="false">Volumen: alto</button>
     </div>
   </header>
@@ -394,6 +412,8 @@ html[data-device="tablet"] .rbtn.a{width:92px;height:92px}
       </div>
     </section>
 
+    <section class="daily" id="daily" hidden></section>
+
     <section class="shelf">
       <h3>El estante de juguetes</h3>
       <div class="filters" id="filters" role="toolbar" aria-label="Filtrar juguetes"></div>
@@ -408,6 +428,7 @@ html[data-device="tablet"] .rbtn.a{width:92px;height:92px}
     </div>
     <div class="info" id="stageInfo"></div>
     <div id="stageBody"></div>
+    <div class="world" id="world" hidden></div>
   </section>
 </div>
 
@@ -925,13 +946,14 @@ function open(id){
   document.body.classList.toggle('in-music', CATS.musica.includes(id));
   tone(660,.1,'triangle',.15,1.5);
   scrollTo({top:0, behavior:'smooth'});
+  Online.opened(id);
 }
 $('#stageInfo').addEventListener('click', e=>{
   const b=e.target.closest('[data-lv]'); if(!b || +b.dataset.lv===LV) return;
   LV_MEM[currentId] = +b.dataset.lv; store.set('lv-'+currentId, +b.dataset.lv); open(currentId);
   toast('Dificultad: '+LV_NAMES[LV]);
 });
-function home(){ if(cleanup){cleanup();cleanup=null;} document.body.classList.remove('in-game','in-music'); $('#stage').hidden=true; $('#home').hidden=false; }
+function home(){ if(cleanup){cleanup();cleanup=null;} document.body.classList.remove('in-game','in-music'); $('#stage').hidden=true; $('#home').hidden=false; Online.daily(); }
 // En el móvil, al empezar una partida se pliega «Cómo se juega» y el juego queda a la vista.
 $('#stageBody').addEventListener('click', e=>{
   const b=e.target.closest('button'); if(!b || !/^(Empezar|Otra vez)$/.test(b.textContent.trim())) return;
@@ -1421,7 +1443,7 @@ function arcade(el,o){
   api.setScore=v=>el.querySelector('[data-s]').textContent=v;
   const go=()=>{ api.ov.hidden=true; api.onStart&&api.onStart(); };
   api.ov.querySelector('[data-go]').onclick=go;
-  api.end=(score,msg)=>{ const rec=score>api.best;
+  api.end=(score,msg)=>{ const rec=score>api.best; Online.played(o.key,score);
     if(rec){ api.best=score; store.set(rk(o.key),score); el.querySelector('[data-b]').textContent=score; confetti(); cheer(); }
     if(score>0) addWin();
     api.ov.innerHTML=`<h3>${rec?'¡Nuevo récord!':(o.over||'¡Fin de la partida!')}</h3><p class="hint">${msg}</p><button class="pill" data-go>Otra vez</button>`;
@@ -2261,7 +2283,7 @@ function runQuiz(el,o){
     else { tone(150,.25,'square',.1); q('[data-f]').innerHTML=(k<0?'Se acabó el tiempo. ':'No. ')+`Era <b style="color:var(--butter)">${it.opts[it.ans]}</b>.`+(it.why?' '+it.why:''); }
     nextT=setTimeout(ask,k===it.ans?900:1800); }
   function end(){ clearInterval(timer); q('[data-o]').innerHTML=''; q('[data-q]').textContent=`${score} de ${N}`;
-    const rec=score>best; if(rec){ best=score; store.set(rk(o.key),best); q('[data-b]').textContent=best; confetti(); cheer(); }
+    Online.played(o.key,score); const rec=score>best; if(rec){ best=score; store.set(rk(o.key),best); q('[data-b]').textContent=best; confetti(); cheer(); }
     if(score>0) addWin(); q('[data-f]').textContent=score===N?'¡Todas bien!':score>=N*.7?'¡Muy bien!':score>=N*.4?'No está mal.':'Sigue practicando.'; const g=q('[data-go]'); g.textContent='Otra vez'; g.hidden=false; }
   q('[data-go]').onclick=()=>{ i=0; score=0; used=new Set(); q('[data-s]').textContent=0; q('[data-go]').hidden=true; ask(); };
   return ()=>{ clearInterval(timer); clearTimeout(nextT); };
@@ -2585,7 +2607,7 @@ function neo(el,o){
   raf=requestAnimationFrame(frame);
   const go=()=>{ api.ov.hidden=true; api.hit={}; Object.keys(api.on).forEach(x=>press(x,0)); api.parts=[]; api.pops=[]; api.playing=true; api.onStart&&api.onStart(); };
   api.ov.querySelector('[data-go]').onclick=go;
-  api.end=(score,msg)=>{ if(!api.playing) return; api.playing=false; const rec=score>api.best;
+  api.end=(score,msg)=>{ if(!api.playing) return; api.playing=false; const rec=score>api.best; Online.played(o.key,score);
     if(rec){ api.best=score; store.set(rk(o.key),score); el.querySelector('[data-b]').textContent=score; confetti(); cheer(); }
     if(score>0) addWin(); tone(330,.12,'square',.08); setTimeout(()=>tone(220,.14,'square',.08),130); setTimeout(()=>tone(147,.3,'square',.08),280);
     setTimeout(()=>{ api.ov.innerHTML=`<h3 class="rtxt" style="font-size:1.05rem;line-height:1.5;color:${rec?'#ffe45e':'#ff3ea5'};text-shadow:0 0 12px currentColor">${rec?'¡NUEVO RÉCORD!':'GAME OVER'}</h3><p class="hint">${msg}</p><button class="pill" data-go>Otra vez</button>`;
@@ -3682,6 +3704,112 @@ function runSynth(el){
     if(e.target.closest('[data-echo]')){ echo=!echo; q('[data-echo]').setAttribute('aria-pressed',echo); if(echoNode) echoNode.wet.gain.value=echo?.35:0; } });
   return ()=>{ cancelAnimationFrame(raf); ro.disconnect(); Object.keys(voices).forEach(stop); };
 }
+
+/* ---------- en línea: récord mundial, reto del día, compartir y contador anónimo ----------
+   Solo en la web (GitHub Pages y el espejo de Netlify). La app Android no tiene permiso de internet
+   y todo esto se queda oculto; los récords personales siguen guardándose en el teléfono. */
+const Online = (()=>{
+  const MIRROR = 'https://caja-antiaburrimiento.netlify.app';
+  const API = location.protocol!=='https:' ? null : /\.netlify\.app$/.test(location.hostname) ? '/api' : location.hostname==='jrgchvzpnt.github.io' ? MIRROR+'/api' : null;
+  // Juegos donde más puntos es mejor (los de tiempo o intentos no entran al récord mundial).
+  const RANKED = new Set(['bird','brick','catchf','garden','juggle','pong','rhythm','slice','target','blocks','cell','dodge','duels','frog','invaders','lsnake','miner','plat','race','towers','capitals','riddles','seq','tf',
+    'stack','simon','mole','snake','g2048','odd','math','stroop','tapfast','numem','anagram','bj','mime','drawq','dice5','drums','xylo','guitar','synth']);
+  // El reto del día sale de los juegos que terminan con puntaje en cada partida (la misma lista está en el servidor).
+  const DAILY = ['bird','brick','catchf','juggle','pong','slice','target','rhythm','blocks','dodge','frog','invaders','lsnake','plat','race','cell','capitals','riddles','seq','tf'];
+  const day = (d=new Date()) => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  function dailyFor(d){ let h=2166136261; for(const c of d){ h^=c.charCodeAt(0); h=Math.imul(h,16777619)>>>0; } return {g:DAILY[h%DAILY.length], lv:(h>>>8)%3}; }
+  const nameOf = id => (TOYS.find(t=>t.id===id)||{}).name || id;
+  const esc = t => String(t).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const ANIMALS = ['Mapache','Ajolote','Coyote','Tlacuache','Quetzal','Jaguar','Colibrí','Iguana','Tejón','Búho','Delfín','Zorro'];
+  let nick = store.get('apodo', '');
+  if (!nick){ nick = pick(ANIMALS)+' '+Math.floor(rand(10,999)); store.set('apodo', nick); }
+
+  async function call(path, body){
+    if (!API) return null;
+    try{ const r = await fetch(API+path, body ? {method:'POST', headers:{'content-type':'application/json'}, body:JSON.stringify(body), keepalive:true} : {cache:'no-store'});
+      return r.ok ? await r.json() : null; }catch(e){ return null; } }
+  const hit = (e,id) => { if (API) call('/hit', id ? {e,id} : {e}); };
+
+  function board(list, empty){
+    if (!list) return `<li class="empty">Sin conexión con el récord mundial.</li>`;
+    if (!list.length) return `<li class="empty">${empty}</li>`;
+    return list.map(r=>`<li class="${r.n===nick?'me':''}"><span>${esc(r.n)}</span><b>${r.s}</b></li>`).join(''); }
+
+  // Cada récord personal nuevo de un juego con puntos se manda al récord mundial.
+  const rawSet = store.set;
+  store.set = (k,v)=>{ rawSet.call(store,k,v); const base = k.replace(/-(novato|experto)$/,'');
+    if (API && base===currentId && RANKED.has(base) && typeof v==='number' && v>0) submit(base, v); };
+  async function submit(g, s){ const lv=LV, r = await call('/scores', {g, lv, n:nick, s});
+    if (!r) return; if (r.rank) toast(`🌎 ¡Estás en el récord mundial! Puesto ${r.rank}`);
+    if (currentId===g && LV===lv) world(r.top); }
+
+  function world(top){
+    const w = $('#world'), id = currentId, ranked = API && RANKED.has(id);
+    w.hidden = false;
+    w.innerHTML = `<div class="olrow" style="justify-content:space-between"><b class="olk">${ranked?'🌎 Récord mundial · '+LV_NAMES[LV]:'Juega con alguien más'}</b>
+        <button class="pill alt" data-share>${ranked?'Retar a un amigo':'Invitar a un amigo'}</button></div>
+      ${ranked?`<ol class="lb" data-wtop>${top===undefined?'<li class="empty">Cargando…</li>':board(top,'Nadie ha puesto un récord en este nivel. ¡Sé el primero!')}</ol>
+      <p>Apareces como <button class="linkbtn" data-nick>${esc(nick)}</button>. Toca para cambiar tu apodo.</p>`:''}`;
+    if (ranked && top===undefined) call(`/scores?g=${id}&lv=${LV}`).then(r=>{ if (currentId===id) { const ol=w.querySelector('[data-wtop]'); if (ol) ol.innerHTML=board(r&&r.top,'Nadie ha puesto un récord en este nivel. ¡Sé el primero!'); } }); }
+
+  async function share(){
+    const id=currentId, best=store.get(rk(id),null), url=MIRROR+'/j/'+id;
+    const text = RANKED.has(id) && typeof best==='number' && best>0
+      ? `Mi récord en ${nameOf(id)} (${LV_NAMES[LV]}) es ${best}. ¿Me ganas?`
+      : `Juega conmigo a ${nameOf(id)} en la Caja Antiaburrimiento.`;
+    try{ if (navigator.share){ await navigator.share({title:'Caja Antiaburrimiento', text, url}); return; } }
+    catch(e){ if (e && e.name==='AbortError') return; }
+    let ok=false;
+    try{ const ta=document.createElement('textarea'); ta.value=text+' '+url; ta.setAttribute('readonly',''); ta.style.cssText='position:fixed;opacity:0;top:0'; document.body.appendChild(ta); ta.select(); ok=document.execCommand('copy'); ta.remove(); }catch(e){}
+    toast(ok ? 'Copiado. Pégalo en WhatsApp para retar a alguien' : text+' '+url); }
+
+  function rename(){
+    let v = null; try{ v = prompt('Tu apodo para el récord mundial (máximo 14 letras):', nick); }catch(e){}
+    if (v===null) return; v = v.replace(/\s+/g,' ').trim().slice(0,14);
+    if (v.length<2) return toast('El apodo necesita al menos 2 letras');
+    nick = v; store.set('apodo', nick); toast('Ahora apareces como '+nick); world(); }
+
+  $('#world').addEventListener('click', e=>{ if (e.target.closest('[data-share]')) share(); else if (e.target.closest('[data-nick]')) rename(); });
+
+  // Reto del día: el mismo juego y nivel para todos; vale con jugar una partida hoy.
+  function streak(){ const st=store.get('reto',{last:'',streak:0,best:0}); const y=new Date(); y.setDate(y.getDate()-1);
+    return (st.last===day()||st.last===day(y)) ? st : {last:'',streak:0,best:0}; }
+  function daily(){
+    const el=$('#daily'), d=day(), ch=dailyFor(d), st=streak(), done=st.last===d;
+    el.hidden=false;
+    el.innerHTML = `<div><b class="olk">Reto del día${done?' · ✅ cumplido':''}</b>
+        <h3>${esc(nameOf(ch.g))} · ${LV_NAMES[ch.lv]}</h3>
+        <p>Hoy todos juegan lo mismo en el mismo nivel. ${API?'El mejor puntaje del día queda arriba.':'Juega una partida para cumplirlo.'}</p>
+        <div class="olrow"><button class="pill" data-daily>${done?'Mejorar mi puntaje':'Jugar el reto'}</button>
+        <span class="hint">Racha: <b>${st.streak}</b> ${st.streak===1?'día':'días'}${done?` · Tu mejor hoy: <b>${st.best}</b>`:''}</span></div></div>
+      ${API?`<ol class="lb" data-dtop><li class="empty">Cargando…</li></ol>`:''}`;
+    if (API) call(`/scores?g=${ch.g}&lv=${ch.lv}&d=${d}`).then(r=>{ const ol=el.querySelector('[data-dtop]'); if (ol) ol.innerHTML=board(r&&r.top,'Nadie ha jugado el reto todavía. ¡Estrena la tabla de hoy!'); }); }
+  $('#daily').addEventListener('click', e=>{ if (!e.target.closest('[data-daily]')) return; const ch=dailyFor(day()); LV_MEM[ch.g]=ch.lv; open(ch.g); });
+
+  function played(g, s){
+    const d=day(), ch=dailyFor(d); if (g!==ch.g || LV!==ch.lv) return;
+    const st=streak();
+    if (st.last!==d){ st.streak=(st.last?st.streak:0)+1; st.last=d; st.best=0; setTimeout(()=>toast(`✅ ¡Reto del día cumplido! Racha: ${st.streak} ${st.streak===1?'día':'días'}`),900); }
+    if (s>st.best){ st.best=s; if (API) call('/scores',{g, lv:LV, n:nick, s, d}).then(r=>{ if (r && r.rank) setTimeout(()=>toast(`Reto del día: vas en el puesto ${r.rank}`),2600); }); }
+    rawSet.call(store,'reto',st); }
+
+  // Instalar como app desde el navegador (Chrome lo ofrece cuando la página funciona sin internet).
+  let installEv=null; const ib=$('#install');
+  addEventListener('beforeinstallprompt', e=>{ e.preventDefault(); installEv=e; ib.hidden=false; });
+  addEventListener('appinstalled', ()=>{ ib.hidden=true; installEv=null; toast('¡Instalada! Búscala en tu pantalla de inicio'); });
+  ib.onclick=async()=>{ if (!installEv) return; installEv.prompt(); try{ await installEv.userChoice; }catch(e){} installEv=null; ib.hidden=true; };
+
+  daily();
+  try{ if (!sessionStorage.getItem('caja-visto')){ sessionStorage.setItem('caja-visto','1'); hit('visit'); } }catch(e){}
+  // Enlaces directos: /j/<juego> abre ese juego y /reto abre el reto del día.
+  const qs=new URLSearchParams(location.search), j=qs.get('j');
+  setTimeout(()=>{   // después de crear Online, porque open() lo usa
+    if (j && TOYS.some(t=>t.id===j)) open(j);
+    else if (qs.has('reto')){ const ch=dailyFor(day()); LV_MEM[ch.g]=ch.lv; open(ch.g); }
+    if (j || qs.has('reto')) try{ history.replaceState(null,'',location.pathname); }catch(e){} }, 0);
+
+  return { opened(id){ hit('game', id); world(); }, played, daily };
+})();
 
 })();
 </script>

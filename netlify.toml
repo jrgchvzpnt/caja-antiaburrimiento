@@ -1,0 +1,10 @@
+# Espejo en Netlify (https://caja-antiaburrimiento.netlify.app): algunas redes móviles, como Telcel,
+# no dejan llegar a GitHub Pages. Se construye con netlify/build.mjs y tiene funciones para el
+# récord mundial, el reto del día y el contador anónimo (netlify/functions).
+[build]
+  command = "node netlify/build.mjs"
+  publish = "_site"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"

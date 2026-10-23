@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<!-- seguridad:inicio -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://caja-antiaburrimiento.netlify.app; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action https://caja-antiaburrimiento.netlify.app; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<script src="../js/guard.js"></script>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<!-- seguridad:fin -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estadísticas · Caja Antiaburrimiento</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#13294b">
+<style>
+:root{--bg:#13294b;--bg-2:#1b3866;--line:#2c4d85;--ink:#fff7ea;--muted:#b9c6e4;--coral:#ff5f7e;--butter:#ffd84d;--mint:#48e0b0;--lilac:#a98bff;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;padding:28px 16px 48px}
+main{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1{font-family:"Bagel Fat One","Arial Rounded MT Bold",sans-serif;font-weight:400;font-size:clamp(1.8rem,6vw,2.6rem);margin:0}
+h2{font-size:1.1rem;margin:0 0 10px}
+p{color:var(--muted);margin:0}
+a{color:var(--mint)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.tile{background:var(--bg-2);border:2px solid var(--line);border-radius:20px;padding:16px}
+.tile b{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tile span{font-family:"Bagel Fat One",sans-serif;font-size:2.2rem;line-height:1.1}
+.tile small{color:var(--muted)}
+.card{background:var(--bg-2);border:2px solid var(--line);border-radius:20px;padding:16px;min-width:0}
+.bars{display:flex;align-items:flex-end;gap:3px;height:140px}
+.bars i{flex:1;background:var(--mint);border-radius:4px 4px 0 0;min-height:2px}
+.axis{display:flex;justify-content:space-between;color:var(--muted);font-size:.8rem;margin-top:6px}
+.grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
+ol{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:4px}
+ol li span{color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--muted);font-weight:700}
+.scroll{overflow-x:auto}
+@media (max-width:720px){.grid{grid-template-columns:1fr}}
+</style>
+<script src="stats.js" defer></script>
+</head>
+<body>
+<main>
+  <div>
+    <h1>Estadísticas de la caja</h1>
+    <p>Totales de los últimos 30 días, sin cookies ni datos personales: solo sumas por día. <a href="../">Volver al inicio</a></p>
+  </div>
+  <div class="tiles" id="tiles"><div class="tile"><b>Cargando</b><span>…</span></div></div>
+  <div class="grid">
+    <div class="card"><h2>Partidas por día</h2><div class="bars" id="bars"></div><div class="axis" id="axis"></div></div>
+    <div class="card"><h2>Juegos más jugados</h2><ol id="top"></ol></div>
+  </div>
+  <div class="card scroll"><h2>Día por día</h2><table id="tbl"></table></div>
+</main>
+</body>
+</html>

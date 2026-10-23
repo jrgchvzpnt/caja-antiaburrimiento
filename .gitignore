@@ -21,3 +21,8 @@ desktop.ini
 .vscode/
 .idea/
 *.swp
+
+# Espejo de Netlify (se genera al construir)
+node_modules/
+_site/
+.netlify/

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<!-- seguridad:inicio -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://caja-antiaburrimiento.netlify.app; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action https://caja-antiaburrimiento.netlify.app; upgrade-insecure-requests">
+<meta name="referrer" content="no-referrer">
+<script src="../js/guard.js"></script>
+<link rel="stylesheet" href="../fonts/fonts.css">
+<!-- seguridad:fin -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¡Gracias por tu idea! · Caja Antiaburrimiento</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#13294b">
+<style>
+:root{--bg:#13294b;--ink:#fff7ea;--muted:#b9c6e4;--coral:#ff5f7e;--butter:#ffd84d;--mint:#48e0b0;--dark:#1a1530;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito",system-ui,sans-serif;display:grid;place-items:center;text-align:center;padding:24px 16px}
+main{display:flex;flex-direction:column;align-items:center;gap:18px;max-width:34rem}
+.big{font-size:clamp(4rem,18vw,7rem);line-height:1;animation:bob 2.4s ease-in-out infinite}
+h1{font-family:"Bagel Fat One","Arial Rounded MT Bold",sans-serif;font-weight:400;font-size:clamp(1.8rem,7vw,2.6rem);margin:0;text-wrap:balance}
+p{color:var(--muted);margin:0;font-size:1.05rem}
+.row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+a.btn{display:inline-block;border-radius:999px;padding:13px 24px;font-weight:900;text-decoration:none;box-shadow:0 6px 0 rgba(0,0,0,.3)}
+a.btn:focus-visible{outline:3px solid var(--butter);outline-offset:3px}
+.a{background:var(--coral);color:#fff}.b{background:var(--ink);color:var(--dark)}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-10px) rotate(-6deg)}}
+@media (prefers-reduced-motion:reduce){.big{animation:none}}
+</style>
+</head>
+<body>
+<main>
+  <div class="big" aria-hidden="true">💌</div>
+  <h1>¡Gracias! Tu idea ya está en la caja.</h1>
+  <p>La leeremos con calma. Si la elegimos, aparecerá en una próxima versión.</p>
+  <div class="row">
+    <a class="btn a" href="../jugar/">Ir a los juegos</a>
+    <a class="btn b" href="../">Volver al inicio</a>
+  </div>
+</main>
+</body>
+</html>
