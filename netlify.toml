@@ -1,0 +1,27 @@
+# Espejo en Netlify: algunas redes móviles (Telcel) no dejan llegar a GitHub Pages.
+# Se publica la misma web dentro de /caja-antiaburrimiento/ para que todas las rutas
+# sean idénticas a las de https://jrgchvzpnt.github.io/caja-antiaburrimiento/
+[build]
+  publish = "_site"
+  command = "rm -rf _site && mkdir -p _site/caja-antiaburrimiento && tar --exclude=./_site --exclude=./.git --exclude=./netlify.toml -cf - . | tar -xf - -C _site/caja-antiaburrimiento"
+
+[[redirects]]
+  from = "/"
+  to = "/caja-antiaburrimiento/"
+  status = 301
+
+[[redirects]]
+  from = "/*"
+  to = "/caja-antiaburrimiento/404.html"
+  status = 404
+
+# Cabeceras de seguridad que GitHub Pages no permite enviar
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "frame-ancestors 'none'"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    Strict-Transport-Security = "max-age=31536000"
