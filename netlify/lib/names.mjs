@@ -69,5 +69,10 @@ export default {
   guitar: "Guitarra",
   chess: "Ajedrez para dos",
   kart: "Karts de neón",
+  checkers: "Damas para dos",
+  mxtrivia: "Trivia de México",
+  flags: "Memorama de banderas",
+  color: "Libro para colorear",
+  story: "Leyenda de neón",
   synth: "Sintetizador táctil",
 };

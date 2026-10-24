@@ -1,7 +1,7 @@
 {
   "name": "Caja Antiaburrimiento",
   "short_name": "Caja",
-  "description": "70 juegos animados para cuando estás aburrido. Funciona sin internet.",
+  "description": "75 juegos animados para cuando estás aburrido. Funciona sin internet.",
   "lang": "es",
   "start_url": "./",
   "scope": "./",

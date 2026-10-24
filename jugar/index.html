@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- seguridad:inicio -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-xa/iJFffFwvW6mKCWCm/MZbyF2UU2/xfXKlbbMGOh/A='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://caja-antiaburrimiento.netlify.app; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action https://caja-antiaburrimiento.netlify.app; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-COG9fd3HRCgJaGiHkBx3sp5f41NXxUtjbLx+gHqR1UQ='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://caja-antiaburrimiento.netlify.app; media-src 'none'; object-src 'none'; frame-src 'none'; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action https://caja-antiaburrimiento.netlify.app; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <script src="../js/guard.js"></script>
 <link rel="stylesheet" href="../fonts/fonts.css">
@@ -404,6 +404,28 @@ html[data-device="tablet"] .rbtn.a{width:92px;height:92px}
 .ccap .pc{font-size:1.3rem}
 [data-promo] .pill .pc{font-size:1.4rem;vertical-align:middle}
 
+/* ===== Damas ===== */
+.ck{width:78%;height:78%;border-radius:50%;display:grid;place-items:center;pointer-events:none;box-shadow:inset 0 -5px 0 rgba(0,0,0,.28),0 3px 6px rgba(0,0,0,.35)}
+.ck.w{background:radial-gradient(circle at 40% 35%,#fffaf0,#e9dcc2)}
+.ck.b{background:radial-gradient(circle at 40% 35%,#5b4a7a,#241a3a)}
+.ck.k::after{content:'♛\FE0E';font-size:min(5.4vw,28px,3.6dvh);line-height:1;color:#e3a300;text-shadow:0 1px 0 rgba(0,0,0,.4)}
+.csq.can{box-shadow:inset 0 0 0 3px rgba(72,224,176,.75)}
+/* ===== Memorama de banderas ===== */
+.fgrid{display:grid;gap:8px;width:min(100%,520px)}
+.fcard{aspect-ratio:3/2;border:none;border-radius:10px;padding:4px;background:linear-gradient(135deg,#4f7cff,#a98bff);box-shadow:0 4px 0 rgba(0,0,0,.3);display:grid;place-items:center;cursor:pointer;transition:transform .15s}
+.fcard span{font-family:var(--display);font-size:1.6rem;color:#fff}
+.fcard.up,.fcard.got{background:#fff7ea;transform:rotateY(0)}
+.fcard.got{opacity:.55;box-shadow:0 0 0 3px var(--mint)}
+.fcard .flag{width:100%;height:100%;border-radius:4px;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+.fname{color:#1a1530;font-size:.9rem;line-height:1.1;text-align:center}
+/* ===== Libro para colorear ===== */
+.cbook{width:min(100%,440px,calc(100dvh - 300px));min-width:240px;aspect-ratio:1;background:#fff;border-radius:18px;padding:6px;box-shadow:0 6px 0 rgba(0,0,0,.25)}
+.cbook svg{width:100%;height:100%;display:block}
+.cbook .rg{stroke:#1a1530;stroke-width:2.2;stroke-linejoin:round;cursor:pointer;transition:fill .15s}
+.pal{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;max-width:520px}
+.pal button{width:34px;height:34px;border-radius:50%;border:3px solid rgba(0,0,0,.25);cursor:pointer;padding:0}
+.pal button[aria-checked="true"]{border-color:var(--ink);transform:scale(1.18);box-shadow:0 0 0 3px var(--butter)}
+
 /* ===== Ajustes: tamaño de letra y tema claro ===== */
 html[data-text="l"]{font-size:112.5%}
 html[data-text="xl"]{font-size:125%}
@@ -710,6 +732,11 @@ const ICONS = {
   garden:`<svg class="ico" viewBox="0 0 54 54"><path d="M27 48V24" stroke="#1a1530" stroke-width="3.5"/><path d="M27 36q-10-2-12-10q10 0 12 10z" fill="#1a1530" opacity=".6"/><ellipse cx="35.0" cy="16.0" rx="6" ry="4" fill="#1a1530" transform="rotate(0 35.0 16.0)"/><ellipse cx="29.472417933462772" cy="23.60836050422768" rx="6" ry="4" fill="#1a1530" transform="rotate(72 29.5 23.6)"/><ellipse cx="20.528212609427083" cy="20.702761738725595" rx="6" ry="4" fill="#1a1530" transform="rotate(144 20.5 20.7)"/><ellipse cx="20.527341265034547" cy="11.298437610679253" rx="6" ry="4" fill="#1a1530" transform="rotate(216 20.5 11.3)"/><ellipse cx="29.47100800719465" cy="8.39118146961173" rx="6" ry="4" fill="#1a1530" transform="rotate(288 29.5 8.4)"/><circle cx="27" cy="16" r="4" fill="#fff7ea"/></svg>`,
   kaleido:`<svg class="ico" viewBox="0 0 54 54"><path d="M27 27 L49.0 27.0 L46.1 37.9z" fill="#1a1530" opacity="0.4"/><path d="M27 27 L38.0 46.1 L27.1 49.0z" fill="#1a1530" opacity="1.0"/><path d="M27 27 L16.0 46.1 L8.0 38.1z" fill="#1a1530" opacity="0.4"/><path d="M27 27 L5.0 27.0 L7.9 16.1z" fill="#1a1530" opacity="1.0"/><path d="M27 27 L16.0 8.0 L26.9 5.0z" fill="#1a1530" opacity="0.4"/><path d="M27 27 L38.0 7.9 L46.0 15.9z" fill="#1a1530" opacity="1.0"/></svg>`,
   plat:`<svg class="ico" viewBox="0 0 54 54"><g fill="#1a1530" shape-rendering="crispEdges"><rect x="35" y="3" width="8" height="8" opacity=".45"/><rect x="19" y="11" width="8" height="8"/><rect x="27" y="11" width="8" height="8"/><rect x="19" y="19" width="8" height="8"/><rect x="27" y="19" width="8" height="8"/><rect x="11" y="27" width="8" height="8"/><rect x="19" y="27" width="8" height="8"/><rect x="27" y="27" width="8" height="8"/><rect x="35" y="27" width="8" height="8"/><rect x="19" y="35" width="8" height="8"/><rect x="35" y="35" width="8" height="8"/><rect x="3" y="43" width="8" height="8"/><rect x="11" y="43" width="8" height="8"/><rect x="19" y="43" width="8" height="8"/><rect x="27" y="43" width="8" height="8"/><rect x="35" y="43" width="8" height="8"/><rect x="43" y="43" width="8" height="8"/></g></svg>`,
+  checkers:`<svg class="ico" viewBox="0 0 54 54"><circle cx="18" cy="20" r="11" fill="#1a1530"/><circle cx="36" cy="34" r="11" fill="#1a1530" opacity=".55"/><circle cx="18" cy="20" r="6" fill="none" stroke="#fff7ea" stroke-width="2" opacity=".6"/></svg>`,
+  mxtrivia:`<svg class="ico" viewBox="0 0 54 54"><rect x="6" y="12" width="14" height="30" fill="#1a1530" opacity=".55"/><rect x="20" y="12" width="14" height="30" fill="#fff7ea" opacity=".8"/><rect x="34" y="12" width="14" height="30" fill="#1a1530"/><text x="27" y="33" font-size="14" font-weight="900" text-anchor="middle" fill="#1a1530">?</text></svg>`,
+  flags:`<svg class="ico" viewBox="0 0 54 54"><rect x="8" y="6" width="4" height="44" rx="2" fill="#1a1530"/><path d="M12 8 h30 l-6 9 l6 9 h-30 Z" fill="#1a1530"/><rect x="22" y="30" width="24" height="16" rx="3" fill="#1a1530" opacity=".5"/></svg>`,
+  color:`<svg class="ico" viewBox="0 0 54 54"><path d="M27 6 C13 6 6 16 6 26 C6 38 16 46 24 46 C28 46 28 42 26 39 C24 36 26 33 30 33 H38 C44 33 48 29 48 24 C48 13 38 6 27 6 Z" fill="#1a1530"/><circle cx="17" cy="24" r="4" fill="#fff7ea"/><circle cx="25" cy="15" r="4" fill="#fff7ea"/><circle cx="36" cy="17" r="4" fill="#fff7ea"/></svg>`,
+  story:`<svg class="ico" viewBox="0 0 54 54"><path d="M27 6 L38 34 L27 28 L16 34 Z" fill="#1a1530"/><path d="M10 44 h34" stroke="#1a1530" stroke-width="4" stroke-linecap="round"/><path d="M20 20 l-8 -6 M34 20 l8 -6" stroke="#1a1530" stroke-width="3" stroke-linecap="round" opacity=".5"/></svg>`,
   chess:`<svg class="ico" viewBox="0 0 54 54"><path d="M27 6 a5 5 0 1 1 0 .1 Z" fill="#1a1530"/><path d="M20 16 h14 l-3 6 h-8 Z" fill="#1a1530"/><path d="M22 22 h10 l3 18 h-16 Z" fill="#1a1530"/><rect x="14" y="40" width="26" height="8" rx="3" fill="#1a1530"/></svg>`,
   kart:`<svg class="ico" viewBox="0 0 54 54"><rect x="8" y="22" width="38" height="16" rx="6" fill="#1a1530"/><circle cx="16" cy="40" r="6" fill="#1a1530"/><circle cx="38" cy="40" r="6" fill="#1a1530"/><circle cx="16" cy="40" r="2.5" fill="#fff7ea" opacity=".7"/><circle cx="38" cy="40" r="2.5" fill="#fff7ea" opacity=".7"/><circle cx="26" cy="18" r="6" fill="#1a1530"/><rect x="40" y="16" width="4" height="10" fill="#1a1530"/></svg>`,
   race:`<svg class="ico" viewBox="0 0 54 54"><g fill="#1a1530" shape-rendering="crispEdges"><rect x="11" y="3" width="8" height="8"/><rect x="35" y="3" width="8" height="8"/><rect x="3" y="11" width="8" height="8"/><rect x="11" y="11" width="8" height="8"/><rect x="19" y="11" width="8" height="8"/><rect x="27" y="11" width="8" height="8"/><rect x="35" y="11" width="8" height="8"/><rect x="43" y="11" width="8" height="8"/><rect x="11" y="19" width="8" height="8"/><rect x="19" y="19" width="8" height="8"/><rect x="27" y="19" width="8" height="8"/><rect x="35" y="19" width="8" height="8"/><rect x="11" y="27" width="8" height="8"/><rect x="35" y="27" width="8" height="8"/><rect x="3" y="35" width="8" height="8"/><rect x="11" y="35" width="8" height="8"/><rect x="19" y="35" width="8" height="8"/><rect x="27" y="35" width="8" height="8"/><rect x="35" y="35" width="8" height="8"/><rect x="43" y="35" width="8" height="8"/><rect x="11" y="43" width="8" height="8"/><rect x="35" y="43" width="8" height="8"/></g></svg>`,
@@ -803,12 +830,17 @@ const TOYS = [
   {id:'guitar', name:'Guitarra', desc:'Desliza el dedo por las cuerdas y toca acordes.', time:'libre · música', c:'var(--tangerine)', run:runGuitar},
   {id:'chess', name:'Ajedrez para dos', desc:'Ajedrez de verdad para jugar entre dos en el mismo teléfono.', time:'15 min · piensa', c:'var(--butter)', run:runChess},
   {id:'kart', name:'Karts de neón', desc:'Carreras de 3 vueltas contra 3 rivales. Gana para abrir pistas nuevas.', time:'3 min · retro', c:'var(--coral)', run:runKart},
+  {id:'checkers', name:'Damas para dos', desc:'Damas clásicas para jugar entre dos en el mismo teléfono.', time:'10 min · piensa', c:'var(--mint)', run:runCheckers},
+  {id:'mxtrivia', name:'Trivia de México', desc:'Preguntas de historia, comida y lugares de México.', time:'3 min · saber', c:'var(--coral)', run:runMxTrivia},
+  {id:'flags', name:'Memorama de banderas', desc:'Encuentra las banderas iguales. En Experto, únelas con su país.', time:'3 min · memoria', c:'var(--lilac)', run:runFlags},
+  {id:'color', name:'Libro para colorear', desc:'Seis dibujos para pintar con el dedo. Se guardan solos.', time:'libre · crea', c:'var(--tangerine)', run:runColor},
+  {id:'story', name:'Leyenda de neón', desc:'Modo historia retro: 5 capítulos y un jefe final en cada uno.', time:'10 min · retro', c:'var(--coral)', run:runStory},
   {id:'synth', name:'Sintetizador táctil', desc:'Un panel que suena según dónde pongas el dedo.', time:'libre · música', c:'var(--mint)', run:runSynth},
 ];
-const CATS = {musica:['piano','keys','drums','xylo','guitar','synth','rhythm'], arena:['cell','lsnake','drawq','cards','dice5','towers','miner','duels'], retro:['plat','race','kart','invaders','frog','blocks'], relax:['pop','paint','piano','oracle','breathe','garden','kaleido'],
+const CATS = {musica:['piano','keys','drums','xylo','guitar','synth','rhythm'], arena:['cell','lsnake','drawq','cards','dice5','towers','miner','duels'], retro:['story','plat','race','kart','invaders','frog','blocks'], relax:['color','pop','paint','piano','oracle','breathe','garden','kaleido'],
   reflejos:['stack','react','mole','snake','bird','brick','dodge','catchf','pong','rhythm','tapfast','juggle','target','slice'],
-  mente:['chess','simon','pairs','odd','math','stroop','g2048','ttt','hang','numem','mines','sudoku','lights','slide','connect4','guessn','seq','maze','wordsearch','anagram','hanoi'],
-  saber:['tf','capitals','riddles','seq','math'], risa:['dare','oracle','rps','bj','pig','wheel','mime']};
+  mente:['chess','checkers','flags','simon','pairs','odd','math','stroop','g2048','ttt','hang','numem','mines','sudoku','lights','slide','connect4','guessn','seq','maze','wordsearch','anagram','hanoi'],
+  saber:['mxtrivia','tf','capitals','riddles','seq','math'], risa:['dare','oracle','rps','bj','pig','wheel','mime']};
 const CAT_NAMES = [['todos','Todos'],['musica','Música'],['arena','Arena'],['retro','Retro'],['reflejos','Reflejos'],['mente','Mente'],['saber','Saber'],['relax','Relajarse'],['risa','Para reír']];
 $('#toys').innerHTML = TOYS.map(t=>`<button class="toy${CATS.retro.includes(t.id)?' retro':CATS.arena.includes(t.id)?' arena':''}" data-id="${t.id}" style="--c:${t.c}">${ICONS[t.id]}<strong>${t.name}</strong><span>${t.desc}</span><div class="time">${t.time}</div></button>`).join('');
 $('#count').textContent = TOYS.length;
@@ -975,6 +1007,21 @@ const GUIDE = {
   plat:{goal:'Llega al portal de cada nivel con el mayor número de puntos.',
     how:['Muévete con ◀ ▶ (o flechas) y salta con A (o ▲, espacio). Mantén A para saltar más alto.','Salta encima de los bichos verdes para eliminarlos. Si te tocan de lado, pierdes una vida.','Los pinchos rojos y los huecos también quitan vidas.','Las banderas guardan tu avance: si pierdes una vida, vuelves a la última.','Moneda: 10 puntos. Bicho: 20. Portal: 100 o más.'],
     lv:['5 vidas, niveles cortos, pocos huecos, sin pinchos y bichos lentos.','3 vidas, algunos pinchos y niveles normales.','2 vidas, niveles largos, más huecos y pinchos, y bichos rápidos.']},
+  checkers:{goal:'Cómete todas las fichas del otro jugador o déjalo sin movimientos.',
+    how:['Juegan dos personas en el mismo teléfono: empiezan las claras.','Las fichas avanzan en diagonal, una casilla hacia delante.','Para comer, salta por encima de una ficha rival hacia una casilla libre. Si puedes seguir comiendo, sigues.','Al llegar al otro lado, la ficha se vuelve dama y puede moverse también hacia atrás.'],
+    lv:['Comer no es obligatorio, se marcan las fichas que pueden moverse y puedes deshacer.','Comer es obligatorio y se marcan los movimientos.','Comer es obligatorio, sin ayudas, y las damas vuelan: se mueven varias casillas.']},
+  mxtrivia:{goal:'Acierta el mayor número de preguntas sobre México.',
+    how:['Lee la pregunta y elige una de las cuatro respuestas.','Hay preguntas de historia, comida, lugares, arte y tradiciones.','Al final ves cuántas acertaste.'],
+    lv:['6 preguntas fáciles y sin reloj.','10 preguntas fáciles y medias, 15 segundos cada una.','12 preguntas medias y difíciles, 8 segundos cada una.']},
+  flags:{goal:'Encuentra todas las parejas en los menos intentos posibles.',
+    how:['Toca dos cartas para darles la vuelta.','Si son la misma bandera, se quedan descubiertas y ves el nombre del país.','Si no, se vuelven a tapar: ¡recuerda dónde estaban!'],
+    lv:['6 parejas de banderas iguales.','8 parejas de banderas iguales.','10 parejas: cada bandera con el nombre de su país.']},
+  color:{goal:'Pinta los dibujos como más te guste.',
+    how:['Elige un dibujo arriba.','Toca un color y luego la parte del dibujo que quieres pintar.','«Colores sorpresa» pinta todo al azar y «Borrar todo» lo deja en blanco.','Tus dibujos se guardan solos en este dispositivo.'],
+    lv:['8 colores grandes para empezar.','16 colores.','Los 24 colores.']},
+  story:{goal:'Recupera los cinco colores de la Ciudad de Neón venciendo a sus guardianes.',
+    how:['Cada capítulo empieza con una historia: toca para seguir.','Arrastra el dedo para mover la nave; mientras tocas, dispara sola. También ◀ ▲ ▶ ▼ y A.','Aguanta las oleadas y vence al jefe del capítulo: mira su barra de vida arriba.','Las estrellas mejoran tu disparo y los corazones dan una vida. Lo que avances queda guardado.'],
+    lv:['5 vidas y jefes con menos vida.','4 vidas.','3 vidas, disparos más rápidos y jefes más resistentes.']},
   chess:{goal:'Dale jaque mate al rey del otro jugador.',
     how:['Juegan dos personas en el mismo teléfono: empiezan las blancas.','Toca una pieza tuya y luego la casilla a donde quieres moverla.','Valen todas las reglas: enroque, captura al paso y coronación del peón.','Si el rey queda en jaque sin salida, es jaque mate. Si no puede moverse y no está en jaque, son tablas.','«Girar tablero» lo voltea en cada turno, para jugar uno frente al otro.'],
     lv:['Se marcan los movimientos posibles y puedes deshacer jugadas.','Se marcan los movimientos posibles, pero sin deshacer.','Sin ayudas y con reloj: 5 minutos para cada jugador.']},
@@ -4032,6 +4079,315 @@ function runKart(el){
   return ()=>S.stop();
 }
 
+/* ======== 71. DAMAS PARA DOS (mismo teléfono) ======== */
+function runCheckers(el){
+  const MUST=LV>0, FLY=LV===2, HINTS=LV<2, UNDO=LV===0;
+  let B, turn, chain, sel, hist, over, last;
+  const tally=store.get(rk('checkers'),{w:0,b:0,d:0});
+  const col=p=>p?p.toLowerCase():null, king=p=>p&&p===p.toUpperCase(), on=(r,f)=>r>=0&&r<8&&f>=0&&f<8, cname=c=>c==='w'?'claras':'oscuras';
+  const DIRS=[[-1,-1],[-1,1],[1,-1],[1,1]];
+  function movesOf(i){ const p=B[i], c=col(p), r=i>>3, f=i&7, fw=c==='w'?-1:1, steps=[], caps=[];
+    for(const [dr,df] of DIRS){
+      if(king(p)&&FLY){ let rr=r+dr, ff=f+df; while(on(rr,ff)&&!B[rr*8+ff]){ steps.push({f:i,t:rr*8+ff,cap:-1}); rr+=dr; ff+=df; }
+        if(on(rr,ff)&&col(B[rr*8+ff])!==c){ const capI=rr*8+ff; rr+=dr; ff+=df; while(on(rr,ff)&&!B[rr*8+ff]){ caps.push({f:i,t:rr*8+ff,cap:capI}); rr+=dr; ff+=df; } }
+        continue; }
+      if(!king(p)&&dr!==fw) continue;   // los peones solo avanzan y capturan hacia delante
+      const r1=r+dr, f1=f+df; if(!on(r1,f1)) continue; const t1=r1*8+f1;
+      if(!B[t1]) steps.push({f:i,t:t1,cap:-1});
+      else if(col(B[t1])!==c&&on(r1+dr,f1+df)&&!B[(r1+dr)*8+f1+df]) caps.push({f:i,t:(r1+dr)*8+f1+df,cap:t1}); }
+    return {steps,caps}; }
+  function legal(){ if(chain>=0) return movesOf(chain).caps;
+    let all=[], caps=[]; for(let i=0;i<64;i++) if(B[i]&&col(B[i])===turn){ const m=movesOf(i); all=all.concat(m.steps,m.caps); caps=caps.concat(m.caps); }
+    return MUST&&caps.length?caps:all; }
+  el.innerHTML=`<div class="panel" style="display:flex;flex-direction:column;gap:10px;align-items:center">
+    <div class="row" style="justify-content:space-between;width:min(100%,480px)"><span class="score" data-turn></span><span class="hint" data-count></span></div>
+    <div class="cboard ckb" data-board role="grid" aria-label="Tablero de damas"></div>
+    <p class="mstatus" data-msg style="text-align:center;min-height:1.5em"></p>
+    <div class="row" style="justify-content:center"><button class="pill" data-new>Nueva partida</button>${UNDO?'<button class="pill alt" data-undo>Deshacer</button>':''}<button class="pill alt" data-draw>Acordar tablas</button></div>
+    <span class="hint" data-tally></span></div>`;
+  const q=s=>el.querySelector(s), msg=t=>q('[data-msg]').innerHTML=t;
+  function render(){ const L2=over?[]:legal(), movable=new Set(L2.map(m=>m.f)), targets=new Set(HINTS&&sel>=0?L2.filter(m=>m.f===sel).map(m=>m.t):[]);
+    let h=''; for(let i=0;i<64;i++){ const r=i>>3, f=i&7, dark=(r+f)%2===1, p=B[i];
+      const cls=['csq',dark?'dk':'lt',i===sel?'sel':'',last&&(i===last.f||i===last.t)?'last':'',targets.has(i)?'tgt':'',HINTS&&!over&&sel<0&&movable.has(i)?'can':''].join(' ');
+      h+=`<button class="${cls}" data-i="${i}" aria-label="casilla ${i}${p?(col(p)==='w'?' clara':' oscura')+(king(p)?' dama':''):''}"${dark?'':' tabindex="-1"'}>${p?`<span class="ck ${col(p)}${king(p)?' k':''}"></span>`:''}</button>`; }
+    q('[data-board]').innerHTML=h;
+    const n=c=>B.filter(p=>col(p)===c).length;
+    q('[data-count]').textContent=`Claras ${n('w')} · Oscuras ${n('b')}`;
+    q('[data-turn]').innerHTML=over?'Partida terminada':`Turno de las <b>${cname(turn)}</b>`;
+    q('[data-tally]').innerHTML=`Partidas ganadas · claras <b>${tally.w}</b> · oscuras <b>${tally.b}</b> · tablas <b>${tally.d}</b>`;
+    if(UNDO) q('[data-undo]').disabled=!hist.length; }
+  function finish(text,winner){ over=text; msg(text); if(winner){ tally[winner]++; addWin(); confetti(); cheer(); } else tally.d++; store.set(rk('checkers'),tally); render(); }
+  function newGame(){ B=Array(64).fill(null); for(let i=0;i<64;i++){ const r=i>>3, f=i&7; if((r+f)%2===1){ if(r<3) B[i]='b'; else if(r>4) B[i]='w'; } }
+    turn='w'; chain=-1; sel=-1; hist=[]; over=null; last=null; msg('Empiezan las claras. Toca una ficha y luego la casilla a donde va.'); render(); }
+  function play(m){ hist.push({B:B.slice(),turn,chain,last}); const p=B[m.f]; B[m.t]=p; B[m.f]=null; last={f:m.f,t:m.t};
+    let crowned=false; const r=m.t>>3; if(!king(p)&&((col(p)==='w'&&r===0)||(col(p)==='b'&&r===7))){ B[m.t]=p.toUpperCase(); crowned=true; }
+    if(m.cap>=0){ B[m.cap]=null; tone(330,.1,'square',.1);
+      if(!crowned&&movesOf(m.t).caps.length){ chain=m.t; sel=m.t; msg('¡Captura! Puedes seguir saltando con la misma ficha.'); render(); return; } }
+    else tone(520,.06,'triangle',.1);
+    chain=-1; sel=-1; turn=turn==='w'?'b':'w';
+    if(crowned){ msg('¡Dama! Esa ficha ahora se mueve hacia atrás también.'); cheer(); } else msg(m.cap>=0?'¡Captura!':'');
+    if(!B.some(x=>col(x)===turn)) return finish(`¡Ganan las ${cname(turn==='w'?'b':'w')}! Se comieron todas las fichas.`, turn==='w'?'b':'w');
+    if(!legal().length) return finish(`¡Ganan las ${cname(turn==='w'?'b':'w')}! Las ${cname(turn)} no pueden moverse.`, turn==='w'?'b':'w');
+    render(); }
+  q('[data-board]').addEventListener('click',e=>{ const b=e.target.closest('[data-i]'); if(!b||over) return; const i=+b.dataset.i, L2=legal();
+    if(B[i]&&col(B[i])===turn&&chain<0){ if(!L2.some(m=>m.f===i)){ tone(150,.1,'square',.07); msg(MUST&&L2.some(m=>m.cap>=0)?'Hay que capturar: elige una ficha que pueda comer.':'Esa ficha no puede moverse.'); return; } sel=sel===i?-1:i; tone(600,.04,'triangle',.07); render(); return; }
+    if(sel<0) return; const m=L2.find(x=>x.f===sel&&x.t===i);
+    if(!m){ tone(150,.1,'square',.07); msg(HINTS?'Elige una casilla con punto.':'Ese movimiento no se puede.'); return; }
+    play(m); });
+  q('[data-new]').onclick=newGame;
+  if(UNDO) q('[data-undo]').onclick=()=>{ if(!hist.length) return; const s=hist.pop(); B=s.B; turn=s.turn; chain=s.chain; last=s.last; sel=chain; over=null; msg('Jugada deshecha.'); render(); };
+  q('[data-draw]').onclick=()=>{ if(over) return; finish('Tablas de común acuerdo. ¡Buena partida!'); };
+  newGame();
+}
+
+/* ======== 72. TRIVIA DE MÉXICO ======== */
+const MXQ=[
+ [0,'¿Cuál es la capital de México?','Ciudad de México',['Guadalajara','Monterrey','Puebla']],
+ [0,'¿Qué animal está en el escudo de la bandera de México?','Un águila',['Un jaguar','Un quetzal','Un coyote']],
+ [0,'¿Con qué grano se hacen las tortillas tradicionales?','Maíz',['Arroz','Avena','Cebada']],
+ [0,'¿Qué se celebra la noche del 15 al 16 de septiembre?','El inicio de la Independencia',['La Revolución','La Batalla de Puebla','El Día de Muertos']],
+ [0,'¿Qué flor naranja adorna las ofrendas de Día de Muertos?','Cempasúchil',['Rosa','Girasol','Bugambilia']],
+ [0,'¿Qué colores tiene la bandera de México?','Verde, blanco y rojo',['Azul, blanco y rojo','Verde, amarillo y rojo','Rojo, blanco y negro']],
+ [0,'¿Qué platillo de Puebla lleva salsa de nuez y granada?','Chiles en nogada',['Pozole','Enchiladas','Tamales']],
+ [0,'¿Cuál es el ingrediente principal del guacamole?','Aguacate',['Tomate','Chayote','Nopal']],
+ [0,'¿Qué cultura construyó Chichén Itzá?','Los mayas',['Los aztecas','Los olmecas','Los toltecas']],
+ [0,'¿En qué mar está Cancún?','Mar Caribe',['Océano Pacífico','Golfo de California','Mar Mediterráneo']],
+ [0,'¿Cuántas entidades federativas tiene México, contando la Ciudad de México?','32',['31','30','29']],
+ [0,'¿Cuál es la moneda de México?','El peso',['El dólar','El sol','El real']],
+ [0,'¿Qué bebida tradicional se obtiene de fermentar el aguamiel del maguey?','Pulque',['Horchata','Tepache','Atole']],
+ [0,'¿Qué día es el Día de Muertos principal?','2 de noviembre',['12 de diciembre','5 de mayo','20 de noviembre']],
+ [1,'¿Quién dio el Grito de Dolores en 1810?','Miguel Hidalgo',['José María Morelos','Benito Juárez','Vicente Guerrero']],
+ [1,'¿Qué batalla se recuerda cada 5 de mayo?','La Batalla de Puebla',['La toma de Zacatecas','La batalla de Celaya','El sitio de Cuautla']],
+ [1,'¿Qué empezó el 20 de noviembre de 1910?','La Revolución Mexicana',['La Independencia','La Reforma','La Guerra de los Pasteles']],
+ [1,'¿Cómo se llamaba la capital de los mexicas?','Tenochtitlan',['Teotihuacan','Tula','Monte Albán']],
+ [1,'¿Qué volcán está junto al Iztaccíhuatl?','Popocatépetl',['Paricutín','Nevado de Toluca','Volcán de Colima']],
+ [1,'¿Cuál es la montaña más alta de México?','Pico de Orizaba',['Popocatépetl','Iztaccíhuatl','Nevado de Colima']],
+ [1,'¿En qué estado está Guadalajara?','Jalisco',['Michoacán','Nayarit','Zacatecas']],
+ [1,'¿De qué estado es típica la cochinita pibil?','Yucatán',['Sonora','Chihuahua','Guerrero']],
+ [1,'¿Dónde están las pirámides del Sol y de la Luna?','Teotihuacan',['Palenque','Tulum','Mitla']],
+ [1,'¿Qué pintora mexicana es famosa por sus autorretratos?','Frida Kahlo',['Remedios Varo','María Izquierdo','Leonora Carrington']],
+ [1,'¿Quién pintó los murales de Palacio Nacional?','Diego Rivera',['José Clemente Orozco','Rufino Tamayo','David Alfaro Siqueiros']],
+ [1,'¿En qué estado nació Benito Juárez?','Oaxaca',['Puebla','Veracruz','Guerrero']],
+ [1,'¿Qué río marca gran parte de la frontera con Estados Unidos?','Río Bravo',['Río Lerma','Río Usumacinta','Río Balsas']],
+ [1,'¿De qué estado es típico el mole poblano?','Puebla',['Oaxaca','Hidalgo','Tlaxcala']],
+ [1,'¿Con qué tipo de maíz se prepara el pozole?','Maíz cacahuazintle',['Maíz palomero','Maíz morado','Maíz dulce']],
+ [2,'¿En qué año se consumó la Independencia de México?','1821',['1810','1824','1836']],
+ [2,'¿En qué año se promulgó la Constitución que sigue vigente?','1917',['1857','1910','1929']],
+ [2,'¿Quién fue el último tlatoani mexica?','Cuauhtémoc',['Moctezuma II','Cuitláhuac','Ahuízotl']],
+ [2,'¿Qué cultura talló las cabezas colosales de piedra?','La olmeca',['La maya','La zapoteca','La mixteca']],
+ [2,'¿Cuál es el estado más grande de México?','Chihuahua',['Sonora','Coahuila','Durango']],
+ [2,'¿En qué año nació el volcán Paricutín?','1943',['1910','1968','1982']],
+ [2,'¿Qué gran zona arqueológica zapoteca está en Oaxaca?','Monte Albán',['El Tajín','Calakmul','Cacaxtla']],
+ [2,'¿Quién escribió la novela «Pedro Páramo»?','Juan Rulfo',['Octavio Paz','Carlos Fuentes','Juan José Arreola']],
+ [2,'¿Qué escritor mexicano ganó el Premio Nobel de Literatura en 1990?','Octavio Paz',['Carlos Fuentes','Juan Rulfo','Alfonso Reyes']],
+ [2,'¿Qué es el huitlacoche?','Un hongo del maíz',['Un chile seco','Un insecto','Una flor de calabaza']],
+ [2,'¿De qué planta se hace el tequila?','Agave azul',['Maguey pulquero','Agave espadín','Sotol']],
+ [2,'¿Qué tratado de 1848 terminó la guerra con Estados Unidos?','Tratado de Guadalupe Hidalgo',['Tratados de Córdoba','Tratado de Velasco','Tratado de la Mesilla']],
+ [2,'¿Qué presidente expropió el petróleo en 1938?','Lázaro Cárdenas',['Plutarco Elías Calles','Álvaro Obregón','Miguel Alemán']],
+ [2,'¿Qué ciudad fue sede de los Juegos Olímpicos de 1968?','Ciudad de México',['Guadalajara','Monterrey','Acapulco']],
+];
+function runMxTrivia(el){
+  const pool=MXQ.filter(x=>LV===0?x[0]===0:LV===1?x[0]<2:x[0]>0);
+  return runQuiz(el,{key:'mxtrivia',intro:'🇲🇽 ¿Cuánto sabes de México?',make(used){ const x=pickUnused(pool,used); const opts=[x[2],...x[3]].sort(()=>Math.random()-.5); return {q:x[1],opts,ans:opts.indexOf(x[2])}; }});
+}
+
+/* ======== 73. MEMORAMA DE BANDERAS ======== */
+const FLAGS={
+  mx:['México','v','#006847','#fff','#ce1126','<circle cx="45" cy="30" r="7" fill="#8c5a2b"/>'], it:['Italia','v','#009246','#fff','#ce2b37'], fr:['Francia','v','#0055a4','#fff','#ef4135'],
+  ie:['Irlanda','v','#169b62','#fff','#ff883e'], be:['Bélgica','v','#1a1a1a','#fdda24','#ef3340'], pe:['Perú','v','#d91023','#fff','#d91023'], ng:['Nigeria','v','#008751','#fff','#008751'],
+  de:['Alemania','h','#1a1a1a','#dd0000','#ffce00'], at:['Austria','h','#c8102e','#fff','#c8102e'], ru:['Rusia','h','#fff','#0039a6','#d52b1e'], nl:['Países Bajos','h','#ae1c28','#fff','#21468b'],
+  ar:['Argentina','h','#74acdf','#fff','#74acdf','<circle cx="45" cy="30" r="6" fill="#f6b40e"/>'], co:['Colombia','co'], es:['España','es'], ua:['Ucrania','h2','#0057b7','#ffd700'], pl:['Polonia','h2','#fff','#dc143c'],
+  jp:['Japón','jp'], ch:['Suiza','ch'], se:['Suecia','se'], br:['Brasil','br'], ca:['Canadá','ca'], cl:['Chile','cl'], gr:['Grecia','gr'], cu:['Cuba','cu'],
+};
+function flagSvg(k){ const f=FLAGS[k], t=f[1]; let b='';
+  if(t==='v') b=`<rect width="30" height="60" fill="${f[2]}"/><rect x="30" width="30" height="60" fill="${f[3]}"/><rect x="60" width="30" height="60" fill="${f[4]}"/>${f[5]||''}`;
+  else if(t==='h') b=`<rect width="90" height="20" fill="${f[2]}"/><rect y="20" width="90" height="20" fill="${f[3]}"/><rect y="40" width="90" height="20" fill="${f[4]}"/>${f[5]||''}`;
+  else if(t==='h2') b=`<rect width="90" height="30" fill="${f[2]}"/><rect y="30" width="90" height="30" fill="${f[3]}"/>`;
+  else if(t==='co') b='<rect width="90" height="30" fill="#fcd116"/><rect y="30" width="90" height="15" fill="#003893"/><rect y="45" width="90" height="15" fill="#ce1126"/>';
+  else if(t==='es') b='<rect width="90" height="60" fill="#aa151b"/><rect y="15" width="90" height="30" fill="#f1bf00"/>';
+  else if(t==='jp') b='<rect width="90" height="60" fill="#fff"/><circle cx="45" cy="30" r="18" fill="#bc002d"/>';
+  else if(t==='ch') b='<rect width="90" height="60" fill="#da291c"/><rect x="39" y="12" width="12" height="36" fill="#fff"/><rect x="27" y="24" width="36" height="12" fill="#fff"/>';
+  else if(t==='se') b='<rect width="90" height="60" fill="#006aa7"/><rect x="25" width="12" height="60" fill="#fecc00"/><rect y="24" width="90" height="12" fill="#fecc00"/>';
+  else if(t==='br') b='<rect width="90" height="60" fill="#009c3b"/><path d="M45 6 L84 30 L45 54 L6 30Z" fill="#ffdf00"/><circle cx="45" cy="30" r="12" fill="#002776"/>';
+  else if(t==='ca') b='<rect width="90" height="60" fill="#fff"/><rect width="22" height="60" fill="#d52b1e"/><rect x="68" width="22" height="60" fill="#d52b1e"/><path d="M45 14 l4 9 l7 -3 l-2 10 l6 1 l-8 7 l2 4 h-7 v8 h-4 v-8 h-7 l2 -4 l-8 -7 l6 -1 l-2 -10 l7 3 Z" fill="#d52b1e"/>';
+  else if(t==='cl') b='<rect width="90" height="60" fill="#d52b1e"/><rect width="90" height="30" fill="#fff"/><rect width="30" height="30" fill="#0039a6"/><path d="M15 7 l2.4 7 h7.4 l-6 4.4 l2.3 7 l-6.1 -4.4 l-6.1 4.4 l2.3 -7 l-6 -4.4 h7.4Z" fill="#fff"/>';
+  else if(t==='gr') b=[...Array(9)].map((_,i)=>`<rect y="${i*60/9}" width="90" height="${60/9+.2}" fill="${i%2?'#fff':'#0d5eaf'}"/>`).join('')+'<rect width="33.4" height="33.4" fill="#0d5eaf"/><rect x="13.3" width="6.7" height="33.4" fill="#fff"/><rect y="13.3" width="33.4" height="6.7" fill="#fff"/>';
+  else if(t==='cu') b=[...Array(5)].map((_,i)=>`<rect y="${i*12}" width="90" height="12.2" fill="${i%2?'#fff':'#002a8f'}"/>`).join('')+'<path d="M0 0 L40 30 L0 60Z" fill="#cf142b"/><path d="M14 23 l2.2 6.3 h6.6 l-5.4 4 l2.1 6.3 l-5.5 -3.9 l-5.5 3.9 l2.1 -6.3 l-5.4 -4 h6.6Z" fill="#fff"/>';
+  return `<svg viewBox="0 0 90 60" class="flag" role="img" aria-label="Bandera de ${f[0]}">${b}</svg>`; }
+function runFlags(el){
+  const NP=L(6,8,10), BYNAME=LV===2;
+  let cards, open, done, tries, lock, best=store.get(rk('flags'),0);
+  el.innerHTML=`<div class="panel" style="display:flex;flex-direction:column;gap:12px;align-items:center">
+    <div class="row" style="justify-content:space-between;width:100%"><span class="score">Parejas: <span data-p>0</span>/${NP}</span><span class="score" style="color:var(--mint)">Intentos: <span data-t>0</span></span><span class="hint">Récord: <b data-b style="color:var(--butter)">${best||'—'}</b></span></div>
+    <div class="fgrid" data-g style="grid-template-columns:repeat(${L(4,4,5)},1fr)"></div>
+    <p class="hint" data-m style="min-height:1.4em;text-align:center">${BYNAME?'Une cada bandera con el nombre de su país.':'Encuentra las banderas iguales.'}</p>
+    <button class="pill" data-new>Nueva partida</button></div>`;
+  const q=s=>el.querySelector(s);
+  function deal(){ const keys=Object.keys(FLAGS).sort(()=>Math.random()-.5).slice(0,NP);
+    cards=keys.flatMap(k=>[{k,kind:'f'},{k,kind:BYNAME?'n':'f'}]).sort(()=>Math.random()-.5).map(c=>({...c,up:false,got:false}));
+    open=[]; done=0; tries=0; lock=false; q('[data-p]').textContent=0; q('[data-t]').textContent=0; draw(); }
+  function face(c){ return c.kind==='f'?flagSvg(c.k):`<b class="fname">${FLAGS[c.k][0]}</b>`; }
+  function draw(){ q('[data-g]').innerHTML=cards.map((c,i)=>`<button class="fcard${c.up||c.got?' up':''}${c.got?' got':''}" data-i="${i}" aria-label="${c.up||c.got?(c.kind==='f'?'Bandera de ':'')+FLAGS[c.k][0]:'Carta boca abajo'}">${c.up||c.got?face(c):'<span>?</span>'}</button>`).join(''); }
+  q('[data-g]').addEventListener('click',e=>{ const b=e.target.closest('[data-i]'); if(!b||lock) return; const c=cards[+b.dataset.i]; if(c.up||c.got) return;
+    c.up=true; open.push(c); tone(560,.05,'triangle',.08); draw(); if(open.length<2) return;
+    tries++; q('[data-t]').textContent=tries; const [a,b2]=open;
+    if(a.k===b2.k){ a.got=b2.got=true; a.up=b2.up=false; open=[]; done++; q('[data-p]').textContent=done; q('[data-m]').textContent=`¡Bien! ${FLAGS[a.k][0]}.`; tone(880,.12,'triangle',.14,1.3); draw();
+      if(done===NP){ const rec=!best||tries<best; if(rec){ best=tries; store.set(rk('flags'),best); q('[data-b]').textContent=best; }
+        q('[data-m]').textContent=`¡Completado en ${tries} intentos!${rec?' ¡Nuevo récord!':''}`; addWin(); confetti(); cheer(); } }
+    else { lock=true; tone(180,.12,'square',.07); setTimeout(()=>{ a.up=b2.up=false; open=[]; lock=false; draw(); },850); } });
+  q('[data-new]').onclick=deal;
+  deal();
+}
+
+/* ======== 74. LIBRO PARA COLOREAR ======== */
+const COLORBOOK=[
+ ['Casa','<rect class="rg" width="200" height="140"/><rect class="rg" y="140" width="200" height="60"/><circle class="rg" cx="165" cy="35" r="18"/><ellipse class="rg" cx="45" cy="32" rx="24" ry="11"/><rect class="rg" x="120" y="50" width="14" height="30"/><polygon class="rg" points="38,92 100,45 162,92"/><rect class="rg" x="50" y="92" width="100" height="70"/><rect class="rg" x="88" y="120" width="24" height="42"/><rect class="rg" x="60" y="104" width="20" height="20"/><rect class="rg" x="120" y="104" width="20" height="20"/><path class="rg" d="M8 162 Q22 132 36 162 Z"/><path class="rg" d="M160 162 Q176 128 192 162 Z"/>'],
+ ['Pez','<rect class="rg" width="200" height="200"/><path class="rg" d="M0 172 Q50 156 100 172 T200 172 V200 H0 Z"/><path class="rg" d="M160 175 Q150 148 162 126 Q174 150 170 175 Z"/><path class="rg" d="M40 100 Q90 48 140 100 Q90 152 40 100 Z"/><polygon class="rg" points="138,100 178,72 178,128"/><path class="rg" d="M78 70 Q95 50 112 70 Z"/><path class="rg" d="M96 78 Q108 100 96 122 Q118 100 96 78 Z"/><circle class="rg" cx="64" cy="94" r="8"/><circle cx="65" cy="94" r="3" fill="#1a1530"/><circle class="rg" cx="38" cy="55" r="7"/><circle class="rg" cx="26" cy="34" r="5"/>'],
+ ['Flor','<rect class="rg" width="200" height="200"/><rect class="rg" y="170" width="200" height="30"/><rect class="rg" x="96" y="82" width="8" height="82"/><ellipse class="rg" cx="78" cy="128" rx="20" ry="8" transform="rotate(-30 78 128)"/><ellipse class="rg" cx="122" cy="112" rx="20" ry="8" transform="rotate(30 122 112)"/><circle class="rg" cx="100" cy="48" r="16"/><circle class="rg" cx="119" cy="59" r="16"/><circle class="rg" cx="119" cy="81" r="16"/><circle class="rg" cx="100" cy="92" r="16"/><circle class="rg" cx="81" cy="81" r="16"/><circle class="rg" cx="81" cy="59" r="16"/><circle class="rg" cx="100" cy="70" r="13"/><polygon class="rg" points="68,160 132,160 122,196 78,196"/>'],
+ ['Cohete','<rect class="rg" width="200" height="200"/><circle class="rg" cx="160" cy="40" r="16"/><circle class="rg" cx="36" cy="164" r="28"/><polygon class="rg" points="30,40 33,48 41,48 35,53 37,61 30,56 23,61 25,53 19,48 27,48"/><polygon class="rg" points="160,140 162,146 168,146 163,150 165,156 160,152 155,156 157,150 152,146 158,146"/><polygon class="rg" points="88,142 112,142 100,182"/><polygon class="rg" points="80,108 58,150 80,140"/><polygon class="rg" points="120,108 142,150 120,140"/><path class="rg" d="M80 64 Q100 16 120 64 V142 H80 Z"/><circle class="rg" cx="100" cy="86" r="12"/>'],
+ ['Mariposa','<rect class="rg" width="200" height="200"/><ellipse class="rg" cx="68" cy="78" rx="36" ry="28" transform="rotate(-20 68 78)"/><ellipse class="rg" cx="132" cy="78" rx="36" ry="28" transform="rotate(20 132 78)"/><ellipse class="rg" cx="74" cy="132" rx="26" ry="20" transform="rotate(20 74 132)"/><ellipse class="rg" cx="126" cy="132" rx="26" ry="20" transform="rotate(-20 126 132)"/><circle class="rg" cx="62" cy="76" r="9"/><circle class="rg" cx="138" cy="76" r="9"/><circle class="rg" cx="74" cy="134" r="7"/><circle class="rg" cx="126" cy="134" r="7"/><ellipse class="rg" cx="100" cy="106" rx="8" ry="42"/><path d="M96 66 Q86 40 74 34 M104 66 Q114 40 126 34" fill="none" stroke="#1a1530" stroke-width="2.5" pointer-events="none"/>'],
+ ['Gato','<rect class="rg" width="200" height="200"/><path class="rg" d="M138 160 Q186 152 176 108 Q170 98 164 110 Q172 140 136 146 Z"/><ellipse class="rg" cx="100" cy="152" rx="46" ry="36"/><polygon class="rg" points="66,64 70,22 96,46"/><polygon class="rg" points="134,64 130,22 104,46"/><circle class="rg" cx="100" cy="86" r="40"/><ellipse class="rg" cx="84" cy="80" rx="7" ry="10"/><ellipse class="rg" cx="116" cy="80" rx="7" ry="10"/><polygon class="rg" points="94,98 106,98 100,105"/><path d="M100 105 Q92 114 86 108 M100 105 Q108 114 114 108 M60 96 H84 M60 104 L84 101 M140 96 H116 M140 104 L116 101" fill="none" stroke="#1a1530" stroke-width="2" pointer-events="none"/>'],
+];
+function runColor(el){
+  const ALL=['#ff5f7e','#ff8a3d','#ffd84d','#7ee36a','#48e0b0','#2de2ff','#4f7cff','#a98bff','#ff9fd0','#c8284a','#b85c1e','#e3a300','#2f9e44','#0b7a75','#1d4ed8','#6d28d9','#ffffff','#f3dfbd','#c49a6c','#8b5a2b','#9ca3af','#4b5563','#1a1530','#ffe9a8'];
+  const PAL=ALL.slice(0,L(8,16,24)).concat(L(8,16,24)<17?['#ffffff','#1a1530']:[]);
+  let di=store.get('color-dib',0)%COLORBOOK.length, color=PAL[0], fills;
+  el.innerHTML=`<div class="panel" style="display:flex;flex-direction:column;gap:12px;align-items:center">
+    <div class="mchips" data-g="dib">${COLORBOOK.map((d,i)=>`<button class="fchip" data-v="${i}" aria-pressed="${i===di}">${d[0]}</button>`).join('')}</div>
+    <div class="cbook" data-svg></div>
+    <div class="pal" data-pal role="radiogroup" aria-label="Colores">${PAL.map(c=>`<button data-c="${c}" style="background:${c}" aria-label="Color ${c}" aria-checked="${c===color}" role="radio"></button>`).join('')}</div>
+    <div class="row" style="justify-content:center"><button class="pill alt" data-clear>Borrar todo</button><button class="pill" data-rand>🎲 Colores sorpresa</button></div>
+    <p class="hint" data-m style="text-align:center">Elige un color y toca una parte del dibujo para pintarla.</p></div>`;
+  const q=s=>el.querySelector(s);
+  function load(){ const d=COLORBOOK[di]; fills=store.get('color-'+di,[]);
+    q('[data-svg]').innerHTML=`<svg viewBox="0 0 200 200" role="img" aria-label="Dibujo para colorear: ${d[0]}">${d[1]}</svg>`;
+    q('[data-svg]').querySelectorAll('.rg').forEach((r,i)=>{ r.dataset.r=i; r.setAttribute('fill',fills[i]||'#ffffff'); });
+    el.querySelectorAll('[data-g="dib"] button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.v===di)); }
+  const save=()=>store.set('color-'+di,fills);
+  function paint(r,c){ fills[+r.dataset.r]=c; r.setAttribute('fill',c); }
+  q('[data-svg]').addEventListener('click',e=>{ const r=e.target.closest('.rg'); if(!r) return; paint(r,color); save(); tone(400+Math.random()*400,.06,'triangle',.08);
+    const all=[...q('[data-svg]').querySelectorAll('.rg')]; if(all.every(x=>x.getAttribute('fill')!=='#ffffff')&&!r.dataset.done){ q('[data-m]').textContent='¡Qué obra de arte! Puedes seguir cambiando colores.'; addWin(); confetti(); all.forEach(x=>x.dataset.done=1); } });
+  q('[data-pal]').addEventListener('click',e=>{ const b=e.target.closest('[data-c]'); if(!b) return; color=b.dataset.c; el.querySelectorAll('[data-pal] button').forEach(x=>x.setAttribute('aria-checked',x===b)); tone(700,.04,'sine',.06); });
+  el.querySelector('[data-g="dib"]').addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b) return; di=+b.dataset.v; store.set('color-dib',di); load(); });
+  q('[data-clear]').onclick=()=>{ fills=[]; save(); load(); q('[data-m]').textContent='Dibujo en blanco: ¡a pintar!'; };
+  q('[data-rand]').onclick=()=>{ q('[data-svg]').querySelectorAll('.rg').forEach(r=>paint(r,pick(PAL))); save(); cheer(); };
+  load();
+}
+
+/* ======== 75. LEYENDA DE NEÓN (modo historia retro con jefes) ======== */
+function runStory(el){
+  const CH=[
+    {name:'La Medusa Gris', color:NEO.cyan, cname:'cian', intro:'El Rey Aburrimiento robó los colores de la Ciudad de Neón y se los dio a sus cinco guardianes. Tú eres Chispa, la última piloto con luz propia. Primer destino: el mar de nubes, donde la Medusa Gris guarda el color cian.', pats:['spread'], waves:['zig']},
+    {name:'El Cangrejo de Hierro', color:NEO.lime, cname:'verde', intro:'¡Recuperaste el cian y los puentes vuelven a brillar! Ahora baja al puerto oxidado: el Cangrejo de Hierro esconde el verde bajo su caparazón.', pats:['spread','aim'], waves:['zig','dive']},
+    {name:'El Ojo del Bostezo', color:NEO.yel, cname:'amarillo', intro:'Con el verde regresan los parques. Pero en la torre del reloj vigila un ojo gigante: si te mira, da sueño. Esquiva su mirada y recupera el amarillo.', pats:['ring','aim'], waves:['dive','shooter']},
+    {name:'El Dragón de Estática', color:NEO.org, cname:'naranja', intro:'La ciudad ya brilla a medias. Entre las nubes de tormenta vive el Dragón de Estática, que guarda el naranja entre rayos. ¡Cuidado con su barrido!', pats:['laser','spread','aim'], waves:['zig','shooter','meteor']},
+    {name:'El Rey Aburrimiento', color:NEO.pink, cname:'rosa', intro:'Solo falta el rosa, el color de la risa. El Rey Aburrimiento te espera en su palacio gris. Es ahora o nunca, Chispa.', pats:['ring','laser','aim','spread'], waves:['dive','shooter','meteor','zig']},
+  ];
+  let reached=Math.min(CH.length, store.get('story-cap',1)), start=Math.min(reached-1, store.get('story-ini',0));
+  el.innerHTML=`<div style="display:flex;flex-direction:column;gap:10px"><div class="mchips" data-g="cap"></div><div data-neo></div></div>`;
+  const chipsEl=el.querySelector('[data-g="cap"]');
+  function drawChips(){ chipsEl.innerHTML=CH.map((c,i)=>`<button class="fchip" data-v="${i}" aria-pressed="${i===start}"${i>=reached?' disabled':''}>${i>=reached?'🔒 ':''}Cap. ${i+1}</button>`).join(''); }
+  const S=neo(el.querySelector('[data-neo]'),{key:'story',label:'PTS',title:'LEYENDA DE NEÓN',hint:'Modo historia: 5 capítulos con un jefe al final de cada uno. Arrastra para mover la nave; dispara sola mientras tocas (o A).',a:'disparar',dirs:'all',tip:'Las estrellas mejoran tu disparo y los corazones dan una vida. Lo que avances queda guardado.'});
+  const g=S.g, BS=L(2.1,2.6,3.1);
+  let ci, phase, t, ship, shots, eshots, foes, items, boss, lives, score, stars, prevA, laser;
+  const star=()=>({x:Math.random()*NW, y:Math.random()*NH, v:.4+Math.random()*1.6});
+  function reset(){ ci=start; lives=L(5,4,3); score=0; ship={x:NW/2,y:NH-70,inv:0,lvl:1}; stars=[...Array(50)].map(star); prevA=0; S.setScore(0); S.setLives(lives); story(); }
+  function story(){ phase='story'; t=0; shots=[]; eshots=[]; foes=[]; items=[]; boss=null; laser=null; S.setLevel(`CAP ${ci+1}/5`); }
+  function advance(){ if(phase==='story'){ phase='wave'; t=0; nblip(660,.1,'square',.08); }
+    else if(phase==='clear'){ if(ci===CH.length-1){ phase='end'; score+=lives*300; S.setScore(score); confetti(); cheer(); addWin(); S.end(score,'¡Recuperaste los cinco colores! La Ciudad de Neón vuelve a brillar gracias a ti, Chispa.'); return; } ci++; story(); } }
+  S.onTap=()=>{ if(phase==='story'||phase==='clear') advance(); };
+  function hurt(){ if(ship.inv>0) return; lives--; S.setLives(lives); ship.inv=100; ship.lvl=Math.max(1,ship.lvl-1); S.shake(10,18); S.burst(ship.x,ship.y,NEO.pink,24,4); tone(90,.4,'sawtooth',.14,.4);
+    if(lives<=0){ phase='end'; S.end(score,`Llegaste al capítulo ${ci+1}: ${CH[ci].name}. Tu avance queda guardado.`); } }
+  function fireAt(x,y,a,sp=BS){ eshots.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp}); }
+  function spawn(kind){ const x=30+Math.random()*(NW-60);
+    if(kind==='zig') foes.push({k:kind,x,y:-20,hp:2,ph:Math.random()*6,t:0});
+    if(kind==='dive') foes.push({k:kind,x,y:-20,hp:2,vx:0,vy:1.6,t:0});
+    if(kind==='shooter') foes.push({k:kind,x,y:-20,hp:4,stop:60+Math.random()*120,t:0});
+    if(kind==='meteor') foes.push({k:kind,x,y:-30,hp:6,r:14+Math.random()*10,vx:(Math.random()-.5)*1.2,vy:1.4+Math.random(),t:0}); }
+  S.update=()=>{ if(phase==='end') return; t++;
+    for(const s of stars){ s.y+=s.v*(phase==='story'?.4:1); if(s.y>NH){ s.y=0; s.x=Math.random()*NW; } }
+    if(S.on.a&&!prevA&&(phase==='story'||phase==='clear')) advance(); prevA=S.on.a;
+    if(phase==='story'||phase==='clear') return;
+    // nave
+    if(S.ptr.down){ const tx=S.ptr.x, ty=S.ptr.y-50, dx=tx-ship.x, dy=ty-ship.y, d=Math.hypot(dx,dy); if(d>1){ const m=Math.min(d,6.5); ship.x+=dx/d*m; ship.y+=dy/d*m; } }
+    ship.x+=(S.on.r-S.on.l)*4.6; ship.y+=(S.on.d-S.on.u)*4.6; ship.x=Math.max(16,Math.min(NW-16,ship.x)); ship.y=Math.max(60,Math.min(NH-24,ship.y));
+    if(ship.inv>0) ship.inv--;
+    if((S.ptr.down||S.on.a)&&t%8===0){ const L3=ship.lvl; shots.push({x:ship.x,y:ship.y-14,vx:0});
+      if(L3>=2){ shots.push({x:ship.x-10,y:ship.y-8,vx:0}); shots.push({x:ship.x+10,y:ship.y-8,vx:0}); }
+      if(L3>=3){ shots.push({x:ship.x-6,y:ship.y-10,vx:-1.6}); shots.push({x:ship.x+6,y:ship.y-10,vx:1.6}); }
+      nblip(980,.02,'square',.025); }
+    for(const s of shots){ s.y-=8; s.x+=s.vx; } shots=shots.filter(s=>s.y>-10&&s.x>-10&&s.x<NW+10);
+    // oleadas
+    const C=CH[ci];
+    if(phase==='wave'){ const every=Math.max(16,L(48,38,30)-ci*4); if(t%every===0) spawn(pick(C.waves));
+      if(t>L(1500,1800,2100)){ phase='warn'; t=0; foes.forEach(f=>{ S.burst(f.x,f.y,C.color,8,2); }); foes=[]; tone(140,.6,'sawtooth',.12,.5); } }
+    if(phase==='warn'&&t>120){ phase='boss'; t=0; const hp=Math.round(L(60,80,100)*(1+ci*.4)); boss={x:NW/2,y:-60,hp,max:hp,flash:0,pi:0,cool:90}; }
+    for(const f of foes){ f.t++;
+      if(f.k==='zig'){ f.y+=1.4+ci*.15; f.x+=Math.sin(f.t/20+f.ph)*2.2; if(f.t%120===60&&Math.random()<.5) fireAt(f.x,f.y,Math.PI/2,BS*.9); }
+      if(f.k==='dive'){ if(f.t<50){ f.y+=1.6; } else { if(!f.vx){ const a=Math.atan2(ship.y-f.y,ship.x-f.x); f.vx=Math.cos(a)*3.4; f.vy=Math.sin(a)*3.4; } f.x+=f.vx; f.y+=f.vy; } }
+      if(f.k==='shooter'){ if(f.t<f.stop) f.y+=1.2; else if(f.t%L(80,65,50)===0) fireAt(f.x,f.y,Math.atan2(ship.y-f.y,ship.x-f.x)); if(f.t>f.stop+300) f.y+=2; }
+      if(f.k==='meteor'){ f.x+=f.vx; f.y+=f.vy; }
+      const rr=f.k==='meteor'?f.r:12;
+      for(const s of shots) if(!s.hit&&Math.abs(s.x-f.x)<rr&&Math.abs(s.y-f.y)<rr){ s.hit=true; f.hp--; if(f.hp<=0){ f.dead=true; score+=f.k==='meteor'?30:f.k==='shooter'?25:15; S.setScore(score); S.burst(f.x,f.y,C.color,14,3); nblip(300,.06,'square',.05);
+        const r=Math.random(); if(r<.08) items.push({k:'star',x:f.x,y:f.y}); else if(r<.11) items.push({k:'heart',x:f.x,y:f.y}); } }
+      if(!f.dead&&Math.hypot(f.x-ship.x,f.y-ship.y)<rr+8){ f.dead=true; S.burst(f.x,f.y,C.color,14,3); hurt(); } }
+    foes=foes.filter(f=>!f.dead&&f.y<NH+40&&f.x>-40&&f.x<NW+40); shots=shots.filter(s=>!s.hit);
+    // jefe
+    if(boss){ const b=boss; if(b.y<92) b.y+=1.2; else { b.x=NW/2+Math.sin(t/70)*(110+ci*6);
+        if(--b.cool<=0){ const pat=C.pats[b.pi++%C.pats.length], k=1+ci*.12;
+          if(pat==='spread'){ const n=5+ci; for(let i=0;i<n;i++) fireAt(b.x,b.y+30,Math.PI/2+(i-(n-1)/2)*.2,BS*k); }
+          if(pat==='aim'){ for(let i=0;i<3;i++) setTimeout(()=>{ if(boss) fireAt(boss.x,boss.y+30,Math.atan2(ship.y-boss.y,ship.x-boss.x),BS*1.25*k); },i*140); }
+          if(pat==='ring'){ const n=14+ci*2; for(let i=0;i<n;i++) fireAt(b.x,b.y,i/n*Math.PI*2+t*.01,BS*.85*k); }
+          if(pat==='laser') laser={x:ship.x,t:0};
+          b.cool=Math.max(55,L(120,100,85)-ci*8); } }
+      for(const s of shots) if(!s.hit&&Math.abs(s.x-b.x)<46&&Math.abs(s.y-b.y)<36&&b.y>40){ s.hit=true; b.hp--; b.flash=4; score+=2; if(b.hp%10===0) nblip(200,.05,'square',.05); }
+      if(b.flash>0) b.flash--;
+      if(Math.hypot(b.x-ship.x,b.y-ship.y)<44) hurt();
+      if(b.hp<=0){ score+=500*(ci+1); S.setScore(score); S.shake(16,30); for(let i=0;i<5;i++) S.burst(b.x+(Math.random()-.5)*60,b.y+(Math.random()-.5)*40,C.color,30,5); confetti(); cheer();
+        boss=null; eshots=[]; laser=null; phase='clear'; t=0;
+        if(ci+2>reached&&ci+1<CH.length){ reached=ci+2; store.set('story-cap',reached); drawChips(); } } }
+    if(laser){ laser.t++; if(laser.t>50&&laser.t<80&&Math.abs(ship.x-laser.x)<16) hurt(); if(laser.t===50) tone(120,.35,'sawtooth',.12); if(laser.t>=80) laser=null; }
+    for(const e of eshots){ e.x+=e.vx; e.y+=e.vy; if(Math.hypot(e.x-ship.x,e.y-ship.y)<9){ e.dead=true; hurt(); } }
+    eshots=eshots.filter(e=>!e.dead&&e.y<NH+10&&e.y>-10&&e.x>-10&&e.x<NW+10);
+    for(const it of items){ it.y+=1.4; if(Math.hypot(it.x-ship.x,it.y-ship.y)<20){ it.got=true; if(it.k==='star'){ ship.lvl=Math.min(3,ship.lvl+1); S.popup(it.x,it.y,'¡DISPARO +1!',NEO.yel); } else { lives=Math.min(6,lives+1); S.setLives(lives); S.popup(it.x,it.y,'+1 VIDA',NEO.pink); } cheer(); } }
+    items=items.filter(i=>!i.got&&i.y<NH+20); };
+
+  function wrapText(text,maxW){ const words=text.split(' '), lines=[]; let cur=''; for(const w of words){ const s2=cur?cur+' '+w:w; if(g.measureText(s2).width>maxW&&cur){ lines.push(cur); cur=w; } else cur=s2; } if(cur) lines.push(cur); return lines; }
+  function drawBoss(b,C){ g.save(); g.translate(b.x,b.y); const c=b.flash?'#fff':C.color; S.glow(C.color,22); g.fillStyle=c; g.strokeStyle=c; g.lineWidth=4;
+    if(ci===0){ g.beginPath(); g.arc(0,0,40,Math.PI,0); g.fill(); for(let i=-3;i<=3;i++){ g.beginPath(); g.moveTo(i*11,0); g.quadraticCurveTo(i*11+Math.sin(t/10+i)*8,22,i*11,40); g.stroke(); } }
+    else if(ci===1){ S.rr(-40,-22,80,44,14); g.beginPath(); g.arc(-52,-6+Math.sin(t/12)*6,14,0,6.283); g.arc(52,-6-Math.sin(t/12)*6,14,0,6.283); g.fill(); }
+    else if(ci===2){ g.beginPath(); g.ellipse(0,0,46,32,0,0,6.283); g.fill(); g.fillStyle='#0d0630'; const a=Math.atan2(ship.y-b.y,ship.x-b.x); g.beginPath(); g.arc(Math.cos(a)*16,Math.sin(a)*12,12,0,6.283); g.fill(); }
+    else if(ci===3){ g.beginPath(); for(let i=0;i<=8;i++){ const x=-48+i*12, y=(i%2?-18:14)+Math.sin(t/8+i)*5; i?g.lineTo(x,y):g.moveTo(x,y); } g.lineWidth=12; g.stroke(); g.beginPath(); g.arc(52,0,16,0,6.283); g.fill(); }
+    else { g.beginPath(); g.arc(0,6,34,0,6.283); g.fill(); g.beginPath(); g.moveTo(-34,-20); g.lineTo(-26,-46); g.lineTo(-12,-28); g.lineTo(0,-50); g.lineTo(12,-28); g.lineTo(26,-46); g.lineTo(34,-20); g.closePath(); g.fillStyle=NEO.yel; g.fill(); g.fillStyle='#0d0630'; g.fillRect(-16,0,8,6); g.fillRect(8,0,8,6); g.fillRect(-12,16,24,4); }
+    S.noGlow(); g.restore(); }
+  S.draw=g=>{ const C=CH[ci]||CH[0];
+    g.fillStyle='#0d0630'; g.fillRect(0,0,NW,NH);
+    for(const s of stars||[]){ g.fillStyle=s.v>1.4?C.color:'rgba(247,241,255,.55)'; g.fillRect(s.x,s.y,s.v>1.4?2:1.4,s.v>1.4?2:1.4); }
+    if(!ship) return;
+    for(const it of items){ S.glow(it.k==='star'?NEO.yel:NEO.pink,14); S.text(it.k==='star'?'★':'♥',it.x,it.y,it.k==='star'?NEO.yel:NEO.pink,14,'center'); S.noGlow(); }
+    for(const f of foes){ S.glow(C.color,10); g.fillStyle=f.k==='meteor'?NEO.dim:C.color;
+      if(f.k==='meteor'){ g.beginPath(); g.arc(f.x,f.y,f.r,0,6.283); g.fill(); }
+      else if(f.k==='shooter'){ S.rr(f.x-13,f.y-10,26,20,6); }
+      else { g.beginPath(); g.moveTo(f.x,f.y+12); g.lineTo(f.x-12,f.y-10); g.lineTo(f.x+12,f.y-10); g.closePath(); g.fill(); }
+      S.noGlow(); }
+    if(boss) drawBoss(boss,C);
+    if(laser){ if(laser.t<50){ g.fillStyle=`rgba(255,77,109,${.15+laser.t/200})`; g.fillRect(laser.x-2,0,4,NH); } else { S.glow(NEO.red,24); g.fillStyle=NEO.red; g.fillRect(laser.x-16,0,32,NH); S.noGlow(); } }
+    g.fillStyle=NEO.red; for(const e of eshots){ g.beginPath(); g.arc(e.x,e.y,4,0,6.283); g.fill(); }
+    S.glow(NEO.cyan,10); g.fillStyle=NEO.cyan; for(const s of shots) g.fillRect(s.x-1.5,s.y-7,3,10); S.noGlow();
+    if(!(ship.inv>0&&Math.floor(ship.inv/5)%2)){ S.glow(NEO.pink,16); g.fillStyle=NEO.pink; g.beginPath(); g.moveTo(ship.x,ship.y-16); g.lineTo(ship.x-13,ship.y+12); g.lineTo(ship.x,ship.y+6); g.lineTo(ship.x+13,ship.y+12); g.closePath(); g.fill(); S.noGlow(); }
+    if(boss&&boss.y>40){ g.fillStyle='rgba(0,0,0,.5)'; g.fillRect(20,12,NW-40,10); g.fillStyle=C.color; g.fillRect(20,12,(NW-40)*boss.hp/boss.max,10); S.text(C.name.toUpperCase(),NW/2,30,C.color,8,'center'); }
+    if(phase==='warn'){ if(Math.floor(t/12)%2){ S.text('¡ALERTA: JEFE!',NW/2,NH*.4,NEO.red,14,'center'); } S.text(C.name.toUpperCase(),NW/2,NH*.4+26,C.color,8,'center'); }
+    if(S.playing&&(phase==='story'||phase==='clear')){ g.fillStyle='rgba(9,5,28,.86)'; S.rr(16,70,NW-32,NH-140,18); g.strokeStyle=C.color; g.lineWidth=2; g.stroke();
+      const title=phase==='story'?`CAPÍTULO ${ci+1}`:'¡COLOR RECUPERADO!', body=phase==='story'?C.intro:`Venciste a ${C.name} y el ${C.cname} vuelve a la ciudad.${ci<CH.length-1?' Tu avance quedó guardado.':' ¡Era el último guardián!'}`;
+      S.text(title,NW/2,100,C.color,12,'center'); if(phase==='story') S.text(C.name.toUpperCase(),NW/2,122,NEO.wht,8,'center');
+      g.font='600 15px Nunito, system-ui, sans-serif'; g.fillStyle=NEO.wht; g.textAlign='left'; g.textBaseline='alphabetic';
+      wrapText(body,NW-72).forEach((ln,i)=>g.fillText(ln,36,160+i*22));
+      if(Math.floor(t/30)%2===0||!t) S.text('TOCA PARA SEGUIR',NW/2,NH-92,NEO.yel,9,'center'); } };
+  chipsEl.addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b||b.disabled||S.playing) return; start=+b.dataset.v; store.set('story-ini',start); drawChips(); tone(600,.06,'triangle',.08); });
+  drawChips(); S.onStart=reset; ship=null;
+  return ()=>S.stop();
+}
+
 /* ---------- hojas: una ventana encima para logros, ajustes y modo fiesta ---------- */
 const sheet = {
   open(title, html, onClick){ $('#sheetBox').innerHTML = `<div class="sheet-head"><h2 id="sheetT">${title}</h2><button class="sheet-x" data-close aria-label="Cerrar">✕</button></div>${html}`;
@@ -4111,7 +4467,7 @@ const Settings = (()=>{
 
 /* ---------- modo fiesta: torneo por turnos en un solo teléfono ---------- */
 const Party = (()=>{
-  const GAMES = ['bird','brick','catchf','juggle','pong','slice','target','rhythm','blocks','dodge','frog','invaders','lsnake','plat','race','cell','capitals','riddles','seq','tf'];
+  const GAMES = ['bird','brick','catchf','juggle','pong','slice','target','rhythm','blocks','dodge','frog','invaders','lsnake','plat','race','cell','capitals','riddles','seq','tf','mxtrivia'];
   const nameOf = id => (TOYS.find(t=>t.id===id)||{}).name || id;
   const esc = t => String(t).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   let P = null, names = store.get('fiesta-nombres', ['Jugador 1','Jugador 2']), g = store.get('fiesta-juego','bird'), lv = store.get('fiesta-nivel',1);
@@ -4161,7 +4517,7 @@ const Online = (()=>{
   const API = location.protocol!=='https:' ? null : /\.netlify\.app$/.test(location.hostname) ? '/api' : location.hostname==='jrgchvzpnt.github.io' ? MIRROR+'/api' : null;
   // Juegos donde más puntos es mejor (los de tiempo o intentos no entran al récord mundial).
   const RANKED = new Set(['bird','brick','catchf','garden','juggle','pong','rhythm','slice','target','blocks','cell','dodge','duels','frog','invaders','lsnake','miner','plat','race','towers','capitals','riddles','seq','tf',
-    'stack','simon','mole','snake','g2048','odd','math','stroop','tapfast','numem','anagram','bj','mime','drawq','dice5','drums','xylo','guitar','synth']);
+    'stack','simon','mole','snake','g2048','odd','math','stroop','tapfast','numem','anagram','bj','mime','drawq','dice5','drums','xylo','guitar','synth','mxtrivia','story']);
   // El reto del día sale de los juegos que terminan con puntaje en cada partida (la misma lista está en el servidor).
   const DAILY = ['bird','brick','catchf','juggle','pong','slice','target','rhythm','blocks','dodge','frog','invaders','lsnake','plat','race','cell','capitals','riddles','seq','tf'];
   const day = (d=new Date()) => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
